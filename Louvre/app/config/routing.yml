@@ -1,3 +1,4 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+mv_core:
+    resource: "@MVCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
