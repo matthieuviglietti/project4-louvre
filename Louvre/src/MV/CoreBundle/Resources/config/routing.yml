@@ -1,3 +1,3 @@
 mv_core_homepage:
     path:     /
-    defaults: { _controller: MVCoreBundle:Default:index }
+    defaults: { _controller: MVBookingBundle:Default:index }
