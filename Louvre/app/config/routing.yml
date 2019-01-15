@@ -1,3 +1,7 @@
+mv_booking:
+    resource: "@MVBookingBundle/Resources/config/routing.yml"
+    prefix:   /
+
 mv_core:
     resource: "@MVCoreBundle/Resources/config/routing.yml"
     prefix:   /
