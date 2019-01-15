@@ -1,8 +1,9 @@
 @charset "UTF-8";
 /* CSS Document */
 
-$black : black;
-$lightgrey : lightgrey;
+$black    : black;
+$lightgrey: #8c8c8c;
+$titlefont: 'Poppins', sans-serif;
 
 @import "font.css";
 
@@ -21,29 +22,66 @@ $tablet: 960px;
 }
 
 body{
+    width: 100%;
     @include mobile{
-    background-image: url('../images/back-mobile.png');
+        background-image: url('../images/back-mobile.png');
+        }
+    header{
+        margin-top: 55px;
+        #logo{
+            width : 190px;
+            height: 62px;
+            img{
+                display: block;
+                width  : 190px;
+                height : 62px;
+                margin : auto;
+            } 
+        }
     }
+
+    .title{
+        text-transform: uppercase;
+        font-family   : $titlefont;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        font-size: 1.4em;
+    }
+    .subtitle{
+        font-family: $titlefont;
+        font-weight: 300;
+        color: $lightgrey;
+        margin-top: 0px;
+        margin-bottom: 30px;
+        font-size: 1em;
+    }
+    
     #contain{
-        box-shadow: 5px 10px 30px $lightgrey;
-        border-radius: 30px;
-        background-color: white;
-        margin-left: 30px;
-        margin-right: 30px;
+        -webkit-box-shadow: 5px 10px 30px $lightgrey;
+        box-shadow        : 5px 10px 30px $lightgrey;
+        border-radius     : 30px;
+        background-color  : white;
+        margin-left       : 30px;
+        margin-right      : 30px;
+        margin-top: 50px;
+        padding: 15px;
         .languages {
             a{
-            width: 200px;
-            margin: auto auto 20px auto;
-            display: flex;
-            text-decoration: none;
-            color: $black;
-            font-weight: bold;
-            text-transform: uppercase;
+            width                : 200px;
+            margin               : auto auto 20px auto;
+            display              : -webkit-box;
+            display              : -ms-flexbox;
+            display              : flex;
+            text-decoration      : none;
+            color                : $black;
+            font-weight          : bold;
+            text-transform       : uppercase;
+            font-family: $titlefont;
                 .rounded-image{
-                    width: 50px;
-                    height: 50px;
+                    width        : 50px;
+                    height       : 50px;
                     border-radius: 900px;
-                    margin-right: 20px;
+                    margin-right : 20px;
                 }
             }
         }
