@@ -1,7 +1,7 @@
 mv_booking_homepage:
-    path:     /{_locale}
+    path:     /{_locale}/home
     defaults: { _controller: MVBookingBundle:Default:index }
 
-mv_booking_locale:
+mv_booking_date:
     path:     /{_locale}/date
     defaults: { _controller: MVBookingBundle:Default:translation }
