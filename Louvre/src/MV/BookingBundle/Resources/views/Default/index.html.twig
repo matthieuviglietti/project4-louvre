@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href={{asset('bundles/mvbooking/css/style_home.css')}} type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+    <meta charset="utf-8">
     <title>Louvre Page Accueil</title>
 </head>
 <body>
@@ -16,10 +17,10 @@
             <h2 class="subtitle">{{"Quelle Langue préférez-vous ?"|trans}}</h2>
         </div>
         <div class="languages">
-            <a href=""><img class= "rounded-image" src={{asset('bundles/mvbooking/images/fr.jpg')}} alt="drapeau_français"> <P>{{'Français'|trans}}</p></a>
+            <a href="{{ path('mv_booking_date', {'_locale': 'fr'})}}"><img class= "rounded-image" src={{asset('bundles/mvbooking/images/fr.jpg')}} alt="drapeau_français"> <P>{{'Français'|trans}}</p></a>
         </div>
         <div class="languages">
-            <a href=""><img class= "rounded-image" src={{asset('bundles/mvbooking/images/en.jpg')}} alt="drapeau_anglais"> <p>{{'Anglais'|trans}}</p></a>
+            <a href="{{ path('mv_booking_date', {'_locale': 'en'})}}"><img class= "rounded-image" src={{asset('bundles/mvbooking/images/en.jpg')}} alt="drapeau_anglais"> <p>{{'Anglais'|trans}}</p></a>
         </div>
         
     <div>

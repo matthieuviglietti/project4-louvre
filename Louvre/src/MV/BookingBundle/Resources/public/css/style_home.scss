@@ -6,20 +6,7 @@ $lightgrey: #8c8c8c;
 $titlefont: 'Poppins', sans-serif;
 
 @import "font.css";
-
-$mobile: 450px;
-$tablet: 960px;
-
-@mixin mobile {
-  @media (max-width: #{$mobile}){
-    @content;
-}
-}
-@mixin tablet {
-    @media (max-width: #{$tablet}){
-      @content;
-}
-}
+@import "mixin.scss";
 
 body{
     width: 100%;

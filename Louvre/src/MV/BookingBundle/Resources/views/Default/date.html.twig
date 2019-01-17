@@ -1,0 +1,11 @@
+{% extends '@MVCore/model_booking.html.twig' %}
+
+{% block stylesheets %}
+ {{ parent() }}
+ <link rel="stylesheet" href="{{asset('bundles/mvbooking/css/style_date.css')}}" type="text/css">
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <h2 class="subtitle">{{"Quelle Langue préférez-vous ?"|trans}}</h2>
+{% endblock %}

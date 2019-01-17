@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{asset('bundles/mvbooking/css/style_modele.css')}}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1 class="title">{{"Réserver un billet"|trans}}</h1>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        <a href="#"><p class="foot">Mentions légales</p></a>
+        <a href="#"><p class="foot">à propos</p></a>
+        <img src="{{asset('bundles/mvbooking/images/logo_min.png')}}" alt="logo-louvre">
+    </footer>
+{% endblock %}
+

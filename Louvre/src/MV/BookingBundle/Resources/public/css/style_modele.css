@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  width: 100%;
+  min-width: 450px; }
+  @media (max-width: 450px) {
+    body {
+      background-image: url("../images/dark_mobile_background.png"); } }
+  body .title {
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 1em;
+    color: white; }
+  body footer {
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    font-family: 'Poppins', sans-serif; }
+    body footer a {
+      text-decoration: none; }
+      body footer a .foot {
+        color: white;
+        margin-right: 30px; }
+    body footer img {
+      width: 100px;
+      height: 30px; }
+
+/*# sourceMappingURL=style_modele.css.map */
