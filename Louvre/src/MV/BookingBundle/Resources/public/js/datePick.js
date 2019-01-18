@@ -6,8 +6,16 @@ $(function(){
         appendText: "format attendu : jj-mm-aaaa",
         firstDay: 1,
         beforeShowDay: DisableDates,
-        /*beforeShowDay: DisableSpecificDates*/
     });
+
+    $('#dateen').datepicker( $.datepicker.regional[""]);
+    $('#dateen').datepicker({
+        dateFormat : 'M-D-Y',
+        minDate: 0,
+        appendText: "date format : mm-dd-yyyy",
+        firstDay: 1,
+        beforeShowDay: DisableDates,
+    })
 
 function DisableDates(date) {
 
@@ -23,7 +31,6 @@ function DisableDates(date) {
         // First convert the date in to the mm-dd-yyyy format 
         // Take note that we will increment the month count by 1 
         var currentdate = (m + 1) + '-' + d + '-' + y ;
-        console.log(currentdate);
    // If day == 1 then it is MOnday
    if (day == 2) {
    

@@ -13,6 +13,9 @@ class BookingController extends Controller
 
     public function translationAction(Request $request)
     {
-        return $this->render('@MVBooking/Default/date.html.twig');
+        $locale = $request->getLocale();
+        return $this->render('@MVBooking/Default/date.html.twig', array(
+            "locale" => $locale
+        ));
     }
 }
