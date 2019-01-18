@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Base{% endblock %}</title>
         {% block stylesheets %}
-            <link rel="stylesheets" href="{{ asset('bundles/mvbooking/js/css/jquery-ui.theme.min.css') }}">
+            
         {% endblock %}
     </head>
     <body>
@@ -13,8 +13,8 @@
 
         {% block footer %}
         {% endblock %}
-        {% block javascripts %}
-            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        {% block js %}
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
             <script type="text/javascript" src="{{ asset('bundles/mvbooking/js/jquery-ui.min.js') }}"></script>
         {% endblock %}
     </body>
