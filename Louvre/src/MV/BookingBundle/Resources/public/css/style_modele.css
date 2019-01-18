@@ -1,7 +1,8 @@
 body {
   margin: 0;
   width: 100%;
-  min-width: 450px; }
+  min-width: 450px;
+  background-color: black; }
   @media (max-width: 450px) {
     body {
       background-image: url("../images/dark_mobile_background.png"); } }
@@ -11,7 +12,9 @@ body {
     margin-bottom: 0px;
     margin-top: 0px;
     font-size: 1em;
-    color: white; }
+    color: white;
+    margin-top: 50px;
+    margin-left: 40px; }
   body footer {
     width: 100%;
     height: 60px;
@@ -26,7 +29,8 @@ body {
       text-decoration: none; }
       body footer a .foot {
         color: white;
-        margin-right: 30px; }
+        margin-right: 30px;
+        font-size: 0.6em; }
     body footer img {
       width: 100px;
       height: 30px; }

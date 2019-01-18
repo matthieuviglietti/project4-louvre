@@ -7,6 +7,7 @@ body{
     @include mobile{
         background-image: url('../images/dark_mobile_background.png');
         }
+    background-color: black;
     .title{
         text-transform: uppercase;
         font-family   : 'Poppins', sans-serif;
@@ -14,6 +15,8 @@ body{
         margin-top: 0px;
         font-size: 1em;
         color: white;
+        margin-top: 50px;
+        margin-left: 40px;
     }
     footer{
         width: 100%;
@@ -30,6 +33,7 @@ body{
             .foot{
                 color: white;
                 margin-right: 30px;
+                font-size: 0.6em;
             }
         }
         img{
