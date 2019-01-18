@@ -18,4 +18,12 @@ class BookingController extends Controller
             "locale" => $locale
         ));
     }
+
+    public function howManyAction(Request $request){
+        $locale = $request->getLocale();
+        return $this->render('@MVBooking/Default/howMany.html.twig', array(
+            "locale" => $locale
+        ));
+    }
+    
 }

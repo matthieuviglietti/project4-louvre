@@ -10,3 +10,9 @@ mv_booking_date:
     defaults: { _controller: MVBookingBundle:Booking:translation, _locale: fr}
     requirements:
         _locale: fr|en
+
+mv_booking_howmany:
+    path:     /{_locale}/howmany
+    defaults: { _controller: MVBookingBundle:Booking:howMany, _locale: fr}
+    requirements:
+        _locale: fr|en
