@@ -18,6 +18,6 @@ mv_booking_howmany:
 
 mv_booking_users:
     path:     /{_locale}/{date}/{nbr}/users
-    defaults: { _controller: MVBookingBundle:Booking:user}
+    defaults: { _controller: MVBookingBundle:Booking:addUser}
     requirements:
         _locale: fr|en

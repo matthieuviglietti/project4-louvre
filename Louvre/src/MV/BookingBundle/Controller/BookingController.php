@@ -4,6 +4,7 @@ namespace MV\BookingBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use MV\BookingBundle\Entity\User;
+use MV\BookingBundle\Form\UserType;
 
 class BookingController extends Controller
 {
@@ -28,10 +29,19 @@ class BookingController extends Controller
         ));
     }
 
-    public function userAction(Request $request, $date, $nbr){
+    public function addUserAction(Request $request, $date, $nbr){
         $locale = $request->getLocale();
         $user = new User;
+        $form = $this->createForm(UserType::class, $user);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($advert);
+            $em->flush();
+           // return $this->redirectToRoute('', array('id' => $advert->getId()));
+          }
             return $this->render('@MVBooking/Default/users.html.twig', array(
+                "form" => $form->createView(),
                 "locale" => $locale,
                 "date" => $date,
                 "nbr" => $nbr

@@ -29,4 +29,10 @@ form #date, form #dateen {
   text-align: center;
   line-height: 45px; }
 
+.user {
+  color: white; }
+
+.mention {
+  color: grey; }
+
 /*# sourceMappingURL=user.css.map */
