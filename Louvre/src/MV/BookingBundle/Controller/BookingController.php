@@ -19,10 +19,11 @@ class BookingController extends Controller
         ));
     }
 
-    public function howManyAction(Request $request){
+    public function howManyAction(Request $request, $date){
         $locale = $request->getLocale();
         return $this->render('@MVBooking/Default/howMany.html.twig', array(
-            "locale" => $locale
+            "locale" => $locale,
+            "date" => $date
         ));
     }
     

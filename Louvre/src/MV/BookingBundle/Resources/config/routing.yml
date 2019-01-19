@@ -12,7 +12,7 @@ mv_booking_date:
         _locale: fr|en
 
 mv_booking_howmany:
-    path:     /{_locale}/howmany
-    defaults: { _controller: MVBookingBundle:Booking:howMany, _locale: fr}
+    path:     /{_locale}/{date}/howmany
+    defaults: { _controller: MVBookingBundle:Booking:howMany}
     requirements:
         _locale: fr|en

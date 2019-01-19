@@ -40,4 +40,17 @@ $(function(){
             return [true];
         }
     }}
+
+   
+
+    $('#date').on("change", function(){
+        $selectedDate = $('#date').val();
+        console.log($selectedDate);
+        $("a").attr('href', "/project4-louvre/Louvre/web/app_dev.php/fr/"+$selectedDate+"/howmany");
+    });
+
+    $('#dateen').on("change", function(){
+        $selectedDate = $('#date').val();
+        $("a").attr('href', "/project4-louvre/Louvre/web/app_dev.php/en/"+$selectedDate+"/howmany");
+    });
 });

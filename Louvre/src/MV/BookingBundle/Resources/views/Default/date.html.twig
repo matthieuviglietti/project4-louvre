@@ -13,14 +13,16 @@
     {% if locale == 'fr' %}
         <form id="datepick">
         <input type="text" id="date">
+        </form>
     {% endif %}
 
     {% if locale == 'en' %}
         <form id="datepick">
         <input type="text" id="dateen">
+        </form>
     {% endif %}
     <br>
-    <a href=""><input type="submit" class="nextStep" value="Étape suivante"></a>
+    <a href="" class="nextStep" >Étape suivante</a>
 {% endblock %}
 
 {% block js %}

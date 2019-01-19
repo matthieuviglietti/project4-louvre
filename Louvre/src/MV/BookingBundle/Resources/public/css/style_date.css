@@ -13,7 +13,8 @@ form #date, form #dateen {
   height: 30px;
   padding: 10px;
   font-size: 0.8em; }
-form .nextStep {
+
+.nextStep {
   border-radius: 40px;
   width: 250px;
   height: 45px;
@@ -22,6 +23,10 @@ form .nextStep {
   border: none;
   text-transform: uppercase;
   margin: 200px auto 0 auto;
-  display: block; }
+  display: block;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  line-height: 45px; }
 
 /*# sourceMappingURL=style_date.css.map */
