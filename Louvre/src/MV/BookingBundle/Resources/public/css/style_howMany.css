@@ -1,0 +1,41 @@
+.subtitle {
+  color: #c4c4c4;
+  font-size: 0.8em;
+  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 40px; }
+
+form #date, form #dateen {
+  border-radius: 20px;
+  margin-left: 40px;
+  margin-top: 80px;
+  width: 300px;
+  height: 30px;
+  padding: 10px;
+  font-size: 0.8em; }
+
+.nextStep {
+  border-radius: 40px;
+  width: 250px;
+  height: 45px;
+  background-color: #2C1DEB;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  margin: 200px auto 0 auto;
+  display: block;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  line-height: 45px; }
+
+#number {
+  border-radius: 20px;
+  margin-left: 40px;
+  margin-top: 80px;
+  width: 300px;
+  height: 50px;
+  padding: 10px;
+  font-size: 0.8em; }
+
+/*# sourceMappingURL=style_howMany.css.map */

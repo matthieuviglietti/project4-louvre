@@ -41,16 +41,15 @@ $(function(){
         }
     }}
 
-   
-
     $('#date').on("change", function(){
         $selectedDate = $('#date').val();
-        console.log($selectedDate);
-        $("a").attr('href', "/project4-louvre/Louvre/web/app_dev.php/fr/"+$selectedDate+"/howmany");
+        $routeToMany= Routing.generate('mv_booking_howmany', {date: $selectedDate});
+        $("a").attr('href', $routeToMany);
     });
 
     $('#dateen').on("change", function(){
-        $selectedDate = $('#date').val();
-        $("a").attr('href', "/project4-louvre/Louvre/web/app_dev.php/en/"+$selectedDate+"/howmany");
+        $selectedDate = $('#dateen').val();
+        $routeToMany= Routing.generate('mv_booking_howmany', {_locale: 'en', date: $selectedDate});
+        $("a").attr('href', $routeToMany);
     });
 });

@@ -69,3 +69,6 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+
+fos_js_routing:
+    routes_to_expose: [mv_booking_date, mv_booking_howmany]
