@@ -71,4 +71,4 @@ sensio_framework_extra:
         annotations: false
 
 fos_js_routing:
-    routes_to_expose: [mv_booking_date, mv_booking_howmany]
+    routes_to_expose: [mv_booking_date, mv_booking_howmany, mv_booking_users]

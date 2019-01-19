@@ -4,22 +4,16 @@
  {{ parent() }}
 <link rel = "stylesheet" href = "{{ asset('bundles/mvbooking/js/jquery-ui.theme.min.css') }}" type     = "text/css">
 <link rel = "stylesheet" href = "{{ asset('bundles/mvbooking/js/jquery-ui.structure.min.css') }}" type = "text/css">
-<link rel = "stylesheet" href = "{{ asset('bundles/mvbooking/css/style_howMany.css') }}" type             = "text/css">
+<link rel = "stylesheet" href = "{{ asset('bundles/mvbooking/css/style_user.css') }}" type             = "text/css">
+<link rel = "stylesheet" href = "{{ asset('bundles/mvbooking/css/style_date.css') }}" type             = "text/css">
 {% endblock %}
 
 {% block body %}
     {{ parent() }}
-    <h2 class="subtitle">{{"Combien de billets voulez-vous ?"|trans}}</h2>
+    <h2 class="subtitle">{{"Merci de bien vouloir renseigner leurs identités"|trans}}</h2>
+    <h3 class="mention">{{'Pour les tarifs réduits (étudiants, militaires, professeurs,…) un justificatif sera demandé à l’entrée'|trans}}</h3>
     <p class="selectedDate">{{date}}</p>
-    <form id="howMany">
-        <select name="number" id="number">
-            <option value="1" name="1">1</option>
-            <option value="2" name="2">2</option>
-            <option value="3" name="3">3</option>
-            <option value="4" name="4">4</option>
-            <option value="5" name="5">5</option>
-            <option value="6" name="6">6</option>
-        </select>
+    
     {% if locale == 'fr' %}
         <a href="" class="nextStep" >{{'Étape suivante'|trans}}</a>
     {% endif %}
@@ -32,4 +26,3 @@
  {{ parent() }}
  <script type="text/javascript" src="{{asset('bundles/mvbooking/js/howManyPick.js')}}"></script>
 {% endblock %}
-

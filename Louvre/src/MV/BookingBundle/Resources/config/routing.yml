@@ -4,7 +4,6 @@ mv_booking_homepage:
     requirements:
         _locale: fr|en
     
-
 mv_booking_date:
     path:     /{_locale}/date
     defaults: { _controller: MVBookingBundle:Booking:translation, _locale: fr}
@@ -14,5 +13,11 @@ mv_booking_date:
 mv_booking_howmany:
     path:     /{_locale}/{date}/howmany
     defaults: { _controller: MVBookingBundle:Booking:howMany}
+    requirements:
+        _locale: fr|en
+
+mv_booking_users:
+    path:     /{_locale}/{date}/{nbr}/users
+    defaults: { _controller: MVBookingBundle:Booking:user}
     requirements:
         _locale: fr|en
