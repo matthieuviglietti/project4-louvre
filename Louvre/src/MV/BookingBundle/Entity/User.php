@@ -49,6 +49,13 @@ class User
      */
     private $birthDate;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sessionKey", type="string", length=255)
+     */
+    private $sessionKey;
+
 
     /**
      * Get id.
@@ -154,5 +161,30 @@ class User
     public function getBirthDate()
     {
         return $this->birthDate;
+    }
+
+
+    /**
+     * Set sessionKey.
+     *
+     * @param string $sessionKey
+     *
+     * @return User
+     */
+    public function setSessionKey($sessionKey)
+    {
+        $this->sessionKey = $sessionKey;
+
+        return $this;
+    }
+
+    /**
+     * Get sessionKey.
+     *
+     * @return string
+     */
+    public function getSessionKey()
+    {
+        return $this->sessionKey;
     }
 }
