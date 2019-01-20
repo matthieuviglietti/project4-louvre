@@ -21,3 +21,4 @@ mv_booking_users:
     defaults: { _controller: MVBookingBundle:Booking:addUser}
     requirements:
         _locale: fr|en
+        nbr    : \d{1}

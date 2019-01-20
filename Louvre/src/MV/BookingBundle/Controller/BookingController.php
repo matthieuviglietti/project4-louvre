@@ -36,7 +36,7 @@ class BookingController extends Controller
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($advert);
+            $em->persist($user);
             $em->flush();
            // return $this->redirectToRoute('', array('id' => $advert->getId()));
           }

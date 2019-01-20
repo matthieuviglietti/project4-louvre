@@ -29,10 +29,35 @@ form #date, form #dateen {
   text-align: center;
   line-height: 45px; }
 
-.user {
-  color: white; }
-
 .mention {
-  color: grey; }
+  color: grey;
+  font-size: 0.6em;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 40px; }
+
+.user {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 40px; }
+  .user strong {
+    color: orange; }
+
+.containFormUser, .addUser {
+  margin-left: 40px; }
+
+label {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin-right: 10px;
+  display: block;
+  width: 200px; }
+
+input {
+  width: 300px;
+  border-radius: 5px;
+  height: 30px; }
+
+#mv_bookingbundle_user_birthDate {
+  margin-bottom: 30px; }
 
 /*# sourceMappingURL=user.css.map */

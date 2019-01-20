@@ -3,6 +3,7 @@ $(function(){
    console.log($number);
 
    for(var i=1 ;i<$number; i++){
-       $('.containFormUser').append('coucou');
+       var $contentUser = $('.containFormUser').html();
+       $($contentUser).clone().appendTo('.addUser').attr({class: 'user'+i});           
    };
 });
