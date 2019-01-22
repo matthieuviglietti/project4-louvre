@@ -56,6 +56,16 @@ class User
      */
     private $sessionKey;
 
+    /**
+     * @ORM\OneToOne(targetEntity="MV\BookingBundle\Entity\Ticket", cascade={"persist"})
+     */
+    private $ticket;
+
+     /**
+     * @ORM\ManyToOne(targetEntity="MV\BookingBundle\Entity\Form", inversedBy="user", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $form;
 
     /**
      * Get id.
@@ -186,5 +196,53 @@ class User
     public function getSessionKey()
     {
         return $this->sessionKey;
+    }
+
+    /**
+     * Set ticket.
+     *
+     * @param \OC\MVBookingBundle\Entity\Ticket|null $ticket
+     *
+     * @return User
+     */
+    public function setTicket(\MV\BookingBundle\Entity\Ticket $ticket = null)
+    {
+        $this->ticket = $ticket;
+
+        return $this;
+    }
+
+    /**
+     * Get ticket.
+     *
+     * @return \OC\MVBookingBundle\Entity\Ticket|null
+     */
+    public function getTicket()
+    {
+        return $this->ticket;
+    }
+
+    /**
+     * Set form.
+     *
+     * @param \MV\BookingBundle\Entity\Form $form
+     *
+     * @return User
+     */
+    public function setForm(\MV\BookingBundle\Entity\Form $form)
+    {
+        $this->form = $form;
+
+        return $this;
+    }
+
+    /**
+     * Get form.
+     *
+     * @return \MV\BookingBundle\Entity\Form
+     */
+    public function getForm()
+    {
+        return $this->form;
     }
 }

@@ -22,12 +22,13 @@ form #date, form #dateen {
   color: white;
   border: none;
   text-transform: uppercase;
-  margin: 200px auto 0 auto;
+  margin: 100px auto 70px auto;
   display: block;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   text-align: center;
-  line-height: 45px; }
+  line-height: 45px;
+  z-index: 1000; }
 
 .mention {
   color: grey;
@@ -55,9 +56,15 @@ label {
 input {
   width: 300px;
   border-radius: 5px;
-  height: 30px; }
+  height: 30px;
+  margin-bottom: 10px; }
 
-#mv_bookingbundle_user_birthDate {
-  margin-bottom: 30px; }
+#mv_bookingbundle_user_country {
+  margin-bottom: 40px; }
+
+.submit {
+  margin-bottom: 40px;
+  background-color: #ff7b00;
+  border: none; }
 
 /*# sourceMappingURL=user.css.map */

@@ -9,33 +9,12 @@
 {% endblock %}
 
 {% block body %}
-    {{ parent() }}
-    <h2 class="subtitle">{{"Merci de bien vouloir renseigner l'identité des visiteurs"|trans}}</h2>
-    <h3 class="mention">{{'Pour les tarifs réduits (étudiants, militaires, professeurs,…) un justificatif sera demandé à l’entrée'|trans}}</h3>
-    <p class="selectedDate">{{date}}</p>
-
-    <p class= "user">{{'Vous avez sélectionné'|trans}} : <strong>{{nbr}}</strong> {{'visiteurs'|trans}}</p>
-    <div class="containFormUser">
-        {{ form_start(form) }}
+ {{ form_start(form) }}
         {{ form_errors(form) }}
+         {{ form_end(form) }}
 
-                {{ form_row(form.name, {label: 'Nom'|trans}) }}
-                {{ form_row(form.firstName, {label: 'Prénom'|trans}) }}
-                {{ form_row(form.country, {label: 'Pays'|trans}) }}
-                {{ form_row(form.birthDate, {label: 'Date de naissance'|trans}) }}
-           
-                <input type="submit" class="submit" value={{"Envoyer"|trans}}>
-               
-        {{ form_end(form) }}
-     </div>
-      <div class="addUser"> </div>
-
-    {% if locale == 'fr' %}
-        <a href="" class="nextStep" >{{'Étape suivante'|trans}}</a>
-    {% endif %}
-    {% if locale == 'en' %}
-        <a href="" class="nextStepEn" >{{'Étape suivante'|trans}}</a>
-    {% endif %}
+    {{ parent() }}
+   
 {% endblock %}
 
 {% block js %}

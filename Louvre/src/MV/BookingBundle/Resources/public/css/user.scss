@@ -31,8 +31,15 @@ label{
 input{
     width: 300px;
     border-radius: 5px;
-    height: 30px;;
+    height: 30px;
+    margin-bottom: 10px;
 }
-#mv_bookingbundle_user_birthDate{
-    margin-bottom: 30px;
+#mv_bookingbundle_user_country{
+    margin-bottom: 40px;
+}
+
+.submit{
+    margin-bottom: 40px;
+    background-color: rgb(255, 123, 0);
+    border: none;
 }

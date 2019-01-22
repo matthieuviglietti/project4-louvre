@@ -5,7 +5,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use MV\BookingBundle\Entity\User;
+use MV\BookingBundle\Entity\Ticket;
 use MV\BookingBundle\Form\UserType;
+use MV\BookingBundle\Form\FormType;
+use MV\BookingBundle\Entity\Form;
 //use Symfony\Component\HttpFoundation\Session\Session;
 
 class BookingController extends Controller
@@ -41,35 +44,54 @@ class BookingController extends Controller
     public function addUserAction(Request $request, $date, $nbr){
     
         $locale = $request->getLocale();
+        $userSession = new User;
+        
 
-       // if($cookie->getValue() === NULL){
-           
-           // $cookie = Cookie::fromString('orderNumber='.$orderId.'; expires='.strtotime('tomorrow').'; path=/; domain=.fr; secure; httponly');
-           // $cookieOrder = $cookie->getValue($cookie);
-        //}
-        
-        
-        $user = new User;
         $session = $request->getSession();
         $sessionId = $session->get('orderId');
-        $user->setSessionKey($sessionId);
-        $form = $this->createForm(UserType::class, $user);
+        $userSession->setSessionKey($sessionId);
+
+        $userForm = new Form;
+
+        for ($i= 1; $i<=$nbr; $i++){
+            $userForm->addUser(new User);
+            $userSession->setSessionKey($sessionId);
+        }
+       
+        $form = $this->createForm(FormType::class, $userForm);
 
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
+            $em->persist($userForm);
             $em->flush();
-           // return $this->redirectToRoute('', array('id' => $advert->getId()));
           }
+
+          $em = $this->getDoctrine()->getManager();
+          $ticketRepository = $em->getRepository(Ticket::class);
+          $listTickets = $ticketRepository->findAll();
+        
             return $this->render('@MVBooking/Default/users.html.twig', array(
                 "form" => $form->createView(),
                 "locale" => $locale,
                 "date" => $date,
                 "nbr" => $nbr,
-                "session" => $sessionId
-                //"order" => $cookieOrder
+                "session" => $sessionId,
+                "listTickets" => $listTickets
             ));
+    }
+
+    public function checkOrder(Request $request, $date, $nbr){
+
+        $locale = $request->getLocale();
+
+        return $this->render('@MVBooking/Default/checkOrder.html.twig', array(
+            "form" => $form->createView(),
+            "locale" => $locale,
+            "date" => $date,
+            "nbr" => $nbr,
+            "session" => $sessionId
+        ));
     }
     
 }

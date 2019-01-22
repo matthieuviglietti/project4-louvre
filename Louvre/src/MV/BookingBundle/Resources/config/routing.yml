@@ -22,3 +22,10 @@ mv_booking_users:
     requirements:
         _locale: fr|en
         nbr    : \d{1}
+
+mv_booking_check:
+    path:     /{_locale}/{date}/{nbr}/check
+    defaults: { _controller: MVBookingBundle:Booking:checkOrder}
+    requirements:
+        _locale: fr|en
+        nbr    : \d{1}

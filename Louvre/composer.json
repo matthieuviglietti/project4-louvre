@@ -33,7 +33,8 @@
         "twig/twig": "^1.0||^2.0",
         "stripe/stripe-php": "~6.28",
         "twig/extensions": "~1.0",
-        "friendsofsymfony/jsrouting-bundle": "~2.0"
+        "friendsofsymfony/jsrouting-bundle": "~2.0",
+        "doctrine/doctrine-fixtures-bundle": "~3.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

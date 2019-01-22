@@ -5,6 +5,8 @@ namespace MV\BookingBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class UserType extends AbstractType
 {
@@ -16,7 +18,10 @@ class UserType extends AbstractType
         $builder->add('name')
                 ->add('firstName')
                 ->add('country')
-                ->add('birthDate');
+                ->add('birthDate', DateType::class, [
+                    'years' => range(1919,2020)
+                ])
+                ->add('sessionKey', HiddenType::class);
     }/**
      * {@inheritdoc}
      */
