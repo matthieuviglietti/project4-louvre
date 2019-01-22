@@ -35,6 +35,10 @@ class Ticket
      */
     private $cost;
 
+    /**
+     * @ORM\OneToMany(targetEntity="MV\BookingBundle\Entity\User", mappedBy="ticket", cascade={"persist"})
+     */
+    private $user;
 
     /**
      * Get id.
@@ -92,5 +96,53 @@ class Ticket
     public function getCost()
     {
         return $this->cost;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add user.
+     *
+     * @param \MV\BookingBundle\Entity\User $user
+     *
+     * @return Ticket
+     */
+    public function addUser(\MV\BookingBundle\Entity\User $user)
+    {
+        $this->user[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user.
+     *
+     * @param \MV\BookingBundle\Entity\User $user
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeUser(\MV\BookingBundle\Entity\User $user)
+    {
+        return $this->user->removeElement($user);
+    }
+
+    /**
+     * Get user.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    public function __toString()
+    {
+        return $this->type;
     }
 }

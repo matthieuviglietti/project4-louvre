@@ -57,7 +57,7 @@ class User
     private $sessionKey;
 
     /**
-     * @ORM\OneToOne(targetEntity="MV\BookingBundle\Entity\Ticket", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="MV\BookingBundle\Entity\Ticket", inversedBy="ticket", cascade={"persist"})
      */
     private $ticket;
 

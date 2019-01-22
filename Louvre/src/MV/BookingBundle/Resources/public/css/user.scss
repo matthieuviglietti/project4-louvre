@@ -43,3 +43,7 @@ input{
     background-color: rgb(255, 123, 0);
     border: none;
 }
+
+label .required{
+    visibility: hidden;
+}

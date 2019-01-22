@@ -9,7 +9,7 @@ use MV\BookingBundle\Entity\Ticket;
 use MV\BookingBundle\Form\UserType;
 use MV\BookingBundle\Form\FormType;
 use MV\BookingBundle\Entity\Form;
-//use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class BookingController extends Controller
 {
@@ -55,7 +55,6 @@ class BookingController extends Controller
 
         for ($i= 1; $i<=$nbr; $i++){
             $userForm->addUser(new User);
-            $userSession->setSessionKey($sessionId);
         }
        
         $form = $this->createForm(FormType::class, $userForm);

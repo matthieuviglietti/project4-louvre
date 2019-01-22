@@ -82,4 +82,41 @@ class Form
     {
         return $this->user;
     }
+
+
+    /**
+     * Add ticket.
+     *
+     * @param \MV\BookingBundle\Entity\User $ticket
+     *
+     * @return Form
+     */
+    public function addTicket(\MV\BookingBundle\Entity\User $ticket)
+    {
+        $this->ticket[] = $ticket;
+
+        return $this;
+    }
+
+    /**
+     * Remove ticket.
+     *
+     * @param \MV\BookingBundle\Entity\User $ticket
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeTicket(\MV\BookingBundle\Entity\User $ticket)
+    {
+        return $this->ticket->removeElement($ticket);
+    }
+
+    /**
+     * Get ticket.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTicket()
+    {
+        return $this->ticket;
+    }
 }

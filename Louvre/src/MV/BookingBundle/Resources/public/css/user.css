@@ -67,4 +67,7 @@ input {
   background-color: #ff7b00;
   border: none; }
 
+label .required {
+  visibility: hidden; }
+
 /*# sourceMappingURL=user.css.map */
