@@ -1,0 +1,41 @@
+#containResume {
+  border: 1px solid white;
+  border-radius: 20px;
+  width: 90%; }
+  @media (max-width: 450px) {
+    #containResume {
+      margin: auto; } }
+  #containResume .user {
+    color: white;
+    margin-left: 40px;
+    font-family: 'Poppins', sans-serif;
+    width: 400px; }
+  #containResume .cost {
+    color: #2C1DEB;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 100px;
+    display: inline-block;
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px; }
+  #containResume .type {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 40px;
+    width: 200px;
+    font-size: 0.6em;
+    display: inline-block; }
+  #containResume .total {
+    display: block;
+    height: 30px;
+    background-color: #2C1DEB;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding-left: 280px;
+    margin-top: 30px; }
+
+/*# sourceMappingURL=style_checkOrder.css.map */

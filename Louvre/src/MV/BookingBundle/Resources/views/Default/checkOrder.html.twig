@@ -9,15 +9,28 @@
 {% block body %}
     {{ parent() }}
     <h2 class="subtitle">{{"Merci de bien vouloir vérifier les informations saisies"|trans}}</h2>
-
-    {% for users in users %}
-   <p>{{users.Name}} {{users.FirstName}} {{'Type de Billet'|trans}} : {{users.Ticket}}</p>
-    {% endfor %}
     
+    <div id="containResume">
+        {% for users in users %}
+        
+                <p class= "user">{{users.Name}} {{users.FirstName}}</p> 
+                <div class="type">{{'Type de Billet'|trans}} : {{users.Ticket}}</div><div class="cost">{{users.Ticket.cost}}€</div><br/>
+            
+                
+        {% endfor %}
+             <div class="total">Total :  {{total}}€</div>
+    </div>
+   
+
     {% if locale == 'fr' %}
         <a href="" class="nextStep" >{{'Étape suivante'|trans}}</a>
     {% endif %}
     {% if locale == 'en' %}
         <a href="" class="nextStepEn" >{{'Étape suivante'|trans}}</a>
     {% endif %}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{asset('bundles/mvbooking/js/checkOrder.js')}}"></script>
 {% endblock %}

@@ -92,12 +92,19 @@ class BookingController extends Controller
 
         $listActiveUsers = $userRepository->selectUserOrder($sessionId);
 
+        $totalCost = intval(0);
+        foreach($listActiveUsers as $users){
+            $cost = intval($users->getTicket()->getCost());
+            $totalCost += $cost;
+        }
+
         return $this->render('@MVBooking/Default/checkOrder.html.twig', array(
             'session' => $sessionId,
             "locale" => $locale,
             "date" => $date,
             "nbr" => $nbr,
-            "users" => $listActiveUsers
+            "users" => $listActiveUsers,
+            "total" => $totalCost
         ));
     }
     

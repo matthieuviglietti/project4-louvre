@@ -5,7 +5,8 @@ body {
   background-color: black; }
   @media (max-width: 450px) {
     body {
-      background-image: url("../images/dark_mobile_background.png"); } }
+      background-color: black;
+      width: 450px; } }
   body .title {
     text-transform: uppercase;
     font-family: 'Poppins', sans-serif;
