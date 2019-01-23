@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use MV\BookingBundle\Entity\User;
 use MV\BookingBundle\Entity\Ticket;
+use MV\BookingBundle\Entity\Basket;
 use MV\BookingBundle\Form\UserType;
 use MV\BookingBundle\Form\FormType;
 use MV\BookingBundle\Entity\Form;
@@ -44,8 +45,6 @@ class BookingController extends Controller
     public function addUserAction(Request $request, $date, $nbr){
     
         $locale = $request->getLocale();
-        $userSession = new User;
-        
 
         $session = $request->getSession();
         $sessionId = $session->get('orderId');
@@ -80,16 +79,25 @@ class BookingController extends Controller
             ));
     }
 
-    public function checkOrder(Request $request, $date, $nbr){
+    public function checkOrderAction(Request $request, $date, $nbr){
 
         $locale = $request->getLocale();
+        
+        $session = $request->getSession();
+        $sessionId = $session->get('orderId');
+       
+
+        $em = $this->getDoctrine()->getManager();
+        $userRepository = $em->getRepository(User::class);
+
+        $listActiveUsers = $userRepository->selectUserOrder($sessionId);
 
         return $this->render('@MVBooking/Default/checkOrder.html.twig', array(
-            "form" => $form->createView(),
+            'session' => $sessionId,
             "locale" => $locale,
             "date" => $date,
             "nbr" => $nbr,
-            "session" => $sessionId
+            "users" => $listActiveUsers
         ));
     }
     

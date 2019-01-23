@@ -10,4 +10,21 @@ namespace MV\BookingBundle\Repository;
  */
 class BasketRepository extends \Doctrine\ORM\EntityRepository
 {
+    
+
+    public function selectUsersTicketId($sessionId)
+    {
+        $qb = $this->createQueryBuilder('t');
+        $qb
+            -> innerJoin('t.user', 't')
+            -> addSelect('t');
+        $qb
+            -> where('ut = t.')
+            -> setParameter('sessionId', $sessionId);
+
+        return $qb  
+            ->getQuery()
+            ->getResult();
+    }
+
 }

@@ -2,6 +2,7 @@
 
 namespace MV\BookingBundle\Repository;
 
+use Doctrine\ORM\QueryBuilder;
 /**
  * UserRepository
  *
@@ -23,4 +24,17 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         return $code_random;
     }
 
+    public function selectUserOrder($sessionId)
+    {
+        $qb = $this->createQueryBuilder('u');
+        $qb
+            -> where('u.sessionKey = :sessionId')
+            -> setParameter('sessionId', $sessionId);
+
+        $listActiveUsers = $qb->getQuery()
+                              ->getResult();
+
+        return $listActiveUsers;
+            
+    }
 }
