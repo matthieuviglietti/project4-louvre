@@ -8,7 +8,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class UserType extends AbstractType
 {
@@ -28,9 +27,6 @@ class UserType extends AbstractType
                     'class' => 'MV\BookingBundle\Entity\Ticket',
                     'mapped' => true,
                 ])
-                ->add('submit', SubmitType::class, [
-                    'attr' => ['class' => 'save']
-                    ])
                 ->add('sessionKey', TextType::class, [
                     'label' => false,
                     'attr' => ['class' => 'session']

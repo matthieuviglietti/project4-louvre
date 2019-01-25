@@ -1,7 +1,9 @@
 @import "mixin.scss";
 @import "style_date";
 
-
+.sessionKey{
+    visibility: hidden;
+}
 .mention{
     color: grey;
     font-size: 0.6em;
@@ -38,10 +40,15 @@ input{
     margin-bottom: 40px;
 }
 
-.submit{
-    margin-bottom: 40px;
+#mv_bookingbundle_form_submit{
+    margin-top: 40px;
     background-color: rgb(255, 123, 0);
+    color: white;
+    font-family: 'Poppins', sans-serif;
     border: none;
+    border-radius: 20px;
+    height: 30px;
+    width: 200px;
 }
 
 label .required{

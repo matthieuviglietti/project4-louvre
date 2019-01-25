@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class FormType extends AbstractType
 {
@@ -15,11 +15,12 @@ class FormType extends AbstractType
     {
     
             $builder->add('user', CollectionType::class,[
-            'entry_type' => UserType::class,
-            'allow_add' => true,
-            'allow_delete' => true,
-            'label' => false
-        ]);
+                    'entry_type' => UserType::class,
+                    'label' => false,
+                ])
+                     ->add('submit', SubmitType::class, [
+                    'attr' => ['class' => 'save']
+                ]);
     }
     /**
      * {@inheritdoc}

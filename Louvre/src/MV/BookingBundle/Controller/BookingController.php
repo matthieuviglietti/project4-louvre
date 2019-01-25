@@ -48,6 +48,7 @@ class BookingController extends Controller
 
         $session = $request->getSession();
         $sessionId = $session->get('orderId');
+        $userSession = new User;
         $userSession->setSessionKey($sessionId);
 
         $userForm = new Form;

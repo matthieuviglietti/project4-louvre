@@ -1,7 +1,8 @@
 #containResume {
   border: 1px solid white;
   border-radius: 20px;
-  width: 90%; }
+  width: 100%;
+  padding: 5px; }
   @media (max-width: 450px) {
     #containResume {
       margin: auto; } }
@@ -28,14 +29,16 @@
     width: 200px;
     font-size: 0.6em;
     display: inline-block; }
-  #containResume .total {
-    display: block;
-    height: 30px;
-    background-color: #2C1DEB;
-    border-radius: 20px;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    padding-left: 280px;
-    margin-top: 30px; }
+
+.total {
+  display: block;
+  height: 30px;
+  background-color: #2C1DEB;
+  border-radius: 20px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 30px;
+  text-align: center;
+  line-height: 30px; }
 
 /*# sourceMappingURL=style_checkOrder.css.map */

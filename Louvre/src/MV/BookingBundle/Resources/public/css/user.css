@@ -30,6 +30,9 @@ form #date, form #dateen {
   line-height: 45px;
   z-index: 1000; }
 
+.sessionKey {
+  visibility: hidden; }
+
 .mention {
   color: grey;
   font-size: 0.6em;
@@ -62,10 +65,15 @@ input {
 #mv_bookingbundle_user_country {
   margin-bottom: 40px; }
 
-.submit {
-  margin-bottom: 40px;
+#mv_bookingbundle_form_submit {
+  margin-top: 40px;
   background-color: #ff7b00;
-  border: none; }
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  border-radius: 20px;
+  height: 30px;
+  width: 200px; }
 
 label .required {
   visibility: hidden; }
