@@ -13,6 +13,8 @@ form #date, form #dateen {
   height: 30px;
   padding: 10px;
   font-size: 0.8em; }
+form #datealt {
+  visibility: hidden; }
 
 .nextStep, .nextStepEn {
   border-radius: 40px;

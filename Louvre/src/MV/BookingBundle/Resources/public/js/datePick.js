@@ -3,14 +3,18 @@ $(function(){
     $('#date').datepicker({
         minDate      : 0,
         appendText   : "format attendu: jj-mm-aaaa",
-        beforeShowDay: DisableDates
+        beforeShowDay: DisableDates,
+        altFormat: "yy-mm-dd",
+        altField: "#datealt"
     });
 
     $('#dateen').datepicker($.extend({
         firstDay     : 1,
         minDate      : 0,
         appendText   : "date format: mm-dd-yyyy",
-        beforeShowDay: DisableDates
+        beforeShowDay: DisableDates,
+        altFormat: "yy-mm-dd",
+        altField: "#datealt"
         }, 
         $.datepicker.regional['']
     ));
@@ -42,7 +46,7 @@ $(function(){
     }}
 
     $('#date').on("change", function(){
-        $selectedDate = $('#date').val();
+        $selectedDate = $('#datealt').val();
         $routeToMany= Routing.generate('mv_booking_howmany', {date: $selectedDate});
         $("a").attr('href', $routeToMany);
     });
