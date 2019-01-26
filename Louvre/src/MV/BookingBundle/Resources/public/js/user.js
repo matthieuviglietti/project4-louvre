@@ -10,7 +10,7 @@ $(function(){
     var year = '';
    
     var dateOfTheDay = new Date();
-    var limitHalfTicket = dateOfTheDay.getHours();
+    var limitHalfTicket = 12;//dateOfTheDay.getHours();
    
     var dateUrl = $('#dateofvisit').text();
     var dateOfVisit = new Date(dateUrl);
@@ -46,6 +46,9 @@ $(function(){
                 var dayDiff = visitDay - day;
                 console.log(dayDiff, monthDiff, yearDiff);
                 
+
+                //4years conditions
+
                     if((yearDiff < 4) && (limitHalfTicket>14)){ //under 4 and limit halfDay past
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').show();
@@ -53,7 +56,7 @@ $(function(){
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
                     }
-                    else if((yearDiff < 4) && (limitHalfTicket<14)){ //under 4 and limit halfDay not past
+                    if((yearDiff < 4) && (limitHalfTicket<14)){ //under 4 and limit halfDay not past
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').show();
@@ -65,7 +68,7 @@ $(function(){
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
                     }
-                    else if((yearDiff === 4) && (limitHalfTicket<14)){ //on his 4th year and limit halfDay not past
+                    if((yearDiff === 4) && (limitHalfTicket<14)){ //on his 4th year and limit halfDay not past
                         if(monthDiff<0){ // is under 4
                             $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
                             $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
@@ -90,7 +93,7 @@ $(function(){
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
                     }
-                    else if((yearDiff === 4) && (limitHalfTicket>14)){ // on his 4th year and limit past
+                    if((yearDiff === 4) && (limitHalfTicket>14)){ // on his 4th year and limit past
                         if(monthDiff<0){ // is under 4
                             $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
                             $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').show();
@@ -99,6 +102,41 @@ $(function(){
                             $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
                         }
                         else if(monthDiff>0){ //is under 12
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
+                        }
+                    }
+                    if((yearDiff === 4) && (monthDiff === 0) && (limitHalfTicket>14)){ // on his 4th year and limit past
+                        if(dayDiff<0){ // is under 4
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
+                        }
+                        else if(dayDiff>0){ //is under 12
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
+                        }
+                    }
+                    else if((yearDiff === 4) && (monthDiff === 0) && (limitHalfTicket<14)){ //on his 4th year and limit halfDay not past
+                        if(dayDiff<0){ // is under 4
                             $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
                             $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
                             $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').show();
@@ -110,16 +148,7 @@ $(function(){
                             $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
                             $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
                         }
-                    }
-
-                    else if((yearDiff < 12) && (limitHalfTicket>14)){
-                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
-                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
-                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
-                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').show();
-                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
-                    }
-                    else if((yearDiff < 12) && (limitHalfTicket<14)){
+                        else if(monthDiff>0) // is under 12
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
@@ -131,7 +160,260 @@ $(function(){
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
                     }
-        
+
+
+                    //12 years conditions
+
+                    if((yearDiff < 12) && (yearDiff >4) && (limitHalfTicket>14)){
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
+                    }
+                    if((yearDiff < 12) && (yearDiff >4) && (limitHalfTicket<14)){
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
+                    }
+                    if((yearDiff === 12) && (limitHalfTicket<14)){ //on his 12ve year and limit halfDay not past
+                        if(monthDiff<0){ // is under 12
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
+                        }
+                        else if(monthDiff>0){ // is adult
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                        }
+                    }
+                    if((yearDiff === 12) && (limitHalfTicket>14)){ // on his 4th year and limit past
+                        if(monthDiff<0){ // is under 12
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
+                        }
+                        else if(monthDiff>0){ //is an adult
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                        }
+                    }
+                    if((yearDiff === 12) &&(monthDiff === 0) && (limitHalfTicket<14)){ //on his 12ve year and limit halfDay not past
+                        if(dayDiff<0){ // is under 12
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
+                        }
+                        else if(dayDiff>0){ // is adult
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                        }
+                    }
+                    if((yearDiff === 12) && (monthDiff === 0) && (limitHalfTicket>14)){ // on his 4th year and limit past
+                        if(dayDiff<0){ // is under 12
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').hide();
+                        }
+                        else if(dayDiff>0){ //is an adult
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                        }
+                    }
+
+                    //adult conditions
+
+                    if((yearDiff < 60) && (yearDiff >12) && (limitHalfTicket>14)){
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                    }
+                    if((yearDiff < 60) && (yearDiff >12) && (limitHalfTicket<14)){
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                    }
+                    //60 years conditions
+
+                    if((yearDiff > 60) && (limitHalfTicket>14)){
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                    }
+                    if((yearDiff > 60) && (limitHalfTicket<14)){
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                    }
+                    if((yearDiff === 60) && (limitHalfTicket<14)){ //on his 12ve year and limit halfDay not past
+                        if(monthDiff<0){ // is under 60
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                        }
+                        else if(monthDiff>0){ // is over 60
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                        }
+                    }
+                    if((yearDiff === 60) && (limitHalfTicket>14)){ // on his 4th year and limit past
+                        if(monthDiff<0){ // is under 60
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                        }
+                        else if(monthDiff>0){ //is over 60
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                        }
+                    }
+                    if((yearDiff === 12) && (monthDiff === 0) && (limitHalfTicket<14)){ //on his 12ve year and limit halfDay not past
+                        if(dayDiff<0){ // is under 60
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                        }
+                        else if(dayDiff>0){ // is over 60
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').show();
+                        $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                        }
+                    }
+                    if((yearDiff === 12) && (monthDiff === 0) && (limitHalfTicket>14)){ // on his 4th year and limit past
+                        if(dayDiff<0){ // is under 60
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                        }
+                        else if(dayDiff>0){ //is over 60
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=4]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=5]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=6]').show();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=8]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
+                            $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=10]').show();
+                        }
+                    }
             });
 
         });
