@@ -22,13 +22,32 @@
     </div>
     <div class="total">Total :  {{total}}€</div>
    
-
+    <a href="" class="cancel">{{'Annuler la commande'|trans}}</a>
     {% if locale == 'fr' %}
-        <a href="" class="nextStep" >{{'Étape suivante'|trans}}</a>
+        <a href="" class="nextStep" >{{'Procéder au paiement'|trans}}</a>
     {% endif %}
     {% if locale == 'en' %}
-        <a href="" class="nextStepEn" >{{'Étape suivante'|trans}}</a>
+        <a href="" class="nextStepEn" >{{'Procéder au paiement'|trans}}</a>
     {% endif %}
+    {% set totalAmount = total * 100 %}
+    
+    <form method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_0qgdyYyOrvcIi3Efjdk0L96U"
+    data-amount= {{totalAmount}}
+    data-name="Louvre"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="{{locale}}"
+    data-description="{{"Billets pour le musée du Louvre" | trans}}"
+    data-currency="EUR"
+    data-billing-address="true"
+    data-zip-code="true"
+    data-allow-remember-me= "false"
+    data-label= "{{"Procéder au paiement" | trans}}"
+  </script>
+</form>
+
 {% endblock %}
 
 {% block js %}

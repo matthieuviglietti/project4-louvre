@@ -80,7 +80,7 @@ class BookingController extends Controller
             ));
     }
 
-    public function checkOrderAction(Request $request, $date, $nbr){
+    public function checkOrderAction(Request $request, Response $response, $date, $nbr){
 
         $locale = $request->getLocale();
         
@@ -99,6 +99,17 @@ class BookingController extends Controller
             $totalCost += $cost;
         }
 
+        \Stripe\Stripe::setApiKey("sk_test_WFwsGVYMQgKdVdfI6ths0Gom");
+
+        $token = $_POST['stripeToken'];
+        $charge = \Stripe\Charge::create([
+            'amount' => 1000,
+            'currency' => 'eur',
+            'source' => '$token',
+            'receipt_email' => 'matthieu@example.com',
+        ]);
+
+
         return $this->render('@MVBooking/Default/checkOrder.html.twig', array(
             'session' => $sessionId,
             "locale" => $locale,
@@ -108,5 +119,4 @@ class BookingController extends Controller
             "total" => $totalCost
         ));
     }
-    
 }

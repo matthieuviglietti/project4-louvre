@@ -29,3 +29,4 @@ mv_booking_check:
     requirements:
         _locale: fr|en
         nbr    : \d{1}
+

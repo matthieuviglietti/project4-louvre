@@ -32,6 +32,7 @@
 
 .total {
   display: block;
+  width: 450px;
   height: 30px;
   background-color: #2C1DEB;
   border-radius: 20px;
@@ -40,5 +41,16 @@
   margin-top: 30px;
   text-align: center;
   line-height: 30px; }
+
+.cancel {
+  color: grey;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.5em;
+  margin-top: 10px;
+  display: block;
+  width: 450px;
+  height: 20px;
+  text-align: center; }
 
 /*# sourceMappingURL=style_checkOrder.css.map */
