@@ -10,6 +10,7 @@ use MV\BookingBundle\Entity\Basket;
 use MV\BookingBundle\Form\UserType;
 use MV\BookingBundle\Form\FormType;
 use MV\BookingBundle\Entity\Form;
+use MV\BookingBundle\Stripe\MVStripe;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class BookingController extends Controller
@@ -80,7 +81,7 @@ class BookingController extends Controller
             ));
     }
 
-    public function checkOrderAction(Request $request, Response $response, $date, $nbr){
+    public function checkOrderAction(Request $request, $date, $nbr){
 
         $locale = $request->getLocale();
         
@@ -99,17 +100,6 @@ class BookingController extends Controller
             $totalCost += $cost;
         }
 
-        \Stripe\Stripe::setApiKey("sk_test_WFwsGVYMQgKdVdfI6ths0Gom");
-
-        $token = $_POST['stripeToken'];
-        $charge = \Stripe\Charge::create([
-            'amount' => 1000,
-            'currency' => 'eur',
-            'source' => '$token',
-            'receipt_email' => 'matthieu@example.com',
-        ]);
-
-
         return $this->render('@MVBooking/Default/checkOrder.html.twig', array(
             'session' => $sessionId,
             "locale" => $locale,
@@ -117,6 +107,18 @@ class BookingController extends Controller
             "nbr" => $nbr,
             "users" => $listActiveUsers,
             "total" => $totalCost
+        ));
+    }
+
+    public function StripeAction(Request $request, $amount){
+
+        $this->container->get('mv_booking.stripe')->chargeStripe($amount, $request);
+
+    }
+
+    public function confirmationOrderAction(Request $request, $message){
+        return $this->render('@MVBooking/Default/confirmationOrder.html.twig', array(
+            'message' => $message
         ));
     }
 }

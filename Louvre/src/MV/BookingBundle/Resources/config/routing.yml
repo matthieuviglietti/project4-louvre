@@ -30,3 +30,15 @@ mv_booking_check:
         _locale: fr|en
         nbr    : \d{1}
 
+mv_booking_stripe:
+    path:     /{_locale}/{amount}/paiement
+    defaults: { _controller: MVBookingBundle:Booking:stripe}
+    requirements:
+        _locale: fr|en
+
+mv_booking_confirmation:
+    path:     /{_locale}/{message}/confirmation
+    defaults: { _controller: MVBookingBundle:Booking:confirmationOrder}
+    requirements:
+        _locale: fr|en
+        amount: \d

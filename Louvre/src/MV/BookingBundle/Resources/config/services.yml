@@ -1,4 +1,8 @@
 services:
-#    mv_booking.example:
-#        class: MV\BookingBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+  mv_booking.stripe:
+          class: MV\BookingBundle\Stripe\MVStripe
+          arguments:
+              - "@Mailer"
+              - %locale%
+              - eur

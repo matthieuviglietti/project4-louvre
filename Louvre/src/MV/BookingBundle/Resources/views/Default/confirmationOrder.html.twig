@@ -1,0 +1,14 @@
+{% extends '@MVCore/model_booking.html.twig' %}
+
+{% block stylesheets %}
+ {{ parent() }}
+<link rel = "stylesheet" href = "{{ asset('bundles/mvbooking/css/style_confirmationOrder.css') }}" type= "text/css">
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <h2 class="subtitle">{{"Merci pour votre commande"|trans}}</h2>
+    <div class="flash-notice">{{message}}</div>
+
+       
+{% endblock %}

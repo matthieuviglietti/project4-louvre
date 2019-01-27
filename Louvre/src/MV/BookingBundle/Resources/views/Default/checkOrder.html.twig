@@ -30,23 +30,26 @@
         <a href="" class="nextStepEn" >{{'Procéder au paiement'|trans}}</a>
     {% endif %}
     {% set totalAmount = total * 100 %}
+   <form action= "" method="POST">
+   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="{{ asset('bundles/mvbooking/js/jquery-ui.min.js') }}"></script>
+    <script type="text/javascript"> var total= {{total}};</script>
+    <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_0qgdyYyOrvcIi3Efjdk0L96U"
+        data-amount= {{totalAmount}}
+        data-name="Louvre"
+        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+        data-locale="{{locale}}"
+        data-description="{{"Billets pour le musée du Louvre" | trans}}"
+        data-currency="EUR"
+        data-billing-address="true"
+        data-zip-code="true"
+        data-allow-remember-me= "false"
+        data-label= "{{"Procéder au paiement" | trans}}"
+    </script>
+    </form>
     
-    <form method="POST">
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_0qgdyYyOrvcIi3Efjdk0L96U"
-    data-amount= {{totalAmount}}
-    data-name="Louvre"
-    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-    data-locale="{{locale}}"
-    data-description="{{"Billets pour le musée du Louvre" | trans}}"
-    data-currency="EUR"
-    data-billing-address="true"
-    data-zip-code="true"
-    data-allow-remember-me= "false"
-    data-label= "{{"Procéder au paiement" | trans}}"
-  </script>
-</form>
 
 {% endblock %}
 
