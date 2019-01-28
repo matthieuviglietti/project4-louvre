@@ -37,7 +37,7 @@ mv_booking_stripe:
         _locale: fr|en
 
 mv_booking_confirmation:
-    path:     /{_locale}/{message}/confirmation
+    path:     /{_locale}/confirmation
     defaults: { _controller: MVBookingBundle:Booking:confirmationOrder}
     requirements:
         _locale: fr|en

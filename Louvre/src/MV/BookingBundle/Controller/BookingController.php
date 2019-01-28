@@ -65,6 +65,8 @@ class BookingController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($userForm);
             $em->flush();
+
+           return $this->redirectToRoute('mv_booking_check', ['date' => $date, 'nbr' =>$nbr]);
           }
 
           $em = $this->getDoctrine()->getManager();
@@ -112,13 +114,18 @@ class BookingController extends Controller
 
     public function StripeAction(Request $request, $amount){
 
+        
         $this->container->get('mv_booking.stripe')->chargeStripe($amount, $request);
 
+       $this->addFlash('notice', 'le paiement a réussi !');
+
+        return $this->redirectToRoute('mv_booking_confirmation');
+       
     }
 
-    public function confirmationOrderAction(Request $request, $message){
+    public function confirmationOrderAction(Request $request){
         return $this->render('@MVBooking/Default/confirmationOrder.html.twig', array(
-            'message' => $message
+          
         ));
     }
 }

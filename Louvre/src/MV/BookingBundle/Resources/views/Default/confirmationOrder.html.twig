@@ -8,7 +8,11 @@
 {% block body %}
     {{ parent() }}
     <h2 class="subtitle">{{"Merci pour votre commande"|trans}}</h2>
-    <div class="flash-notice">{{message}}</div>
+    {% for message in app.flashes('notice') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
 
        
 {% endblock %}

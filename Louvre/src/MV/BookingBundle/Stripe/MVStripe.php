@@ -1,12 +1,9 @@
 <?php
 namespace MV\BookingBundle\Stripe;
 
-use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 
-class MVStripe extends Controller
+class MVStripe
 {
     private $mailer;
     private $locale;
@@ -26,7 +23,7 @@ class MVStripe extends Controller
         // Get the credit card details submitted by the form
         $token = $_POST['stripeToken'];
         $email = $_POST['stripeEmail'];
-
+    
         // Create a charge: this will charge the user's card
         try {
             $charge = \Stripe\Charge::create(array(
@@ -35,17 +32,25 @@ class MVStripe extends Controller
                 "source" => $token,
                 'receipt_email' => $email,
             ));
-            $session = $request->getSession();
-            $session->getFlashBag()->add('notice', 'Le paiement a réussi ! Merci');
-            foreach ($session->getFlashBag()->get('notice', []) as $message){
-            }
-            return $this->redirectToRoute("mv_booking_confirmation", ['message' => $message]);
+            $message = (new Swift_Message('Wonderful Subject'))
+                ->setFrom(['contact@louvre.com' => 'Billetterie_louvre'])
+                ->setTo(['receiver@domain.org', 'other@domain.org' => 'A name'])
+                ->setBody('Here is the message itself')
+                ;
 
-        } catch(\Stripe\Error\Card $e) {
+// Send the message
+$result = $mailer->send($message);
 
-            $this->addFlash("error","Une erreur est survenue merci de réessayer");
-            return $this->redirectToRoute("mv_booking_checkOrder");
+            $message = "Paiement Réussi !";
+            return $message;
+        }
+            
+        catch(\Stripe\Error\Card $e) {
+            $body = $e->getJsonBody();
+            $err  = $body['error'];
             // The card has been declined
+            $messageError = "Il y a eu une erreur, merci de réessayer !";
+            return $messageError;
         }
     }
 }
