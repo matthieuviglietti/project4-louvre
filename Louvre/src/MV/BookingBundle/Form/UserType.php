@@ -16,11 +16,16 @@ class UserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')
+        $builder->add('date', DateType::class,[
+                    'attr' => [ 'class' => 'date'],
+                    'input' => 'datetime',
+                    'widget' => 'single_text'
+        ])
+                ->add('name')
                 ->add('firstName')
                 ->add('country')
                 ->add('birthDate', DateType::class, [
-                    'years' => range(1919,2020)
+                    'years' => range(1900,2030)
                 ])
                 ->add('ticket', EntityType::class, [
                     'placeholder' => 'Sélectionner le ticket',

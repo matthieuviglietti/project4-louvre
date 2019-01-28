@@ -57,7 +57,7 @@ class BookingController extends Controller
         for ($i= 1; $i<=$nbr; $i++){
             $userForm->addUser(new User);
         }
-       
+        
         $form = $this->createForm(FormType::class, $userForm);
 
 

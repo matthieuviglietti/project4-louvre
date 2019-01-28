@@ -10,13 +10,28 @@ $(function(){
     var year = '';
    
     var dateOfTheDay = new Date();
-    var limitHalfTicket = 12;//dateOfTheDay.getHours();
+    var limitHalfTicket = dateOfTheDay.getHours();
    
     var dateUrl = $('#dateofvisit').text();
     var dateOfVisit = new Date(dateUrl);
+    $('#dateofvisit').hide();
+    
     console.log(dateOfVisit);
 
         $('select').slice(0, nbr).each(function(index){
+
+        $('.date').attr('value', dateUrl).attr('disabled', 'disabled');
+
+        //Hide ticket choice before changing birthdate
+        $('#mv_bookingbundle_form_user_'+ index +'_ticket').hide();
+        $('label[for="mv_bookingbundle_form_user_'+ index +'_ticket"]').hide();    
+        $('#mv_bookingbundle_form_user_'+ index +'_birthDate_year').on("change",function(){
+            $('#mv_bookingbundle_form_user_'+ index +'_ticket').val('');
+            $('label[for= "mv_bookingbundle_form_user_'+ index +'_ticket"]').show(); 
+            $('#mv_bookingbundle_form_user_'+ index +'_ticket').show();
+        });
+
+        //All ages conditions
            
             if(limitHalfTicket>14){
                $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
@@ -46,7 +61,6 @@ $(function(){
                 var dayDiff = visitDay - day;
                 console.log(dayDiff, monthDiff, yearDiff);
                 
-
                 //4years conditions
 
                     if((yearDiff < 4) && (limitHalfTicket>14)){ //under 4 and limit halfDay past

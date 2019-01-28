@@ -69,6 +69,13 @@ class User
     private $form;
 
     /**
+     * @var \Datetime
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
+
+    /**
      * Get id.
      *
      * @return int
@@ -245,5 +252,29 @@ class User
     public function getForm()
     {
         return $this->form;
+    }
+
+    /**
+     * Set date.
+     *
+     * @param \DateTime $date
+     *
+     * @return User
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date.
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }

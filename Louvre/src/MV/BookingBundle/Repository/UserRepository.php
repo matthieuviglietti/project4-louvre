@@ -37,4 +37,18 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         return $listActiveUsers;
             
     }
+
+    public function countUserDay($date)
+    {
+        $qb = $this->createQueryBuilder('u');
+        $qb
+            -> where('u.date = :date')
+            -> setParameter('date', $date);
+
+        $listActiveUsers = $qb->getQuery()
+                              ->getResult();
+
+        return $listActiveUsers;
+            
+    }
 }
