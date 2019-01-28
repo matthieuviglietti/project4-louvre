@@ -16,7 +16,7 @@ class MVStripe
     $this->currency = $currency;
   }
 
-    public function chargeStripe($amount, $request)
+    public function chargeStripe($amount, $request, \Swift_Mailer $mailer)
     {
         \Stripe\Stripe::setApiKey("sk_test_WFwsGVYMQgKdVdfI6ths0Gom");
 
@@ -32,14 +32,14 @@ class MVStripe
                 "source" => $token,
                 'receipt_email' => $email,
             ));
-            $message = (new Swift_Message('Wonderful Subject'))
+            $message = (new Swift_Message('Confirmation de votre paiement'))
                 ->setFrom(['contact@louvre.com' => 'Billetterie_louvre'])
-                ->setTo(['receiver@domain.org', 'other@domain.org' => 'A name'])
+                ->setTo($email)
                 ->setBody('Here is the message itself')
                 ;
 
-// Send the message
-$result = $mailer->send($message);
+            // Send the message
+            $result = $mailer->send($message);
 
             $message = "Paiement Réussi !";
             return $message;

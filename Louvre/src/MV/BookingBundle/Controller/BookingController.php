@@ -23,7 +23,6 @@ class BookingController extends Controller
         $orderId = $userRepository->getIdOrder();
         $session->set('orderId', $orderId);
         
-
         return $this->render('@MVBooking/Default/index.html.twig');
     }
 
@@ -113,17 +112,30 @@ class BookingController extends Controller
     }
 
     public function StripeAction(Request $request, $amount){
-
         
         $this->container->get('mv_booking.stripe')->chargeStripe($amount, $request);
-
-       $this->addFlash('notice', 'le paiement a réussi !');
-
+    
+        $translator = new Translator('en_EN');
+        $translator->addLoader('array', new ArrayLoader());
+        $translator->addResource('array', [
+                    'Your paiement was accepted, thank you. An email was send to' => 'le paiement a réussi, merci et un email a été envoyé à ',
+                     ], 'fr_FR');
+        $messageSuccessFrench = $translator->trans('Your paiement was accepted, thank you. An email was send to');
+        
+        $locale    = $request->getLocale();
+        if($locale = 'fr'){
+            $this->addFlash('notice', $messageSuccessFrench);
+        }
+        if($locale = 'en'){
+            $this->addFlash('notice', 'Your paiement was accepted, thank you. An email was send to');
+        }
+       
         return $this->redirectToRoute('mv_booking_confirmation');
        
     }
 
     public function confirmationOrderAction(Request $request){
+
         return $this->render('@MVBooking/Default/confirmationOrder.html.twig', array(
           
         ));

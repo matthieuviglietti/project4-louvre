@@ -20,7 +20,7 @@ $(function(){
 
         $('select').slice(0, nbr).each(function(index){
 
-        $('.date').attr('value', dateUrl).attr('disabled', 'disabled');
+        $('.date').attr('value', dateUrl);//.attr('disabled', 'disabled');
 
         //Hide ticket choice before changing birthdate
         $('#mv_bookingbundle_form_user_'+ index +'_ticket').hide();
