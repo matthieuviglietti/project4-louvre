@@ -72,7 +72,7 @@ $(function(){
                             $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
                         }
                     }
-                    if(((yearDiff === 4) && (monthDiff>0)) || ((yearDiff === 4) && (monthDiff === 0) && (dayDiff>0))) {
+                    if(((yearDiff === 4) && (monthDiff>0)) || ((yearDiff === 4) && (monthDiff === 0) && (dayDiff>0)) || ((yearDiff === 4) && (monthDiff === 0) && (dayDiff === 0))) {
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
@@ -104,7 +104,7 @@ $(function(){
                             $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=7]').hide();
                         }
                     }
-                    if((((yearDiff === 12) && (monthDiff>0)) || ((yearDiff === 12) && (monthDiff === 0) && (dayDiff>0)))){
+                    if((((yearDiff === 12) && (monthDiff>0)) || ((yearDiff === 12) && (monthDiff === 0) && (dayDiff>0))) || ((yearDiff === 12) && (monthDiff === 0) && (dayDiff === 0))){
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').show();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').show();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
@@ -137,7 +137,7 @@ $(function(){
                             $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=9]').hide();
                         }
                     }
-                    if(((yearDiff>60) || ((yearDiff === 60) && (monthDiff>0)) || ((yearDiff === 60) && (monthDiff === 0) && (dayDiff>0)))) {
+                    if(((yearDiff>60) || ((yearDiff === 60) && (monthDiff>0)) || ((yearDiff === 60) && (monthDiff === 0) && (dayDiff>0)))|| ((yearDiff === 60) && (monthDiff === 0) && (dayDiff === 0))) {
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=2]').hide();
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=3]').hide();
