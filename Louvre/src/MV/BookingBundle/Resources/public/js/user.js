@@ -25,6 +25,10 @@ $(function(){
 
             $('.date').attr('value', dateUrl);
 
+            //Hide date
+            $('#mv_bookingbundle_form_user_'+ index +'_date').hide();
+            $('label[for="mv_bookingbundle_form_user_'+ index +'_date"]').hide();
+
             //Hide ticket choice before changing birthdate
             $('#mv_bookingbundle_form_user_'+ index +'_ticket').hide();
             $('label[for="mv_bookingbundle_form_user_'+ index +'_ticket"]').hide();    

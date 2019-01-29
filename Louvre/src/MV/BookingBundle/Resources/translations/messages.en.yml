@@ -13,10 +13,6 @@ Merci de bien vouloir renseigner l'identité des visiteurs: Please complete visi
 Pour les tarifs réduits (étudiants, militaires, professeurs,…) un justificatif sera demandé à l’entrée: The presentation of the proof of a reduced rate (students, military, teachers,...) will be asked at the entrance
 Vous avez sélectionné: You have selected
 visiteur(s) : visitors
-Nom: Name
-Prénom: First Name
-Date de naissance: Birthday
-Pays:  Country
 Envoyer: Send
 Choix du billet : Choose your Ticket
 Journée: Day Pass
@@ -35,3 +31,8 @@ Type de Billet: Type of Ticket
 Annuler la commande: Cancel the Order
 Procéder au paiement: Book tickets
 Billets pour le musée du Louvre: Tickets for Louvre Museum
+Name: Name
+First name: First name
+Country: Country
+Birth date: Birth date
+Next Step: Next Step

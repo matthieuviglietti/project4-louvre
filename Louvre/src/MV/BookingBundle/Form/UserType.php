@@ -42,7 +42,8 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MV\BookingBundle\Entity\User'
+            'data_class' => 'MV\BookingBundle\Entity\User',
+            'translation_domain' => 'messages'
         ));
     }
 

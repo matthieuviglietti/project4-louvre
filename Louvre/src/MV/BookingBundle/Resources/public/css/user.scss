@@ -41,16 +41,24 @@ input{
 }
 
 #mv_bookingbundle_form_submit{
-    margin-top: 40px;
-    background-color: rgb(255, 123, 0);
+    border-radius: 40px;
+    width: 250px;
+    height: 45px;
+    background-color: #2C1DEB;
     color: white;
-    font-family: 'Poppins', sans-serif;
     border: none;
-    border-radius: 20px;
-    height: 30px;
-    width: 200px;
+    text-transform: uppercase;
+    margin: 100px auto 70px auto;
+    display: block;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    text-align: center;
+    line-height: 45px;
+    z-index: 1000;
 }
 
-label .required{
+#mv_bookingbundle_form_user>div>label:first-child{
     visibility: hidden;
 }
+

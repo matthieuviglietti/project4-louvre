@@ -19,7 +19,8 @@ class FormType extends AbstractType
                     'label' => false,
                 ])
                      ->add('submit', SubmitType::class, [
-                    'attr' => ['class' => 'save']
+                    'attr' => ['class' => 'save'],
+                    'label' => 'Next Step'
                 ]);
     }
     /**
