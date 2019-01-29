@@ -5,18 +5,18 @@ use Symfony\Component\HttpFoundation\Request;
 
 class MVStripe
 {
-    private $mailer;
+    private $mail;
     private $locale;
     private $currency;
 
-    public function __construct(\Swift_Mailer $mailer, $locale, $currency)
+    public function __construct($mail, $locale, $currency)
   {
-    $this->mailer   = $mailer;
+    $this->mail     = $mail;
     $this->locale   = $locale;
     $this->currency = $currency;
   }
 
-    public function chargeStripe($amount, $request, \Swift_Mailer $mailer)
+    public function chargeStripe($amount, $request)
     {
         \Stripe\Stripe::setApiKey("sk_test_WFwsGVYMQgKdVdfI6ths0Gom");
 
@@ -32,17 +32,9 @@ class MVStripe
                 "source" => $token,
                 'receipt_email' => $email,
             ));
-            $message = (new Swift_Message('Confirmation de votre paiement'))
-                ->setFrom(['contact@louvre.com' => 'Billetterie_louvre'])
-                ->setTo($email)
-                ->setBody('Here is the message itself')
-                ;
-
-            // Send the message
-            $result = $mailer->send($message);
-
-            $message = "Paiement Réussi !";
-            return $message;
+            $this->mail->sendConfirmationEmail($email);
+            $messageStripe = "Paiement Réussi !";
+            return $messageStripe;
         }
             
         catch(\Stripe\Error\Card $e) {
@@ -52,5 +44,6 @@ class MVStripe
             $messageError = "Il y a eu une erreur, merci de réessayer !";
             return $messageError;
         }
+        
     }
 }

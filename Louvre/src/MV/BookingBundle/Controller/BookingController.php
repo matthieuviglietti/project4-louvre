@@ -12,6 +12,8 @@ use MV\BookingBundle\Form\FormType;
 use MV\BookingBundle\Entity\Form;
 use MV\BookingBundle\Stripe\MVStripe;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation\Loader\ArrayLoader;
 
 class BookingController extends Controller
 {

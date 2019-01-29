@@ -1,11 +1,6 @@
-<h3>{{}}</h3>
+<h3>{{'Merci pour votre commande'|trans}}</h3>
 
-Hi {{ name }}! You're successfully registered.
+<img src="{{ absolute_url(asset('bundles/mvbooking/images/logo.jpg')) }}">
 
-{# example, assuming you have a route named "login" #}
-To login, go to: <a href="{{ url('login') }}">...</a>.
+<p>{{'Voici le récapitulatif de votre commande'|trans}} :</p>
 
-Thanks!
-
-{# Makes an absolute URL to the /images/logo.png file #}
-<img src="{{ absolute_url(asset('images/logo.png')) }}">

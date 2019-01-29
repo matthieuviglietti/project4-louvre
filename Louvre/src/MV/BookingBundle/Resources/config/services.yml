@@ -1,8 +1,15 @@
 services:
 
-  mv_booking.stripe:
-          class: MV\BookingBundle\Stripe\MVStripe
-          arguments:
-              - "@Mailer"
-              - %locale%
-              - eur
+    mv_booking.stripe:
+        class: MV\BookingBundle\Stripe\MVStripe
+        arguments:
+            - "@mv_booking.mail"
+            - %locale%
+            - eur
+
+    mv_booking.mail:
+        class: MV\BookingBundle\Email\MVMail
+        arguments:
+            - "@mailer"
+            - "@twig"
+  
