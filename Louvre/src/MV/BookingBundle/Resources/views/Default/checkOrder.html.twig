@@ -29,10 +29,10 @@
     {% for message in app.flashes('notice') %}
     <div class="flash-notice"> {{ message }} </div>
     {% endfor %}
-    
+
     <div class="total">Total :  {{total}}€</div>
    
-    <a href="" class="cancel">{{'Annuler la commande'|trans}}</a>
+    <a href="{{path('mv_booking_cancel', {'locale': 'fr', 'sessionId': session}) }}" class="cancel">{{'Annuler la commande'|trans}}</a>
    <!--> {% if locale == 'fr' %}
         <a href="" class="nextStep" >{{'Procéder au paiement'|trans}}</a>
     {% endif %}
@@ -58,7 +58,7 @@
             data-billing-address="true"
             data-zip-code="true"
             data-allow-remember-me= "false"
-            data-label= "{{"Procéder au paiement" | trans}}"
+            data-label= "{{"Procéder au paiement" | trans}}">
         </script>
         </form>
     {% endif %}
@@ -79,7 +79,7 @@
             data-billing-address="true"
             data-zip-code="true"
             data-allow-remember-me= "false"
-            data-label= "{{"Procéder au paiement" | trans}}"
+            data-label= "{{"Procéder au paiement" | trans}}">
             </script>
         </form>
     {% endif %}

@@ -52,3 +52,7 @@ mv_booking_deleteuser:
     requirements:
         id: \d+
         nbr: \d{1}
+
+mv_booking_cancel:
+    path:     /{_locale}/{sessionId}/cancel
+    defaults: { _controller: MVBookingBundle:Booking:cancelOrder}

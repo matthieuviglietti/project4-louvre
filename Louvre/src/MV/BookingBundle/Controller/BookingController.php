@@ -176,4 +176,19 @@ class BookingController extends Controller
           
         ));
     }
+
+    public function cancelOrderAction(Request $request, $sessionId){
+
+        $em = $this->getDoctrine()->getManager();
+        $OrderToDelete = $em->getRepository(User::class)->findBy(
+            ['sessionKey' => $sessionId]
+        );
+        foreach ($OrderToDelete as $order){
+            $em->remove($order);
+        }
+        $em->flush();
+
+        $request->getSession()->getFlashBag()->add('notice', 'La commande a bien été annulée');
+        return $this->redirectToRoute('mv_booking_homepage');
+    }
 }
