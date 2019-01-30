@@ -45,4 +45,10 @@ mv_booking_confirmation:
     defaults: { _controller: MVBookingBundle:Booking:confirmationOrder}
     requirements:
         _locale: fr|en
-        amount: \d
+
+mv_booking_deleteuser:
+    path:     /delete/{id}/{date}/{nbr}
+    defaults: { _controller: MVBookingBundle:Booking:deleteUser}
+    requirements:
+        id: \d+
+        nbr: \d{1}

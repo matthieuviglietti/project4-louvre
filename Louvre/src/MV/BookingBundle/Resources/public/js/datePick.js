@@ -45,19 +45,28 @@ $(function(){
         }
     }}
 
-    $('#date').on("change", function(){
-        var selectedDate = 'date='+$('#datealt').val();
+    $('#date').change(function(){
+        var selectedDate = $('#datealt').val();
+        var selectedDateParam = 'date='+$('#datealt').val();
         var checkIfDateIsBookable = Routing.generate('mv_booking_checkdate');
-        $('#check').load(checkIfDateIsBookable,selectedDate);
-        var routeToMany= Routing.generate('mv_booking_howmany', {date: selectedDate});
+        $('#check').load(checkIfDateIsBookable,selectedDateParam);
+        var routeToMany= Routing.generate('mv_booking_howmany', {_locale: 'fr', date: selectedDate});
         $("a").attr('href', routeToMany);
     });
-
+   
     $('#dateen').on("change", function(){
         selectedDate = 'date='+$('#dateen').val();
         var checkIfDateIsBookable = Routing.generate('mv_booking_checkdate');
         $('#check').load(checkIfDateIsBookable,selectedDate);
-        routeToMany= Routing.generate('mv_booking_howmany', {_locale: 'en', date: selectedDate});
-        $("a").attr('href', $routeToMany);
+        var routeToManyEn= Routing.generate('mv_booking_howmany', {_locale: 'en', date: selectedDate});
+        $("a").attr('href', routeToManyEn);
     });
+
+    $('#check').on("click", '#valid', function(){
+        $("a").attr('class', 'noUse');
+    });
+    
+    
+
+    
 });

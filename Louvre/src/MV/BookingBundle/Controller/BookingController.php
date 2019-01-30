@@ -55,7 +55,7 @@ class BookingController extends Controller
             $listVisitors = $userRepository->countUserDay($date);
             $listVisitors= count($listVisitors);
         
-            if ($listVisitors <1000){
+            if ($listVisitors < 1000){
             $response = new Response('<img id="valid" src= "'.$urlAsset.'"/>', Response::HTTP_OK);
             return $response;
             }
@@ -130,6 +130,20 @@ class BookingController extends Controller
             "nbr" => $nbr,
             "users" => $listActiveUsers,
             "total" => $totalCost
+        ));
+    }
+
+    public function deleteUserAction(Request $request, $id, $date, $nbr){
+
+       $em = $this->getDoctrine()->getManager();
+       $userToDelete = $em->getRepository(User::class)->find($id);
+       $em->remove($userToDelete);
+       $em->flush();
+       
+        $request->getSession()->getFlashBag()->add('notice', 'Le visiteur a bien été supprimé');
+        return $this->redirectToRoute('mv_booking_check', array(
+            'date' => $date,
+            'nbr' => $nbr
         ));
     }
 

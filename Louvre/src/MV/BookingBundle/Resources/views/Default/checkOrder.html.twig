@@ -12,14 +12,24 @@
     
     <div id="containResume">
         {% for users in users %}
-        
-                <p class= "user">{{users.Name}} {{users.FirstName}}</p> 
-                <div class="type">{{'Type de Billet'|trans}} : {{users.Ticket}}</div><div class="cost">{{users.Ticket.cost}}€</div><br/>
-            
-                
-        {% endfor %}
-             
+                <div id="containUsers">
+                    <div id="infos">
+                        <p class= "user">{{users.Name}} {{users.FirstName}}</p> 
+                        <div class="type">{{'Type de Billet'|trans}} : {{users.Ticket}}</div>
+                    </div>
+                    <div class="cost">{{users.Ticket.cost}}€</div>
+                    <form id="deleteUser" action="{{path('mv_booking_deleteuser', {'id': users.id, 'date': date, 'nbr': nbr}) }}">
+                        <input type="Submit" value="{{'Supprimer'|trans}}">
+                    </form>
+                </div>
+                <hr>
+                {% set UserId = users.id %}
+        {% endfor %}        
     </div>
+    {% for message in app.flashes('notice') %}
+    <div class="flash-notice"> {{ message }} </div>
+    {% endfor %}
+    
     <div class="total">Total :  {{total}}€</div>
    
     <a href="" class="cancel">{{'Annuler la commande'|trans}}</a>
@@ -35,7 +45,7 @@
     <form id='formfrstripe' action= "" method="POST">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="{{ asset('bundles/mvbooking/js/jquery-ui.min.js') }}"></script>
-        <script type="text/javascript"> var total= {{total}};</script>
+        <script type="text/javascript"> var total= {{total}}; var UserId = UserId</script>
         <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="pk_test_0qgdyYyOrvcIi3Efjdk0L96U"
