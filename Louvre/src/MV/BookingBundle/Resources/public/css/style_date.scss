@@ -21,6 +21,19 @@ form{
         visibility: hidden;
     }
 }
+
+#flex{
+    display: flex;
+    #check{
+        margin-top: 95px;
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+    }
+}
+
+
+
 .nextStep, .nextStepEn{
     border-radius: 40px;
     width: 250px;

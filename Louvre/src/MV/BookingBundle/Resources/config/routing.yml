@@ -10,6 +10,10 @@ mv_booking_date:
     requirements:
         _locale: fr|en
 
+mv_booking_checkdate:
+    path:     /checkdate
+    defaults: { _controller: MVBookingBundle:Booking:checkDate}
+
 mv_booking_howmany:
     path:     /{_locale}/{date}/howmany
     defaults: { _controller: MVBookingBundle:Booking:howMany}

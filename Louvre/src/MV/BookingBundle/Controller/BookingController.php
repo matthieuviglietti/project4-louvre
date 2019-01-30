@@ -44,6 +44,26 @@ class BookingController extends Controller
         ));
     }
 
+    public function checkDateAction(Request $request){
+        if($request->isMethod('GET')){
+            $date = $request->query->get('date');
+            $em = $this->getDoctrine()->getManager();
+            $userRepository = $em->getRepository(User::class);
+            $urlBase = $this->getParameter('base_url');
+            $urlAsset = $urlBase.'bundles/mvbooking/images/validdate.png'; 
+            $urlAssetWrong = $urlBase.'bundles/mvbooking/images/novaliddate.png';
+            $listVisitors = $userRepository->countUserDay($date);
+            $listVisitors= count($listVisitors);
+        
+            if ($listVisitors <1000){
+            $response = new Response('<img id="valid" src= "'.$urlAsset.'"/>', Response::HTTP_OK);
+            return $response;
+            }
+            $response = new Response('<img id="novalid" src= "'.$urlAssetWrong.'"/>', Response::HTTP_OK);
+            return $response;
+        }
+    }
+
     public function addUserAction(Request $request, $date, $nbr){
     
         $locale = $request->getLocale();

@@ -46,14 +46,18 @@ $(function(){
     }}
 
     $('#date').on("change", function(){
-        $selectedDate = $('#datealt').val();
-        $routeToMany= Routing.generate('mv_booking_howmany', {date: $selectedDate});
-        $("a").attr('href', $routeToMany);
+        var selectedDate = 'date='+$('#datealt').val();
+        var checkIfDateIsBookable = Routing.generate('mv_booking_checkdate');
+        $('#check').load(checkIfDateIsBookable,selectedDate);
+        var routeToMany= Routing.generate('mv_booking_howmany', {date: selectedDate});
+        $("a").attr('href', routeToMany);
     });
 
     $('#dateen').on("change", function(){
-        $selectedDate = $('#dateen').val();
-        $routeToMany= Routing.generate('mv_booking_howmany', {_locale: 'en', date: $selectedDate});
+        selectedDate = 'date='+$('#dateen').val();
+        var checkIfDateIsBookable = Routing.generate('mv_booking_checkdate');
+        $('#check').load(checkIfDateIsBookable,selectedDate);
+        routeToMany= Routing.generate('mv_booking_howmany', {_locale: 'en', date: selectedDate});
         $("a").attr('href', $routeToMany);
     });
 });

@@ -27,28 +27,28 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
     public function selectUserOrder($sessionId)
     {
         $qb = $this->createQueryBuilder('u');
-        $qb
+        $qb 
             -> where('u.sessionKey = :sessionId')
             -> setParameter('sessionId', $sessionId);
 
         $listActiveUsers = $qb->getQuery()
                               ->getResult();
 
-        return $listActiveUsers;
-            
+        return $listActiveUsers;     
     }
 
     public function countUserDay($date)
     {
         $qb = $this->createQueryBuilder('u');
         $qb
+            -> select('COUNT(u.name)')
             -> where('u.date = :date')
             -> setParameter('date', $date);
 
-        $listActiveUsers = $qb->getQuery()
-                              ->getResult();
+        $listVisitors = $qb->getQuery()
+                           ->getResult();
 
-        return $listActiveUsers;
+        return $listVisitors;
             
     }
 }
