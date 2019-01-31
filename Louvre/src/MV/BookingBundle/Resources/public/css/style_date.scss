@@ -29,6 +29,13 @@ form{
         width: 40px;
         height: 40px;
         margin-left: 10px;
+        #valid, #novalid{
+            visibility: hidden;
+        }
+        #infoTicket{
+            color: red;
+            visibility: hidden;
+        }
     }
 }
 

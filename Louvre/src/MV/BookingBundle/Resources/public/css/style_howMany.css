@@ -23,6 +23,11 @@ form #datealt {
     width: 40px;
     height: 40px;
     margin-left: 10px; }
+    #flex #check #valid, #flex #check #novalid {
+      visibility: hidden; }
+    #flex #check #infoTicket {
+      color: red;
+      visibility: hidden; }
 
 .nextStep, .nextStepEn {
   border-radius: 40px;

@@ -14,6 +14,7 @@ use MV\BookingBundle\Stripe\MVStripe;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Translation\Translator;
 use Symfony\Component\Translation\Loader\ArrayLoader;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class BookingController extends Controller
 {
@@ -55,11 +56,11 @@ class BookingController extends Controller
             $listVisitors = $userRepository->countUserDay($date);
             $listVisitors= count($listVisitors);
         
-            if ($listVisitors < 1000){
-            $response = new Response('<img id="valid" src= "'.$urlAsset.'"/>', Response::HTTP_OK);
+            if ($listVisitors > 1000){
+            $response = new JsonResponse(true);
             return $response;
             }
-            $response = new Response('<img id="novalid" src= "'.$urlAssetWrong.'"/>', Response::HTTP_OK);
+            $response = new JsonResponse(false);
             return $response;
         }
     }
@@ -167,7 +168,6 @@ class BookingController extends Controller
         }
        
         return $this->redirectToRoute('mv_booking_confirmation');
-       
     }
 
     public function confirmationOrderAction(Request $request){

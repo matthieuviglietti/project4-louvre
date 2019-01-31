@@ -23,8 +23,11 @@
             <input type="text" id="dateen">
             </form>
         {% endif %}
-
-        <div id="check"></div>  
+        <div id="load"></div>
+        <div id="check">
+            <img src= "{{asset('bundles/mvbooking/images/validdate.png')}}" id="valid"/>  
+            <img src= "{{asset('bundles/mvbooking/images/novaliddate.png')}}" id="novalid"/>  <span id="infoTicket">{{"Plus de ticket disponible"|trans}}</span
+        </div>  
     </div>
     
     <a href="" class="nextStep" >{{'Étape suivante'|trans}}</a>

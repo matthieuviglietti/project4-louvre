@@ -49,7 +49,17 @@ $(function(){
         var selectedDate = $('#datealt').val();
         var selectedDateParam = 'date='+$('#datealt').val();
         var checkIfDateIsBookable = Routing.generate('mv_booking_checkdate');
-        $('#check').load(checkIfDateIsBookable,selectedDateParam);
+        $('#load').load(checkIfDateIsBookable,selectedDateParam, function(response, status, xhr){
+            console.log(response);
+            if(response == "true"){
+                $('#valid').css("visibility", "visible");
+            }
+            else{
+                $('#novalid').css("visibility", "visible").css("float", "right");
+                $("#infoTicket").css("visibility", "visible");
+                $("a").css("visibility", "hidden");
+            }
+        });
         var routeToMany= Routing.generate('mv_booking_howmany', {_locale: 'fr', date: selectedDate});
         $("a").attr('href', routeToMany);
     });
