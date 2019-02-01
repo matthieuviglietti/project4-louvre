@@ -8,8 +8,9 @@
 
 {% block body %}
     {{ parent() }}
+   {% set visit = date %}
     <h2 class="subtitle">{{"Merci de bien vouloir vérifier les informations saisies"|trans}}</h2>
-    
+   <p>{{ date }}</p>
     <div id="containResume">
         {% for users in users %}
                 <div id="containUsers">
@@ -33,25 +34,20 @@
     <div class="total">Total :  {{total}}€</div>
    
     <a href="{{path('mv_booking_cancel', {'locale': 'fr', 'sessionId': session}) }}" class="cancel">{{'Annuler la commande'|trans}}</a>
-   <!--> {% if locale == 'fr' %}
-        <a href="" class="nextStep" >{{'Procéder au paiement'|trans}}</a>
-    {% endif %}
-    {% if locale == 'en' %}
-        <a href="" class="nextStepEn" >{{'Procéder au paiement'|trans}}</a>
-    {% endif %}-->
+
     {% set totalAmount = total * 100 %}
 
     {% if locale == 'fr' %}
     <form id='formfrstripe' action= "" method="POST">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="{{ asset('bundles/mvbooking/js/jquery-ui.min.js') }}"></script>
-        <script type="text/javascript"> var total= {{total}}; var UserId = UserId</script>
+        <script type="text/javascript"> var total= {{ total }}; var UserId = UserId; var visit= {{ visit }}</script>
         <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="pk_test_0qgdyYyOrvcIi3Efjdk0L96U"
             data-amount= {{totalAmount}}
             data-name="Louvre"
-            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-image="{{ asset('bundles/mvbooking/images/vignette_logo.png') }}"
             data-locale="{{locale}}"
             data-description="{{"Billets pour le musée du Louvre" | trans}}"
             data-currency="EUR"
@@ -72,7 +68,7 @@
             data-key="pk_test_0qgdyYyOrvcIi3Efjdk0L96U"
             data-amount= {{totalAmount}}
             data-name="Louvre"
-            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-image="{{ asset('bundles/mvbooking/images/vignette_logo.png') }}"
             data-locale="{{locale}}"
             data-description="{{"Billets pour le musée du Louvre" | trans}}"
             data-currency="EUR"

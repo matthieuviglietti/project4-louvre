@@ -50,13 +50,10 @@ class BookingController extends Controller
             $date = $request->query->get('date');
             $em = $this->getDoctrine()->getManager();
             $userRepository = $em->getRepository(User::class);
-            $urlBase = $this->getParameter('base_url');
-            $urlAsset = $urlBase.'bundles/mvbooking/images/validdate.png'; 
-            $urlAssetWrong = $urlBase.'bundles/mvbooking/images/novaliddate.png';
             $listVisitors = $userRepository->countUserDay($date);
             $listVisitors= count($listVisitors);
         
-            if ($listVisitors > 1000){
+            if ($listVisitors < 1000){
             $response = new JsonResponse(true);
             return $response;
             }
@@ -148,9 +145,9 @@ class BookingController extends Controller
         ));
     }
 
-    public function StripeAction(Request $request, $amount){
+    public function StripeAction(Request $request, $amount, $date){
         
-        $this->container->get('mv_booking.stripe')->chargeStripe($amount, $request);
+        $this->container->get('mv_booking.stripe')->chargeStripe($amount, $request, $date);
     
         $translator = new Translator('en_EN');
         $translator->addLoader('array', new ArrayLoader());
