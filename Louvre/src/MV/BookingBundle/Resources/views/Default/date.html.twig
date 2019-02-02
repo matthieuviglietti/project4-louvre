@@ -21,16 +21,18 @@
         {% if locale == 'en' %}
             <form id="datepick">
             <input type="text" id="dateen">
+            <input type="date" id="datealt">
             </form>
         {% endif %}
+
         <div id="load"></div>
         <div id="check">
-            <img src= "{{asset('bundles/mvbooking/images/validdate.png')}}" id="valid"/>  
-            <img src= "{{asset('bundles/mvbooking/images/novaliddate.png')}}" id="novalid"/>  <span id="infoTicket">{{"Plus de ticket disponible"|trans}}</span
-        </div>  
+            <img src= "{{asset('bundles/mvbooking/images/validdate.png')}}" alt="valid" id="valid"/>
+            <img src= "{{asset('bundles/mvbooking/images/novaliddate.png')}}" alt="novalid" id="novalid"/>  <span id="infoTicket">{{"Plus de ticket disponible"|trans}}</span>
+        </div>
     </div>
-    
-    <a href="" class="nextStep" >{{'Étape suivante'|trans}}</a>
+    <br>
+    <a href="" class="nextStep hvr-sweep-to-right">{{'Étape suivante'|trans}}</a>
 {% endblock %}
 
 {% block js %}

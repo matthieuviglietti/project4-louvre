@@ -6,13 +6,66 @@
 {% endblock %}
 
 {% block body %}
-    {{ parent() }}
-    <h2 class="subtitle">{{"Merci pour votre commande"|trans}}</h2>
+
+    <h2 class="titleEnd">{{"Toute l'équipe du musée du Louvre vous remercie pour votre commande"|trans}}</h2>
+        <a id="backhome" href="{{ path('mv_booking_homepage') }}">{{ 'Nouvelle Commande'|trans }}</a>
+{% if locale == 'fr' %}
+    <svg version="1.1" baseProfile="tiny" id="Calque_fr"
+         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 386.38 104.48"
+         xml:space="preserve">
+<g>
+    <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M102.6,1.48v101.16H90.23V38.07L51.48,89.19L13.01,38.07v64.57H0.5
+		V1.48L51.48,68.2L102.6,1.48z"/>
+    <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M118.74,6.99h65.38v11.84h-53.14v27.71h43.45v11.84h-43.58v32.29
+		h53.27v11.97h-65.38V6.99z"/>
+    <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M253.52,102.5L228.5,66.05h-16.01v36.59h-12.24V6.99h38.07
+		c13.18,0,28.12,9.42,28.12,29.46c0,17.62-11.43,27.04-23.14,29.19l25.02,36.86H253.52z M212.49,53.27h24.48
+		c12.91,0,17.76-7.8,17.76-16.82c0-8.88-4.84-16.55-17.76-16.55h-24.48V53.27z"/>
+    <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M356.02,96.32c-7.8,4.84-16.95,7.67-26.77,7.67
+		c-27.71,0-50.18-22.2-50.18-49.77s22.46-50.04,50.18-50.04c9.82,0,18.97,2.83,26.77,7.8v14.66c-7-6.32-16.41-9.95-26.77-9.95
+		c-21.52,0-38.47,16.68-38.47,37.53c0,20.72,16.95,37.26,38.47,37.26c10.36,0,19.77-3.5,26.77-9.69V96.32z"/>
+    <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M385.88,102.64H373.5V6.99h12.38V102.64z"/>
+</g>
+</svg>
+{% endif %}
+
+{% if locale == 'en' %}
+    <svg version="1.1" baseProfile="tiny" id="Calque_1"
+             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 382.88 203.87"
+             xml:space="preserve">
+        <g>
+            <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M0.5,15.09V5.6h64.55v9.49H37.79v68.04H27.76V15.09H0.5z"/>
+            <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M128.62,48.89H88.17v34.24H78.14V5.6h10.03v32.93h40.45V5.6h9.92
+                v77.53h-9.92V48.89z"/>
+            <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M207.13,65.03l-38.16-0.11l-8.61,18.21h-10.9l38.6-81.56l38.49,81.56
+                h-10.79L207.13,65.03z M173.33,55.43l29.44-0.11l-14.72-31.95L173.33,55.43z"/>
+            <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M237.44,83.13V1.24l58.99,61.06V5.6h10.03v81.56l-59.1-60.73v56.7
+                H237.44z"/>
+            <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M370.04,83.13L339.4,46.38l-9.81,11.01v25.73h-10.03V5.6h10.03v39.04
+                L363.82,5.6h11.67l-30.09,34.02l36.42,43.51H370.04z"/>
+        </g>
+                <g>
+                    <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M108.79,151.61l24.99-35.65h13.98l-33.52,47.38v36.84h-10.66v-36.84
+                l-33.52-47.38h13.86L108.79,151.61z"/>
+                    <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M190.64,113.94c23.81,0,43,19.78,43,44.18
+                c0,24.28-19.19,43.95-43,43.95c-23.69,0-42.88-19.66-42.88-43.95C147.76,133.72,166.95,113.94,190.64,113.94z M190.64,191.05
+                c18.36,0,33.05-14.69,33.05-33.05s-14.69-33.05-33.05-33.05c-18.36,0-32.93,14.69-32.93,33.05S172.28,191.05,190.64,191.05z"/>
+                    <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M313.24,169.97c0,20.85-15.16,33.4-33.4,33.4
+                s-33.17-12.56-33.17-33.4v-54.01h10.9v53.9c0,14.92,8.17,22.74,22.39,22.74c14.33,0,22.51-7.58,22.51-22.74v-53.9h10.78V169.97z"/>
+            </g>
+    </svg>
+{% endif %}
+
     {% for message in app.flashes('notice') %}
     <div class="flash-notice">
         {{ message }}
     </div>
 {% endfor %}
+{% endblock %}
 
-       
+
+{% block js %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/mvbooking/js/jquery.drawsvg.js')}}"></script>
+    <script src="{{ asset('bundles/mvbooking/js/confirmationOrder.js')}}"></script>
 {% endblock %}

@@ -8,9 +8,8 @@ h3 {
   visibility: hidden; }
 
 #containResume {
-  border: 1px solid white;
-  border-radius: 20px;
-  width: 100%;
+  border: 3px solid white;
+  width: 90vm;
   padding: 5px; }
   @media (max-width: 450px) {
     #containResume {
@@ -46,7 +45,6 @@ h3 {
         background-color: orange;
         color: white;
         border: none;
-        border-radius: 20px;
         height: 20px;
         width: 100px; }
 
@@ -66,9 +64,9 @@ h3 {
   display: block;
   width: 450px;
   height: 30px;
-  background-color: #2C1DEB;
-  border-radius: 20px;
-  color: white;
+  border: 3px solid white;
+  color: black;
+  background-color: white;
   font-family: 'Poppins', sans-serif;
   margin-top: 30px;
   text-align: center;

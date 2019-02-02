@@ -11,6 +11,7 @@ $titlefont: 'Poppins', sans-serif;
 body{
     width: 100vm;
     background-color: black;
+    min-width: 450px;
     header{
         margin-top: 55px;
         #logo{
@@ -28,27 +29,27 @@ body{
     .title{
         text-transform: uppercase;
         font-family   : $titlefont;
-        margin-bottom: 0px;
-        margin-top: 0px;
+        margin-bottom: 0;
+        margin-top: 0;
         font-size: 1.4em;
         color: #FFFFFF;
+
     }
     .subtitle{
         font-family: $titlefont;
         font-weight: 300;
         color: $lightgrey;
-        margin-top: 0px;
+        margin-top: 0;
         margin-bottom: 30px;
         font-size: 1em;
     }
     
     #contain{
-        border-radius     : 30px;
-        border: 1px solid white;
+        border: 3px solid white;
         margin: 0 auto 0 auto;
         margin-top: 50px;
         padding: 15px;
-
+        width: 440px;
         .languages {
             a{
             width                : 200px;
@@ -60,15 +61,20 @@ body{
             color                : #FFFFFF;
             text-transform       : uppercase;
             font-family: $titlefont;
+                &:hover{
+                    color: orange;
+                }
                 .rounded-image{
                     width        : 50px;
                     height       : 50px;
                     border-radius: 900px;
                     margin-right : 20px;
+                    }
                 }
+
             }
         }
     }
-}
+
 
 

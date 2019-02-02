@@ -10,7 +10,6 @@
 {% block body %}
     {{ parent() }}
     <h2 class="subtitle">{{"Combien de billets voulez-vous ?"|trans}}</h2>
-    <p class="selectedDate">{{date}}</p>
     <form id="howMany">
         <select name="number" id="number">
             <option value="1" name="1">1</option>
@@ -20,12 +19,14 @@
             <option value="5" name="5">5</option>
             <option value="6" name="6">6</option>
         </select>
+    </form>
     {% if locale == 'fr' %}
-        <a href="" class="nextStep" >{{'Étape suivante'|trans}}</a>
+        <a href="" class="nextStep hvr-sweep-to-right" >{{'Étape suivante'|trans}}</a>
     {% endif %}
     {% if locale == 'en' %}
-        <a href="" class="nextStepEn" >{{'Étape suivante'|trans}}</a>
+        <a href="" class="nextStepEn hvr-sweep-to-right" >{{'Étape suivante'|trans}}</a>
     {% endif %}
+    <p class="selectedDate">{{date}}</p>
 {% endblock %}
 
 {% block js %}

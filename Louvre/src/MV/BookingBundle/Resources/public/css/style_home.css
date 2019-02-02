@@ -2,7 +2,8 @@
 @import url(font.css);
 body {
   width: 100vm;
-  background-color: black; }
+  background-color: black;
+  min-width: 450px; }
   body header {
     margin-top: 55px; }
     body header #logo {
@@ -16,23 +17,23 @@ body {
   body .title {
     text-transform: uppercase;
     font-family: "Poppins", sans-serif;
-    margin-bottom: 0px;
-    margin-top: 0px;
+    margin-bottom: 0;
+    margin-top: 0;
     font-size: 1.4em;
     color: #FFFFFF; }
   body .subtitle {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     color: #8c8c8c;
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 30px;
     font-size: 1em; }
   body #contain {
-    border-radius: 30px;
-    border: 1px solid white;
+    border: 3px solid white;
     margin: 0 auto 0 auto;
     margin-top: 50px;
-    padding: 15px; }
+    padding: 15px;
+    width: 440px; }
     body #contain .languages a {
       width: 200px;
       margin: auto auto 20px auto;
@@ -43,6 +44,8 @@ body {
       color: #FFFFFF;
       text-transform: uppercase;
       font-family: "Poppins", sans-serif; }
+      body #contain .languages a:hover {
+        color: orange; }
       body #contain .languages a .rounded-image {
         width: 50px;
         height: 50px;

@@ -177,8 +177,10 @@ class BookingController extends Controller
 
     public function confirmationOrderAction(Request $request){
 
+        $locale = $request->getLocale();
+
         return $this->render('@MVBooking/Default/confirmationOrder.html.twig', array(
-          
+          'locale' => $locale
         ));
     }
 

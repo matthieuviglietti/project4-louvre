@@ -4,13 +4,14 @@ $(function(){
         "display":"block",
         "width":"250px",
         "height": "45px",
-        "background":"#2C1DEB",
+        "background":"transparent",
         "color":"white",
-        "border-radius": "20px",
+        "border": "3px solid white",
         "text-transform": "uppercase",
         "font-family": "'Poppins', sans-serif",
         "margin":"100px auto 0 auto",
         "font-size":"1em" });
+    $("button.stripe-button-el").attr('class', 'stripe-button-el hvr-sweep-to-right');
     $("button.stripe-button-el").text($(".stripe-button-el span").text());
     $(".stripe-button-el span").remove();
 

@@ -23,7 +23,7 @@
                 <div id="containUsers">
                     <div id="infos">
                         <p class= "user">{{users.Name}} {{users.FirstName}}</p> 
-                        <div class="type">{{'Type de Billet'|trans}} : {{users.Ticket}}</div>
+                        <div class="type">{{'Type de Billet'|trans}} : {{users.Ticket | trans}}</div>
                     </div>
                     <div class="cost">{{users.Ticket.cost}}€</div>
                     <form id="deleteUser" action="{{path('mv_booking_deleteuser', {'id': users.id, 'date': date, 'nbr': nbr}) }}">

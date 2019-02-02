@@ -4,7 +4,7 @@
     <link rel="stylesheet" href={{asset('bundles/mvbooking/css/style_home.css')}} type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
     <meta charset="utf-8">
-    {% block title %}Louvre - Page d'accueil{% endblock %}
+    <title>Louvre - Page d'accueil</title>
 </head>
 <body>
     <header>
@@ -22,6 +22,7 @@
         <div class="languages">
             <a href="{{ path('mv_booking_date', {'_locale': 'en'})}}"><img class= "rounded-image button" src={{asset('bundles/mvbooking/images/en.jpg')}} alt="drapeau_anglais"> <p>{{'Anglais'|trans}}</p></a>
         </div>
+    </div>
 
 </body>
 </html>

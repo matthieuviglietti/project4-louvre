@@ -1,0 +1,28 @@
+.titleEnd{
+  text-transform: uppercase;
+  font-family   : 'Poppins', sans-serif;
+  font-size: 1.4em;
+  color: #FFFFFF;
+  margin: 0px auto 30px auto ;
+  display: block;
+  width: 100vm;
+  text-align: center;
+}
+
+#backhome{
+  text-transform: uppercase;
+  font-family   : 'Poppins', sans-serif;
+  margin: 0px auto 30px auto;
+  width: 250px;
+  height: 45px;
+  color: #FFFFFF;
+  display: block;
+  border: 3px solid white;
+  text-decoration: none;
+  text-align: center;
+  line-height: 45px;
+    &:hover{
+      border: 3px solid orange;
+      color: orange;
+    }
+}
