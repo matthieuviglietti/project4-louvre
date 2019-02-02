@@ -35,7 +35,7 @@ mv_booking_check:
         nbr    : \d{1}
 
 mv_booking_stripe:
-    path:     /{_locale}/{amount}/paiement
+    path:     /{_locale}/{amount}/{date}/paiement
     defaults: { _controller: MVBookingBundle:Booking:stripe}
     requirements:
         _locale: fr|en

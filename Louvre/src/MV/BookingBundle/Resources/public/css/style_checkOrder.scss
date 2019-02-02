@@ -1,5 +1,16 @@
 @import "mixin.scss";
 
+h3{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    margin-bottom: 5px;
+    margin-left: 40px;
+}
+
+#date{
+    visibility: hidden;
+}
+
 #containResume{
     border: 1px solid white;
     border-radius: 20px;

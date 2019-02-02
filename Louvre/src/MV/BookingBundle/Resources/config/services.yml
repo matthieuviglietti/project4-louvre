@@ -6,10 +6,12 @@ services:
             - "@mv_booking.mail"
             - %locale%
             - eur
+        public: true
 
     mv_booking.mail:
         class: MV\BookingBundle\Email\MVMail
         arguments:
             - "@mailer"
             - "@twig"
+        public: true
   

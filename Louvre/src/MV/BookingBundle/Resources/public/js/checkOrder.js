@@ -16,8 +16,11 @@ $(function(){
 
     amount = total*100;
     console.log(amount);
-    var formRoute = Routing.generate('mv_booking_stripe', {_locale: 'fr', amount: amount, date: visit});
-    var formRouteEn = Routing.generate('mv_booking_stripe', {_locale: 'en', amount: amount, date: visit});
+    date = new Date($('#date').text());
+    date = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+    console.log(date);
+    var formRoute = Routing.generate('mv_booking_stripe', {_locale: 'fr', amount: amount, date: date });
+    var formRouteEn = Routing.generate('mv_booking_stripe', {_locale: 'en', amount: amount, date: date });
     $('#formfrstripe').attr("action", formRoute);
     $('#formenstripe').attr("action", formRouteEn);
 

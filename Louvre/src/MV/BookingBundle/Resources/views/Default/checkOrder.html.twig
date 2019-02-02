@@ -8,9 +8,16 @@
 
 {% block body %}
     {{ parent() }}
-   {% set visit = date %}
     <h2 class="subtitle">{{"Merci de bien vouloir vérifier les informations saisies"|trans}}</h2>
-   <p>{{ date }}</p>
+    <div id="date"> {{ date | date('Y-m-d') }}</div>
+    <h3>{{ "Date de visite"|trans }}:
+        {% if locale == 'fr' %}
+            {{ date | date('d-m-Y') }}
+        {% endif %}
+        {% if locale == 'en' %}
+            {{ date | date('Y-m-d') }}
+        {% endif %}
+    </h3>
     <div id="containResume">
         {% for users in users %}
                 <div id="containUsers">
@@ -41,7 +48,7 @@
     <form id='formfrstripe' action= "" method="POST">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="{{ asset('bundles/mvbooking/js/jquery-ui.min.js') }}"></script>
-        <script type="text/javascript"> var total= {{ total }}; var UserId = UserId; var visit= {{ visit }}</script>
+        <script type="text/javascript"> var total= {{ total }}; var UserId = UserId; var date = {{ date|date('Y-m-d') }} </script>
         <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="pk_test_0qgdyYyOrvcIi3Efjdk0L96U"

@@ -146,17 +146,25 @@ class BookingController extends Controller
     }
 
     public function StripeAction(Request $request, $amount, $date){
-        
-        $this->container->get('mv_booking.stripe')->chargeStripe($amount, $request, $date);
+
+        $em = $this->getDoctrine()->getManager();
+        $userRepository = $em->getRepository(User::class);
+        $session = $request->getSession();
+        $sessionId = $session->get('orderId');
+        $locale = $request->getLocale();
+
+        $listActiveUsers = $userRepository->selectUserOrder($sessionId);
+
+        $this->container->get('mv_booking.stripe')->chargeStripe($amount, $date, $listActiveUsers, $locale);
     
-        $translator = new Translator('en_EN');
+        $translator = new Translator('fr_FR');
         $translator->addLoader('array', new ArrayLoader());
         $translator->addResource('array', [
                     'Your paiement was accepted, thank you. An email was send to' => 'le paiement a réussi, merci et un email a été envoyé à ',
                      ], 'fr_FR');
         $messageSuccessFrench = $translator->trans('Your paiement was accepted, thank you. An email was send to');
         
-        $locale    = $request->getLocale();
+
         if($locale = 'fr'){
             $this->addFlash('notice', $messageSuccessFrench);
         }

@@ -1,6 +1,19 @@
-<h3>{{'Merci pour votre commande'|trans}}</h3>
+<h2>{{'Merci pour votre commande !'|trans}}</h2>
 
 <img src="{{ absolute_url(asset('bundles/mvbooking/images/logo.jpg')) }}">
 
 <p>{{'Voici le récapitulatif de votre commande'|trans}} :</p>
+{% if locale == 'fr' %}
+       <p>{{ "Date de visite"|trans }}: {{ date|date('d-m-Y') }}</p>
+{% endif %}
+{% if locale == 'en' %}
+       <p>{{ "Date de visite"|trans }}: {{ date }}</p>
+{% endif %}
+
+<p>{{ "Liste des visiteurs"|trans }} :</p>
+{% for users in users %}
+       <p>{{ users.name }} {{ users.firstName }} : {{ users.ticket.type }}</p>
+{% endfor %}
+
+{{ "Cet email correspond à votre billet électronique, merci de bien vouloir le présenter à l'entrée du musée." | trans}}
 

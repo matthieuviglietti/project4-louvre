@@ -16,7 +16,7 @@ class MVStripe
     $this->currency = $currency;
   }
 
-    public function chargeStripe($amount, $date)
+    public function chargeStripe($amount, $date, $listActiveUsers, $locale)
     {
         \Stripe\Stripe::setApiKey("sk_test_WFwsGVYMQgKdVdfI6ths0Gom");
 
@@ -32,7 +32,7 @@ class MVStripe
                 "source" => $token,
                 'receipt_email' => $email,
             ));
-            $this->mail->sendConfirmationEmail($email, $date);
+            $this->mail->sendConfirmationEmail($email, $date, $listActiveUsers, $locale);
             $messageStripe = "Paiement Réussi !";
             return $messageStripe;
         }
