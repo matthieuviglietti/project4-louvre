@@ -7,22 +7,28 @@
     <title>Louvre - Page d'accueil</title>
 </head>
 <body>
+<canvas id="canvas"></canvas>
     <header>
        <a id="logo" href="#"> <img src={{asset('bundles/mvbooking/images/logo.jpg')}} alt=""></a>
     </header>
 
+
     <div id="contain">
-        <div>
-            <h1 class="title">{{"Bienvenue"|trans}}</h1>
-            <h2 class="subtitle">{{"Quelle Langue préférez-vous ?"|trans}}</h2>
-        </div>
-        <div class="languages">
-            <a href="{{ path('mv_booking_date', {'_locale': 'fr'})}}"><img class= "rounded-image button" src={{asset('bundles/mvbooking/images/fr.jpg')}} alt="drapeau_français"> <P>{{'Français'|trans}}</p></a>
-        </div>
-        <div class="languages">
-            <a href="{{ path('mv_booking_date', {'_locale': 'en'})}}"><img class= "rounded-image button" src={{asset('bundles/mvbooking/images/en.jpg')}} alt="drapeau_anglais"> <p>{{'Anglais'|trans}}</p></a>
+        <div class="animate">
+            <div>
+                <h1 class="title">{{"Bienvenue"|trans}}</h1>
+                <h2 class="subtitle">{{"Quelle Langue préférez-vous ?"|trans}}</h2>
+            </div>
+            <div class="languages">
+                <a href="{{ path('mv_booking_date', {'_locale': 'fr'})}}"><img class= "rounded-image button" src={{asset('bundles/mvbooking/images/fr.jpg')}} alt="drapeau_français"> <P>{{'Français'|trans}}</p></a>
+            </div>
+            <div class="languages">
+                <a href="{{ path('mv_booking_date', {'_locale': 'en'})}}"><img class= "rounded-image button" src={{asset('bundles/mvbooking/images/en.jpg')}} alt="drapeau_anglais"> <p>{{'Anglais'|trans}}</p></a>
+            </div>
         </div>
     </div>
 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="{{ asset('bundles/mvbooking/js/home.js') }}"></script>
 </body>
 </html>
