@@ -1,5 +1,10 @@
+/* CSS Document */
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+body {
+  min-width: 450px; }
+
 h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Roboto:black", sans-serif;
   color: white;
   margin-bottom: 5px;
   margin-left: 40px; }
@@ -9,22 +14,36 @@ h3 {
 
 #containResume {
   border: 3px solid white;
-  width: 90vm;
-  padding: 5px; }
-  @media (max-width: 450px) {
-    #containResume {
-      margin: auto; } }
+  width: 90%;
+  padding: 5px;
+  margin: auto; }
   #containResume #containUsers {
-    display: flex; }
-    #containResume #containUsers .user {
-      color: white;
-      margin-left: 40px;
-      font-family: 'Poppins', sans-serif;
-      width: 200px; }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px; }
+    #containResume #containUsers #infos {
+      display: flex;
+      flex-direction: column;
+      align-content: center; }
+      #containResume #containUsers #infos .user {
+        color: white;
+        margin-bottom: 0;
+        margin-top: 0;
+        font-weight: bolder;
+        text-transform: uppercase;
+        font-family: "Roboto:black", sans-serif;
+        width: 200px; }
+      #containResume #containUsers #infos .type {
+        color: white;
+        font-family: "Roboto:black", sans-serif;
+        width: 230px;
+        font-size: 0.7em;
+        display: inline-block; }
     #containResume #containUsers .cost {
-      color: #2C1DEB;
-      font-family: 'Poppins', sans-serif;
-      margin: 30px 30px 0 10px;
+      color: black;
+      font-family: "Roboto:light", sans-serif;
       display: inline-block;
       background-color: white;
       border-radius: 50%;
@@ -32,33 +51,62 @@ h3 {
       height: 40px;
       text-align: center;
       line-height: 40px; }
-    #containResume #containUsers .type {
-      color: white;
-      font-family: 'Poppins', sans-serif;
-      margin-left: 40px;
-      width: 200px;
-      font-size: 0.6em;
-      display: inline-block; }
     #containResume #containUsers #deleteUser {
-      margin-top: 40px; }
+      margin-left: 40px;
+      margin-top: 10px; }
       #containResume #containUsers #deleteUser input {
-        background-color: orange;
-        color: white;
-        border: none;
+        background-color: transparent;
+        color: #ff8508;
+        border: 1px solid #ff8508;
         height: 20px;
-        width: 100px; }
+        width: 100px;
+        transition-property: color, border;
+        transition-duration: 0.5s; }
+        #containResume #containUsers #deleteUser input:hover {
+          color: white;
+          border: 1px solid white; }
+
+a#plus {
+  text-decoration: none;
+  color: white;
+  font-family: "Roboto:black", sans-serif;
+  font-size: 2.5em;
+  border: 1px solid white;
+  width: 30px;
+  height: 30px;
+  display: block;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 30px;
+  margin: 20px auto;
+  transition-property: line-height, color, width, height, font-size;
+  transition-duration: 1s; }
+  a#plus:hover {
+    color: #ff8508;
+    width: 50px;
+    height: 50px;
+    font-size: 3.5em;
+    line-height: 40px; }
+
+#add {
+  color: white;
+  font-family: "Roboto:black", sans-serif;
+  width: 30%;
+  height: 30px;
+  margin: auto;
+  text-align: center; }
 
 .flash-notice {
-  background-color: #50a0c0;
-  color: white;
-  font-family: 'Poppins', sans-serif;
+  background-color: transparent;
+  color: #ff8508;
+  font-family: "Roboto:black", sans-serif;
   font-size: 0.9em;
   text-align: center;
   display: block;
   width: 300px;
   padding: 10px;
   margin: 20px 0 20px 0;
-  border-radius: 10px; }
+  border: 1px solid #ff8508; }
 
 .total {
   display: block;
@@ -67,17 +115,21 @@ h3 {
   border: 3px solid white;
   color: black;
   background-color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Roboto:light", sans-serif;
   margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
   text-align: center;
   line-height: 30px; }
 
 .cancel {
   color: grey;
   text-decoration: none;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Roboto:light", sans-serif;
   font-size: 0.6em;
   margin-top: 10px;
+  margin-right: auto;
+  margin-left: auto;
   display: block;
   width: 450px;
   height: 20px;

@@ -1,7 +1,16 @@
-@import "mixin.scss";
+@charset "UTF-8";
+/* CSS Document */
+
+@import "font";
+@import "variables";
+@import "mixin";
+
+body{
+    min-width: 450px;
+}
 
 h3{
-    font-family: 'Poppins', sans-serif;
+    font-family: $title;
     color: white;
     margin-bottom: 5px;
     margin-left: 40px;
@@ -13,62 +22,111 @@ h3{
 
 #containResume{
     border: 3px solid white;
-    width: 90vm;
+    width: 90%;
     padding: 5px;
-    @include mobile{
     margin: auto;
-    }
     #containUsers{
         display: flex;
-        .user{
-            color: white;
-            margin-left: 40px;
-            font-family: 'Poppins', sans-serif;
-            width: 200px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+        #infos{
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            .user{
+                color: $colorTitle;
+                margin-bottom: 0;
+                margin-top: 0;
+                font-weight: bolder;
+                text-transform: uppercase;
+                font-family: $title;
+                width: 200px;
+            }
+            .type{
+                color: white;
+                font-family: $title;
+                width: 230px;
+                font-size: 0.7em;
+                display: inline-block;
+            }
         }
         .cost{
-            color: #2C1DEB;
-            font-family: 'Poppins', sans-serif;
-            margin: 30px 30px 0 10px;
+            color: black;
+            font-family: $subtitle;
             display: inline-block;
-            background-color: white;
+            background-color: $colorTitle;
             border-radius: 50%;
             width: 40px;
             height: 40px;
             text-align: center;
             line-height: 40px;
         }
-        .type{
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            margin-left: 40px;
-            width: 200px;
-            font-size: 0.6em;
-            display: inline-block;
-        }
         #deleteUser{
-            margin-top: 40px;
+            margin-left: 40px;
+            margin-top: 10px;
             input{
-                background-color: orange;
-                color: white;
-                border: none;
+                background-color: transparent;
+                color: $colorSelect;
+                border: 1px solid $colorSelect;
                 height: 20px;
                 width: 100px;
+                transition-property: color, border;
+                transition-duration: 0.5s;
+                &:hover{
+                    color: white;
+                    border: 1px solid white;
+                }
             }
         }
     }
 }
+
+a#plus{
+    text-decoration: none;
+    color: $colorTitle;
+    font-family: $title;
+    font-size: 2.5em;
+    border: 1px solid white;
+    width: 30px;
+    height: 30px;
+    display: block;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 30px;
+    margin: 20px auto;
+    transition-property: line-height, color, width, height, font-size;
+    transition-duration: 1s;
+    &:hover{
+        color: $colorSelect;
+        width: 50px;
+        height: 50px;
+        font-size: 3.5em;
+        line-height: 40px;
+    }
+}
+
+#add{
+    color: $colorTitle;
+    font-family: $title;
+    width: 30%;
+    height: 30px;
+    margin: auto;
+    text-align: center;
+}
+
 .flash-notice{
-    background-color: rgb(80, 160, 192);;
-    color: white;
-    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+    color: $colorSelect;
+    font-family: $title;
     font-size: 0.9em;
     text-align: center;
     display: block;
     width: 300px;
     padding: 10px;
     margin: 20px 0 20px 0;
-    border-radius: 10px;
+    border: 1px solid $colorSelect;
 }
 .total{
     display: block;
@@ -76,18 +134,22 @@ h3{
     height: 30px;
     border: 3px solid white;
     color: black;
-    background-color: white;
-    font-family: 'Poppins', sans-serif;
+    background-color:$colorTitle;
+    font-family: $subtitle;
     margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
     text-align: center;
     line-height: 30px;
 }
 .cancel{
     color: grey;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: $subtitle;
     font-size: 0.6em;
     margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
     display: block;
     width: 450px;
     height: 20px;

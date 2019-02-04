@@ -15,6 +15,8 @@ $(function(){
     $("button.stripe-button-el").text($(".stripe-button-el span").text());
     $(".stripe-button-el span").remove();
 
+    $('hr:last-child').remove();
+
     amount = total*100;
     console.log(amount);
     date = new Date($('#date').text());

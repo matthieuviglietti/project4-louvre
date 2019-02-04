@@ -3,6 +3,7 @@
 namespace MV\BookingBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,14 +14,18 @@ class TicketType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('type');
+        $builder->add('type', ChoiceType::class, [
+            'choice_translation_domain' => true
+        ])
+        ->add('cost');
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MV\BookingBundle\Entity\Ticket'
+            'data_class' => 'MV\BookingBundle\Entity\Ticket',
+            'translation_domain' => 'messages',
         ));
     }
 

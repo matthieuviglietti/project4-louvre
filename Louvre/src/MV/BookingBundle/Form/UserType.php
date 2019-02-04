@@ -31,6 +31,7 @@ class UserType extends AbstractType
                     'placeholder' => 'Sélectionner le ticket',
                     'class' => 'MV\BookingBundle\Entity\Ticket',
                     'mapped' => true,
+                    'choice_translation_domain' => true
                 ])
                 ->add('sessionKey', TextType::class, [
                     'label' => false,

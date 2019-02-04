@@ -34,6 +34,14 @@
                 {% set UserId = users.id %}
         {% endfor %}        
     </div>
+    {% if locale == 'fr' %}
+        <a id="plus" href="{{path('mv_booking_users', {'date': date, 'nbr': 1}) }}">+</a>
+    {% endif %}
+    {% if locale == 'en' %}
+        <a id="plus" href="{{path('mv_booking_users', {'_locale': 'en', 'date': date, 'nbr': 1}) }}">+</a>
+    {% endif %}
+    <p id="add">{{ 'Ajouter un visiteur'|trans }}</p>
+
     {% for message in app.flashes('notice') %}
     <div class="flash-notice"> {{ message }} </div>
     {% endfor %}
