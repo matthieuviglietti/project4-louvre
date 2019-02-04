@@ -43,7 +43,7 @@
     <p id="add">{{ 'Ajouter un visiteur'|trans }}</p>
 
     {% for message in app.flashes('notice') %}
-    <div class="flash-notice"> {{ message }} </div>
+    <div class="flash-notice"> {{ message | trans }} </div>
     {% endfor %}
 
     <div class="total">Total :  {{total}}€</div>

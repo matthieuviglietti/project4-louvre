@@ -47,7 +47,7 @@ mv_booking_confirmation:
         _locale: fr|en
 
 mv_booking_deleteuser:
-    path:     /delete/{id}/{date}/{nbr}
+    path:     /delete/{_locale}/{id}/{date}/{nbr}
     defaults: { _controller: MVBookingBundle:Booking:deleteUser}
     requirements:
         id: \d+

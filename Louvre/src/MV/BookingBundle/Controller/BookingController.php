@@ -137,12 +137,25 @@ class BookingController extends Controller
        $userToDelete = $em->getRepository(User::class)->find($id);
        $em->remove($userToDelete);
        $em->flush();
+
+       $locale = $request->getLocale();
        
         $request->getSession()->getFlashBag()->add('notice', 'Le visiteur a bien été supprimé');
-        return $this->redirectToRoute('mv_booking_check', array(
-            'date' => $date,
-            'nbr' => $nbr
-        ));
+
+        if($locale == 'fr'){
+            return $this->redirectToRoute('mv_booking_check', array(
+                'locale' => $locale,
+                'date' => $date,
+                'nbr' => $nbr
+            ));
+        }
+        if($locale == 'en'){
+            return $this->redirectToRoute('mv_booking_check', array(
+                'date' => $date,
+                'nbr' => $nbr
+            ));
+        }
+
     }
 
     public function StripeAction(Request $request, $amount, $date){
