@@ -11,21 +11,30 @@ class MVMail
     $this->twig   = $twig;
   }
 
-    public function sendConfirmationEmail($email, $date, $listActiveUsers, $locale)
+    public function sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId)
     {
-        $message = (new \Swift_Message('Confirmation de votre paiement'))
+        try{
+            $message = (new \Swift_Message('Confirmation de votre paiement'))
                 ->setFrom(['coucou@louvre.com' => 'Billetterie_louvre'])
                 ->setTo($email)
                 ->setBody($this->twig->render('@MVBooking/Emails/confirmation.html.twig',
                     ['email' => $email,
-                    'date' => $date,
-                    'users' => $listActiveUsers,
-                    'locale' => $locale]
+                        'date' => $date,
+                        'users' => $listActiveUsers,
+                        'locale' => $locale,
+                        'session' => $sessionId]
                 ),
-                'text/html'
-            );
+                    'text/html'
+                );
 
             // Send the message
-           $this->mailer->send($message);
+            $this->mailer->send($message);
+
+            return $email;
+
+        }catch(\Exception $e){
+            return null;
         }
+    }
+
 }

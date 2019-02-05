@@ -48,3 +48,5 @@ Nouvelle Commande: New Order
 Sélectionner le ticket: Select Ticket
 Ajouter un visiteur: Add a visitor
 Le visiteur a bien été supprimé: The visitor has been deleted
+Numéro de commande: Order reference
+Le champ Name ou First Name doit contenir plus d'une lettre: Name or First Name inputs needs more than 1 letter

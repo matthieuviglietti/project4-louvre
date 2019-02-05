@@ -2,6 +2,8 @@
 
 <img src="{{ absolute_url(asset('bundles/mvbooking/images/logo.jpg')) }}">
 
+<p>{{ 'Numéro de commande' | trans }} : {{ session }}</p>
+
 <p>{{'Voici le récapitulatif de votre commande'|trans}} :</p>
 {% if locale == 'fr' %}
        <p>{{ "Date de visite"|trans }}: {{ date|date('d-m-Y') }}</p>

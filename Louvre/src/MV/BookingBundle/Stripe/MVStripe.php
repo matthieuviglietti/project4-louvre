@@ -16,8 +16,9 @@ class MVStripe
     $this->currency = $currency;
   }
 
-    public function chargeStripe($amount, $date, $listActiveUsers, $locale)
+    public function chargeStripe($amount, $date, $listActiveUsers, $locale, $sessionId)
     {
+        $status = false;
         \Stripe\Stripe::setApiKey("sk_test_WFwsGVYMQgKdVdfI6ths0Gom");
 
         // Get the credit card details submitted by the form
@@ -32,17 +33,16 @@ class MVStripe
                 "source" => $token,
                 'receipt_email' => $email,
             ));
-            $this->mail->sendConfirmationEmail($email, $date, $listActiveUsers, $locale);
-            $messageStripe = "Paiement Réussi !";
-            return $messageStripe;
+            $status = true;
+            $mail = $this->mail->sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId);
+            return array($mail, $status);
         }
             
         catch(\Stripe\Error\Card $e) {
             $body = $e->getJsonBody();
             $err  = $body['error'];
             // The card has been declined
-            $messageError = "Il y a eu une erreur, merci de réessayer !";
-            return $messageError;
+            return $status;
         }
         
     }

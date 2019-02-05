@@ -1,6 +1,7 @@
 <?php
 
 namespace MV\BookingBundle\Controller;
+use MV\BookingBundle\Entity\Command;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -18,6 +19,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class BookingController extends Controller
 {
+
+    public function redirectAction(){
+       return $this->redirectToRoute('mv_booking_homepage'
+       );
+    }
+
     public function indexAction(Request $request)
     {
         $session = $request->getSession();
@@ -46,6 +53,7 @@ class BookingController extends Controller
     }
 
     public function checkDateAction(Request $request){
+
         if($request->isMethod('GET')){
             $date = $request->query->get('date');
             $em = $this->getDoctrine()->getManager();
@@ -168,22 +176,14 @@ class BookingController extends Controller
 
         $listActiveUsers = $userRepository->selectUserOrder($sessionId);
 
-        $this->container->get('mv_booking.stripe')->chargeStripe($amount, $date, $listActiveUsers, $locale);
-    
-        $translator = new Translator('fr_FR');
-        $translator->addLoader('array', new ArrayLoader());
-        $translator->addResource('array', [
-                    'Your paiement was accepted, thank you. An email was send to' => 'le paiement a réussi, merci et un email a été envoyé à ',
-                     ], 'fr_FR');
-        $messageSuccessFrench = $translator->trans('Your paiement was accepted, thank you. An email was send to');
-        
+        $mail= $this->container->get('mv_booking.stripe')->chargeStripe($amount, $date, $listActiveUsers, $locale, $sessionId);
 
-        if($locale = 'fr'){
-            $this->addFlash('notice', $messageSuccessFrench);
-        }
-        if($locale = 'en'){
-            $this->addFlash('notice', 'Your paiement was accepted, thank you. An email was send to');
-        }
+        $createOrder = new Command();
+        $createOrder->setSpecialKey($sessionId)
+                    ->setCharge($amount)
+                    ->setEmail($mail);
+        $em->persist($createOrder);
+        $em->flush();
        
         return $this->redirectToRoute('mv_booking_confirmation');
     }

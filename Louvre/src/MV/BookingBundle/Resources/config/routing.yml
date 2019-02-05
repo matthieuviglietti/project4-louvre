@@ -1,3 +1,7 @@
+mv_booking_redirect:
+    path:     /
+    defaults: { _controller: MVBookingBundle:Booking:redirect}
+
 mv_booking_homepage:
     path:     /{_locale}/home
     defaults: { _controller: MVBookingBundle:Booking:index, _locale: fr }
@@ -6,7 +10,7 @@ mv_booking_homepage:
     
 mv_booking_date:
     path:     /{_locale}/date
-    defaults: { _controller: MVBookingBundle:Booking:translation, _locale: fr}
+    defaults: { _controller: MVBookingBundle:Booking:translation}
     requirements:
         _locale: fr|en
 

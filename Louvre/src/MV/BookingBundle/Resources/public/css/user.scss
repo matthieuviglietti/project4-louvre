@@ -1,13 +1,17 @@
-@import "mixin.scss";
-@import "style_date";
+@charset "UTF-8";
+/* CSS Document */
+
+@import "font";
+@import "variables";
+@import "mixin";
 
 .sessionKey{
     visibility: hidden;
 }
 .mention{
-    color: grey;
+    color: $colorSubtitle;
     font-size: 0.6em;
-    font-family: 'Poppins', sans-serif;
+    font-family: $title;
     margin-left: 40px;
 }
 .user{
@@ -15,7 +19,7 @@
     font-family: 'Poppins', sans-serif;
     margin-left: 40px;
     strong{
-        color: orange;
+        color: $colorSelect;
     }
 }
 
@@ -25,7 +29,7 @@
 
 label{
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: $title;
     margin-right: 10px;
     display: block;
     width: 200px;
@@ -43,14 +47,14 @@ input{
 #mv_bookingbundle_form_submit{
     width: 250px;
     height: 45px;
-    color: white;
+    color: $colorTitle;
     border: 3px solid white;
     text-transform: uppercase;
     background-color: transparent;
     margin: 100px auto 70px auto;
     display: block;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: $title;
     font-size: 1em;
     text-align: center;
     vertical-align: center;
@@ -61,3 +65,10 @@ input{
     visibility: hidden;
 }
 
+#error{
+    font-family: $title;
+    color: red;
+    visibility: hidden;
+    font-size: 0.9em;
+    margin-left: 40px;
+}

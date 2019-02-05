@@ -14,16 +14,42 @@ $(function(){
     let dateUrl = $('#dateofvisit').text();
     let dateOfVisit = new Date(dateUrl);
     $('#dateofvisit').hide();
-   
+
     let dateOfTheDay = new Date();
     let yearOfTheDay = dateOfTheDay.getFullYear();
     let monthOfTheDay = dateOfTheDay.getMonth()+1;
     let dayOfTheDay = dateOfTheDay.getDate();
-    
+
     console.log(dateOfVisit);
     let limitHalfTicket = dateOfTheDay.getHours();
 
         $('select').slice(0, nbr).each(function(index){
+
+            //Verify length of Name and First Name
+            $('#mv_bookingbundle_form_user_'+ index +'_name').on('blur', function () {
+                let inputName = $('#mv_bookingbundle_form_user_'+ index +'_name').val();
+                if(inputName.length == 1) {
+                    $("#error").css('visibility', 'visible');
+                    $('#mv_bookingbundle_form_submit').css('visibility', 'hidden');
+                }
+                else{
+                    $("#error").css('visibility', 'hidden');
+                    $('#mv_bookingbundle_form_submit').css('visibility', 'visible');
+                }
+            });
+
+            $('#mv_bookingbundle_form_user_'+ index +'_firstName').on('blur', function () {
+                let inputFirst = $('#mv_bookingbundle_form_user_'+ index +'_firstName').val();
+                console.log(inputFirst);
+                if(inputFirst.length == 1) {
+                    $("#error").css('visibility', 'visible');
+                    $('#mv_bookingbundle_form_submit').css('visibility', 'hidden');
+                }
+                else{
+                    $("#error").css('visibility', 'hidden');
+                    $('#mv_bookingbundle_form_submit').css('visibility', 'visible');
+                }
+            });
 
             $('.date').attr('value', dateUrl);
 
@@ -33,13 +59,13 @@ $(function(){
 
             //Hide ticket choice before changing birthdate
             $('#mv_bookingbundle_form_user_'+ index +'_ticket').hide();
-            $('label[for="mv_bookingbundle_form_user_'+ index +'_ticket"]').hide();    
+            $('label[for="mv_bookingbundle_form_user_'+ index +'_ticket"]').hide();
             $('#mv_bookingbundle_form_user_'+ index +'_birthDate_year').on("change",function(){
                 $('#mv_bookingbundle_form_user_'+ index +'_ticket').val('');
-                $('label[for= "mv_bookingbundle_form_user_'+ index +'_ticket"]').show(); 
+                $('label[for= "mv_bookingbundle_form_user_'+ index +'_ticket"]').show();
                 $('#mv_bookingbundle_form_user_'+ index +'_ticket').show();
             });
-        
+
                 $('#mv_bookingbundle_form_user_'+ index +'_birthDate').on("change", function(){
                     day = parseInt($('#mv_bookingbundle_form_user_'+ index +'_birthDate_day').val());
                     month = parseInt($('#mv_bookingbundle_form_user_'+ index +'_birthDate_month').val());
@@ -157,6 +183,7 @@ $(function(){
                     }
                 });
             });
+
 
         //generating Routes for nextButton
         let toUser = Routing.generate('mv_booking_check', {date: dateUrl, nbr: nbr});
