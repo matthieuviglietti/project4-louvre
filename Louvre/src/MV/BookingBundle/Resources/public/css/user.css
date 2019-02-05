@@ -54,7 +54,7 @@ input {
 #mv_bookingbundle_form_user > div > label:first-child {
   visibility: hidden; }
 
-#error {
+#errorName, #errorFirst {
   font-family: "Roboto:black", sans-serif;
   color: red;
   visibility: hidden;

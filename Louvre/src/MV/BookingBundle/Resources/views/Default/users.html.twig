@@ -18,7 +18,8 @@
         {{ form_errors(form) }}  
         {{ form_end(form) }}   
      </div>
-<div id="error">{{ "Le champ Name ou First Name doit contenir plus d'une lettre"|trans }}</div>
+<div id="errorName">{{ "Le champ Name doit contenir plus d'une lettre"|trans }}</div>
+<div id="errorFirst">{{ "Le champ FirstName doit contenir plus d'une lettre"|trans }}</div>
 <div class="sessionKey">{{session}}</div>
        
 {% endblock %}

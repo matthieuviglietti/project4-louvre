@@ -65,10 +65,13 @@ input{
     visibility: hidden;
 }
 
-#error{
+#errorName{
     font-family: $title;
     color: red;
     visibility: hidden;
     font-size: 0.9em;
     margin-left: 40px;
+}
+#errorFirst{
+    @extend #errorName;
 }

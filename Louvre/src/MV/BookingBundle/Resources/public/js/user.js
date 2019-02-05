@@ -27,27 +27,36 @@ $(function(){
 
             //Verify length of Name and First Name
             $('#mv_bookingbundle_form_user_'+ index +'_name').on('blur', function () {
+                let inputFirst = $('#mv_bookingbundle_form_user_'+ index +'_firstName').val();
                 let inputName = $('#mv_bookingbundle_form_user_'+ index +'_name').val();
                 if(inputName.length == 1) {
-                    $("#error").css('visibility', 'visible');
+                    $("#errorName").css('visibility', 'visible');
                     $('#mv_bookingbundle_form_submit').css('visibility', 'hidden');
                 }
-                else{
-                    $("#error").css('visibility', 'hidden');
+                else if ((inputName.length >1)&& (inputFirst.length >1)){
                     $('#mv_bookingbundle_form_submit').css('visibility', 'visible');
+                    $("#errorName").css('visibility', 'hidden');
+                }
+                else{
+                    $("#errorName").css('visibility', 'hidden');
+                    $('#mv_bookingbundle_form_submit').css('visibility', 'hidden');
                 }
             });
 
             $('#mv_bookingbundle_form_user_'+ index +'_firstName').on('blur', function () {
                 let inputFirst = $('#mv_bookingbundle_form_user_'+ index +'_firstName').val();
-                console.log(inputFirst);
+                let inputName = $('#mv_bookingbundle_form_user_'+ index +'_name').val();
                 if(inputFirst.length == 1) {
-                    $("#error").css('visibility', 'visible');
+                    $("#errorFirst").css('visibility', 'visible');
                     $('#mv_bookingbundle_form_submit').css('visibility', 'hidden');
                 }
-                else{
-                    $("#error").css('visibility', 'hidden');
+                else if ((inputName.length >1)&& (inputFirst.length >1)){
                     $('#mv_bookingbundle_form_submit').css('visibility', 'visible');
+                    $("#errorFirst").css('visibility', 'hidden');
+                }
+                else{
+                    $("#errorFirst").css('visibility', 'hidden');
+                    $('#mv_bookingbundle_form_submit').css('visibility', 'hidden');
                 }
             });
 
