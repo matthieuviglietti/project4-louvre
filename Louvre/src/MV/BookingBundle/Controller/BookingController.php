@@ -1,20 +1,14 @@
 <?php
 
 namespace MV\BookingBundle\Controller;
+
 use MV\BookingBundle\Entity\Command;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use MV\BookingBundle\Entity\User;
 use MV\BookingBundle\Entity\Ticket;
-use MV\BookingBundle\Entity\Basket;
-use MV\BookingBundle\Form\UserType;
 use MV\BookingBundle\Form\FormType;
 use MV\BookingBundle\Entity\Form;
-use MV\BookingBundle\Stripe\MVStripe;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\Translation\Translator;
-use Symfony\Component\Translation\Loader\ArrayLoader;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class BookingController extends Controller
@@ -28,9 +22,7 @@ class BookingController extends Controller
     public function indexAction(Request $request)
     {
         $session = $request->getSession();
-        $em = $this->getDoctrine()->getManager();
-        $userRepository = $em->getRepository(User::class);
-        $orderId = $userRepository->getIdOrder();
+        $orderId = $this->container->get('mv_booking.session')->getIdOrder();
         $session->set('orderId', $orderId);
         
         return $this->render('@MVBooking/Default/index.html.twig');

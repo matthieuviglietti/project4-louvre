@@ -1,8 +1,10 @@
+/* CSS Document */
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 .subtitle {
   color: #c4c4c4;
   font-size: 0.8em;
   font-weight: 100;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Roboto:black", sans-serif;
   margin-left: 40px; }
 
 form #date, form #dateen {
@@ -38,7 +40,7 @@ form #datealt {
   text-transform: uppercase;
   margin: 100px auto 0 auto;
   text-decoration: none;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Roboto:black", sans-serif;
   text-align: center;
   line-height: 45px;
   z-index: 1000; }
@@ -60,7 +62,7 @@ form #datealt {
   left: 0;
   right: 0;
   bottom: 0;
-  background: orange;
+  background: #ff8508;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: 0 50%;

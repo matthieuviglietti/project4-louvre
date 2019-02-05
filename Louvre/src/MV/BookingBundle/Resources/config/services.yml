@@ -14,4 +14,7 @@ services:
             - "@mailer"
             - "@twig"
         public: true
+
+    mv_booking.session:
+        class: MV\BookingBundle\Session\MVSession
   

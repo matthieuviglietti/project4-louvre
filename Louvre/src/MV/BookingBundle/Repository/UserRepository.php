@@ -11,18 +11,6 @@ use Doctrine\ORM\QueryBuilder;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getIdOrder(){
-        $characts = 'abcdefghijklmnopqrstuvwxyz'; 
-        $characts .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';	
-        $characts .= '1234567890'; 
-        $code_random = ''; 
-
-        for($i=0;$i < 10;$i++) 
-        { 
-        $code_random .= $characts[ rand() % strlen($characts) ]; 
-        } 
-        return $code_random;
-    }
 
     public function selectUserOrder($sessionId)
     {

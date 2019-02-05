@@ -1,9 +1,15 @@
-@import "mixin.scss";
+@charset "UTF-8";
+/* CSS Document */
+
+@import "font";
+@import "variables";
+@import "mixin";
+
 .subtitle{
     color      : #c4c4c4;
     font-size  : 0.8em;
     font-weight: 100;
-    font-family: 'Poppins', sans-serif;
+    font-family: $title;
     margin-left: 40px;
     }
 
@@ -43,12 +49,12 @@ form{
     display: block;
     width: 250px;
     height: 45px;
-    color: white;
-    border: 3px solid white;
+    color: $colorTitle;
+    border: 3px solid $colorTitle;
     text-transform: uppercase;
     margin: 100px auto 0 auto;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: $title;
     text-align: center;
     line-height: 45px;
     z-index: 1000;
@@ -70,7 +76,7 @@ form{
     left: 0;
     right: 0;
     bottom: 0;
-    background: orange;
+    background: $colorSelect;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     -webkit-transform-origin: 0 50%;
@@ -83,7 +89,7 @@ form{
     transition-timing-function: ease-out;
 }
 .hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
-    color: white;
+    color: $colorTitle;
 }
 .hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
     -webkit-transform: scaleX(1);
