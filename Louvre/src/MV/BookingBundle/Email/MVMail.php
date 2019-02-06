@@ -33,7 +33,7 @@ class MVMail
             return $email;
 
         }catch(\Exception $e){
-            return null;
+            return false;
         }
     }
 

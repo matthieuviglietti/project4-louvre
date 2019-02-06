@@ -35,7 +35,15 @@ class MVStripe
             ));
             $status = true;
             $mail = $this->mail->sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId);
-            return $mail;
+
+            if($mail != false){
+                return array(
+                    "mail"=> $mail,
+                    "status"=> $status);
+            }
+            else{
+                return false;
+            }
         }
             
         catch(\Stripe\Error\Card $e) {

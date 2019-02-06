@@ -1,5 +1,6 @@
 $(function(){
     let sessionKey = $('.sessionKey').text();
+    console.log(sessionKey);
     $('.session').val(sessionKey).hide();
     $('.session ~ label').hide();
     let nbr = $('strong').text();
@@ -195,8 +196,8 @@ $(function(){
 
 
         //generating Routes for nextButton
-        let toUser = Routing.generate('mv_booking_check', {date: dateUrl, nbr: nbr});
-        let toUserEn = Routing.generate('mv_booking_check', {_locale: 'en', date: dateUrl, nbr: nbr});
+        let toUser = Routing.generate('mv_booking_check', {date: dateUrl});
+        let toUserEn = Routing.generate('mv_booking_check', {_locale: 'en', date: dateUrl});
         $('.nextStep').attr('href', toUser);
-        $('.nextStepEn').attr('href', toUser);
+        $('.nextStepEn').attr('href', toUserEn);
 });

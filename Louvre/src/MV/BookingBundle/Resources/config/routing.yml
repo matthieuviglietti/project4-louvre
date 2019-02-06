@@ -32,11 +32,10 @@ mv_booking_users:
         nbr    : \d{1}
 
 mv_booking_check:
-    path:     /{_locale}/{date}/{nbr}/check
+    path:     /{_locale}/{date}/check
     defaults: { _controller: MVBookingBundle:Booking:checkOrder}
     requirements:
         _locale: fr|en
-        nbr    : \d{1}
 
 mv_booking_stripe:
     path:     /{_locale}/{amount}/{date}/paiement
@@ -51,7 +50,7 @@ mv_booking_confirmation:
         _locale: fr|en
 
 mv_booking_deleteuser:
-    path:     /delete/{_locale}/{id}/{date}/{nbr}
+    path:     /delete/{_locale}/{id}/{date}
     defaults: { _controller: MVBookingBundle:Booking:deleteUser}
     requirements:
         id: \d+
