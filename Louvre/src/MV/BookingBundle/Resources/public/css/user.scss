@@ -13,18 +13,31 @@
     font-size: 0.6em;
     font-family: $title;
     margin-left: 40px;
+    @include tablet{
+        margin: auto;
+        text-align: center;
+        margin-top: 10px;
+    }
 }
 .user{
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: $title;
     margin-left: 40px;
     strong{
         color: $colorSelect;
+    }
+    @include tablet{
+        margin: auto;
+        text-align: center;
+        margin-top: 30px;
     }
 }
 
 .containFormUser, .addUser{
     margin-left: 40px;
+    @include tablet{
+        margin: auto;
+    }
 }
 
 label{
@@ -32,8 +45,13 @@ label{
     font-family: $title;
     margin-right: 10px;
     display: block;
-    width: 200px;
+    width: 300px;
+    @include tablet{
+        margin: 0 auto 3px ;
+        text-align: left;
+    }
 }
+
 input{
     width: 300px;
     border-radius: 5px;

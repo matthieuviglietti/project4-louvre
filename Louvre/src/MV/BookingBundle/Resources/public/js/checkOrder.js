@@ -19,7 +19,9 @@ $(function(){
 
     amount = total*100;
     console.log(amount);
-    date = new Date($('#date').text());
+    let brutDate =  $('#date').text();
+    brutDate= brutDate.split('-').join(","); // for Firefox
+    let date = new Date(brutDate);
     date = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
     console.log(date);
     var formRoute = Routing.generate('mv_booking_stripe', {_locale: 'fr', amount: amount, date: date });

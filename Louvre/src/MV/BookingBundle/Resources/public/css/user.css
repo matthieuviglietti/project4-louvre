@@ -8,23 +8,40 @@
   font-size: 0.6em;
   font-family: "Roboto:black", sans-serif;
   margin-left: 40px; }
+  @media (min-width: 500px) {
+    .mention {
+      margin: auto;
+      text-align: center;
+      margin-top: 10px; } }
 
 .user {
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Roboto:black", sans-serif;
   margin-left: 40px; }
   .user strong {
     color: #ff8508; }
+  @media (min-width: 500px) {
+    .user {
+      margin: auto;
+      text-align: center;
+      margin-top: 30px; } }
 
 .containFormUser, .addUser {
   margin-left: 40px; }
+  @media (min-width: 500px) {
+    .containFormUser, .addUser {
+      margin: auto; } }
 
 label {
   color: white;
   font-family: "Roboto:black", sans-serif;
   margin-right: 10px;
   display: block;
-  width: 200px; }
+  width: 300px; }
+  @media (min-width: 500px) {
+    label {
+      margin: 0 auto 3px;
+      text-align: left; } }
 
 input {
   width: 300px;

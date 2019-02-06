@@ -1,23 +1,29 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@import "font";
+@import "variables";
 @import "mixin";
 
 body{
     margin:0;
     width: 100%;
-    min-width: 450px;
-    @include mobile{
-        background-color: rgb(0, 0, 0);
-        width: 450px;
-        }
-    background-color: black;
+    min-width: 500px;
+    background-color: rgb(0, 0, 0);
+
     .title{
         text-transform: uppercase;
-        font-family   : 'Poppins', sans-serif;
+        font-family   : $title;
         margin-bottom: 0px;
         margin-top: 0px;
-        font-size: 1em;
+        font-size: 1.3em;
         color: white;
         margin-top: 50px;
         margin-left: 40px;
+        @include tablet{
+            text-align: center;
+            margin: 40px auto 0;
+        }
     }
     footer{
         width: 100%;
@@ -28,11 +34,11 @@ body{
         align-items: center;
         position: fixed;
         bottom: 0px;
-        font-family: 'Poppins', sans-serif;
+        font-family: $title;
         a{
             text-decoration: none;
             .foot{
-                color: white;
+                color: $colorTitle;
                 margin-right: 30px;
                 font-size: 0.6em;
             }

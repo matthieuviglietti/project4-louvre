@@ -13,6 +13,9 @@
     height       : 50px;;
     padding      : 10px;
     font-size    : 0.8em;
+    @include tablet{
+        margin: 40px auto;
+    }
 }
 
 #error{
@@ -25,6 +28,11 @@
         font-family: $title;
         font-style: normal;
         visibility: hidden;
+    }
+    @include tablet{
+        width:100%;
+        margin: auto;
+        text-align: center;
     }
 }
 

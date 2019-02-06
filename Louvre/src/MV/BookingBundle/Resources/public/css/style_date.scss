@@ -7,10 +7,14 @@
 
 .subtitle{
     color      : #c4c4c4;
-    font-size  : 0.8em;
+    font-size  : 1em;
     font-weight: 100;
     font-family: $title;
     margin-left: 40px;
+    @include tablet{
+        text-align: center;
+        margin: auto;
+    }
     }
 
 form{
@@ -22,26 +26,64 @@ form{
         height: 30px;;
         padding: 10px;
         font-size: 0.8em;
+        @include tablet{
+            text-align: center;
+            margin: 0 auto 0;
+        }
     }
     #datealt{
         visibility: hidden;
+    }
+    @include tablet{
+        text-align: center;
+        margin: 40px auto 0;
     }
 }
 
 #flex{
     display: flex;
+    @include tablet{
+        flex-direction: column;
+    }
+    #load{
+        width: 1px;
+    }
     #check{
         margin-top: 90px;
         width: 40px;
         height: 40px;
-        margin-left: 10px;
         #valid, #novalid{
             visibility: hidden;
         }
-        #infoTicket{
-            color: red;
-            visibility: hidden;
+        #novalid{
+            position: relative;
+            top: -30px;
+            left: 0px;
+            right: 0;
         }
+        @include tablet{
+            margin: auto;
+        }
+    }
+    .ui-datepicker-append{
+        @include tablet{
+            margin: 10px auto;
+            color: $colorSubtitle;
+            font-family: $title;
+
+        }
+    }
+}
+#infoTicket{
+    color: red;
+    visibility: hidden;
+    margin-left: 40px;
+    font-family: $title;
+    margin-top: 0;
+    @include tablet{
+        width: 100%;
+        margin: auto;
+        text-align: center;
     }
 }
 
@@ -55,6 +97,11 @@ form{
         color: $colorSelect;
         font-family: $title;
         font-style: normal;
+    }
+    @include tablet{
+        width: 100%;
+        margin: auto;
+        text-align: center;
     }
 }
 

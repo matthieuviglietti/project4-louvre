@@ -1,21 +1,23 @@
+/* CSS Document */
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 body {
   margin: 0;
   width: 100%;
-  min-width: 450px;
+  min-width: 500px;
   background-color: black; }
-  @media (max-width: 450px) {
-    body {
-      background-color: black;
-      width: 450px; } }
   body .title {
     text-transform: uppercase;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Roboto:black", sans-serif;
     margin-bottom: 0px;
     margin-top: 0px;
-    font-size: 1em;
+    font-size: 1.3em;
     color: white;
     margin-top: 50px;
     margin-left: 40px; }
+    @media (min-width: 500px) {
+      body .title {
+        text-align: center;
+        margin: 40px auto 0; } }
   body footer {
     width: 100%;
     height: 60px;
@@ -25,7 +27,7 @@ body {
     align-items: center;
     position: fixed;
     bottom: 0px;
-    font-family: 'Poppins', sans-serif; }
+    font-family: "Roboto:black", sans-serif; }
     body footer a {
       text-decoration: none; }
       body footer a .foot {

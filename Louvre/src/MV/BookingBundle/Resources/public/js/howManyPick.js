@@ -5,7 +5,7 @@ $(function(){
         console.log($('.selectedDate').text());
         let selectedValue = $('#number').val();
         let checkIfDateIsBookable = Routing.generate('mv_booking_checkdate');
-        $('.selectedDate').load(checkIfDateIsBookable, selectedDateParam, function (response, status, xhr) {
+        $('#load').load(checkIfDateIsBookable, selectedDateParam, function (response, status, xhr) {
             let leftTickets = xhr.getResponseHeader('leftTickets');
             console.log(selectedValue);
             console.log(leftTickets);
