@@ -18,8 +18,7 @@ class BookingController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function redirectAction(){
-       return $this->redirectToRoute('mv_booking_homepage'
-       );
+       return $this->redirectToRoute('mv_booking_homepage');
     }
 
     /**
@@ -30,9 +29,15 @@ class BookingController extends Controller
     {
         $session = $request->getSession();
         $orderId = $this->container->get('mv_booking.session')->getIdOrder();
-        $session->set('orderId', $orderId);
-        
-        return $this->render('@MVBooking/Default/index.html.twig');
+        if($orderId != false){
+            $session->set('orderId', $orderId);
+
+            return $this->render('@MVBooking/Default/index.html.twig');
+        }
+        else{
+            $request->getSession()->getFlashBag()->add('home', 'Une erreur est survenue merci de recharger la page et de nous contacter si le problème se répète');
+            return $this->render('@MVBooking/Default/index.html.twig');
+        }
     }
 
     /**

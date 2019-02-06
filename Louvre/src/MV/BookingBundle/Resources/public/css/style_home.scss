@@ -84,5 +84,18 @@ body{
             }
             }
         }
+
+        .flash-error{
+            background-color: transparent;
+            color: red;
+            font-family: $title;
+            font-size: 0.9em;
+            text-align: center;
+            display: block;
+            width: 300px;
+            padding: 10px;
+            margin: auto;
+            border: 1px solid $colorSelect;
+        }
     }
 

@@ -5,12 +5,25 @@ class MVMail
 {
     private $mailer;
 
+    /**
+     * MVMail constructor.
+     * @param \Swift_Mailer $mailer
+     * @param \Twig_Environment $twig
+     */
     public function __construct(\Swift_Mailer $mailer, \Twig_Environment $twig)
   {
     $this->mailer = $mailer;
     $this->twig   = $twig;
   }
 
+    /**
+     * @param $email
+     * @param $date
+     * @param $listActiveUsers
+     * @param $locale
+     * @param $sessionId
+     * @return bool
+     */
     public function sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId)
     {
         try{

@@ -108,6 +108,18 @@ a#plus {
   margin: auto;
   border: 1px solid #ff8508; }
 
+.flash-error {
+  background-color: transparent;
+  color: red;
+  font-family: "Roboto:black", sans-serif;
+  font-size: 0.9em;
+  text-align: center;
+  display: block;
+  width: 300px;
+  padding: 10px;
+  margin: auto;
+  border: 1px solid #ff8508; }
+
 .total {
   display: block;
   width: 450px;

@@ -1,8 +1,6 @@
 <?php
 namespace MV\BookingBundle\Stripe;
 
-use Symfony\Component\HttpFoundation\Request;
-
 class MVStripe
 {
     private $mail;
@@ -16,6 +14,14 @@ class MVStripe
     $this->currency = $currency;
   }
 
+    /**
+     * @param $amount
+     * @param $date
+     * @param $listActiveUsers
+     * @param $locale
+     * @param $sessionId
+     * @return array|bool
+     */
     public function chargeStripe($amount, $date, $listActiveUsers, $locale, $sessionId)
     {
         $status = false;

@@ -27,6 +27,9 @@
             </div>
         </div>
     </div>
+{% for message in app.flashes('home') %}
+    <div class="flash-error"> {{ message | trans }} </div>
+{% endfor %}
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="{{ asset('bundles/mvbooking/js/home.js') }}"></script>
