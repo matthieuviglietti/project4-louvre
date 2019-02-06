@@ -31,6 +31,17 @@ form #datealt {
       color: red;
       visibility: hidden; }
 
+#tickets {
+  color: white;
+  font-family: "Roboto:black", sans-serif;
+  margin-left: 40px;
+  margin-top: 0;
+  visibility: hidden; }
+  #tickets #info {
+    color: #ff8508;
+    font-family: "Roboto:black", sans-serif;
+    font-style: normal; }
+
 .nextStep, .nextStepEn {
   display: block;
   width: 250px;
@@ -93,5 +104,16 @@ form #datealt {
   height: 50px;
   padding: 10px;
   font-size: 0.8em; }
+
+#error {
+  margin-left: 40px;
+  color: white;
+  font-family: "Roboto:black", sans-serif;
+  visibility: hidden; }
+  #error em {
+    color: #ff8508;
+    font-family: "Roboto:black", sans-serif;
+    font-style: normal;
+    visibility: hidden; }
 
 /*# sourceMappingURL=style_howMany.css.map */

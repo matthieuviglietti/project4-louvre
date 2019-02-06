@@ -19,6 +19,10 @@ class BookingController extends Controller
        );
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction(Request $request)
     {
         $session = $request->getSession();
@@ -37,13 +41,19 @@ class BookingController extends Controller
     }
 
     public function howManyAction(Request $request, $date){
+
         $locale = $request->getLocale();
+
         return $this->render('@MVBooking/Default/howMany.html.twig', array(
             "locale" => $locale,
             "date" => $date
         ));
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function checkDateAction(Request $request){
 
         if($request->isMethod('GET')){
@@ -52,9 +62,10 @@ class BookingController extends Controller
             $userRepository = $em->getRepository(User::class);
             $listVisitors = $userRepository->countUserDay($date);
             $listVisitors= count($listVisitors);
+            $rest = (1000 - $listVisitors);
         
             if ($listVisitors < 1000){
-            $response = new JsonResponse(true);
+            $response = new JsonResponse(true, 200, array("leftTickets" => $rest));
             return $response;
             }
             $response = new JsonResponse(false);
@@ -155,7 +166,6 @@ class BookingController extends Controller
                 'nbr' => $nbr
             ));
         }
-
     }
 
     public function StripeAction(Request $request, $amount, $date){

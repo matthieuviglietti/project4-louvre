@@ -47,9 +47,11 @@ $(function() {
         let selectedDateParam = 'date=' + $('#datealt').val();
         let checkIfDateIsBookable = Routing.generate('mv_booking_checkdate');
         $('#load').load(checkIfDateIsBookable, selectedDateParam, function (response, status, xhr) {
-            console.log(response);
+            let leftTickets = xhr.getResponseHeader('leftTickets');
             if (response == "true") {
                 $('#valid').css("visibility", "visible");
+                $('#info').text(leftTickets);
+                $('#tickets').css("visibility", "visible");
             } else {
                 $('#novalid').css("visibility", "visible").css("float", "right");
                 $("#infoTicket").css("visibility", "visible");
@@ -64,10 +66,12 @@ $(function() {
        let selectedDate = $('#datealt').val();
        let selectedDateParam = 'date=' + $('#datealt').val();
        let checkIfDateIsBookable = Routing.generate('mv_booking_checkdate');
-       console.log(selectedDate);
         $('#load').load(checkIfDateIsBookable, selectedDateParam, function (response, status, xhr) {
+            let leftTickets = xhr.getResponseHeader('leftTickets');
             if (response == "true") {
                 $('#valid').css("visibility", "visible");
+                $('#info').text(leftTickets);
+                $('#tickets').css("visibility", "visible");
             } else {
                 $('#novalid').css("visibility", "visible").css("float", "right");
                 $("#infoTicket").css("visibility", "visible");

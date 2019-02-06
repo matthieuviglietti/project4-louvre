@@ -20,6 +20,7 @@
             <option value="6" name="6">6</option>
         </select>
     </form>
+    <p id="error">{{ 'Il ne reste plus que'|trans}} <em></em> {{ "ticket(s) disponibles"|trans }}</p>
     {% if locale == 'fr' %}
         <a href="" class="nextStep hvr-sweep-to-right" >{{'Étape suivante'|trans}}</a>
     {% endif %}

@@ -45,6 +45,20 @@ form{
     }
 }
 
+#tickets{
+    color: $colorTitle;
+    font-family: $title;
+    margin-left: 40px;
+    margin-top: 0;
+    visibility: hidden;
+    #info{
+        color: $colorSelect;
+        font-family: $title;
+        font-style: normal;
+    }
+}
+
+
 .nextStep, .nextStepEn{
     display: block;
     width: 250px;

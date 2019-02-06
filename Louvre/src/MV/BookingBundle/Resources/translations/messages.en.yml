@@ -51,3 +51,7 @@ Le visiteur a bien été supprimé: The visitor has been deleted
 Numéro de commande: Order reference
 Le champ Name doit contenir plus d'une lettre: Name input needs more than 1 letter
 Le champ FirstName doit contenir plus d'une lettre: FirstName input needs more than 1 letter
+Il reste: There is still
+tickets pour cette date: tickets for this day
+Il ne reste plus que: Only
+ticket(s) disponibles: ticket(s) remain

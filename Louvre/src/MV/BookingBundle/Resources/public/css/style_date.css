@@ -31,6 +31,17 @@ form #datealt {
       color: red;
       visibility: hidden; }
 
+#tickets {
+  color: white;
+  font-family: "Roboto:black", sans-serif;
+  margin-left: 40px;
+  margin-top: 0;
+  visibility: hidden; }
+  #tickets #info {
+    color: #ff8508;
+    font-family: "Roboto:black", sans-serif;
+    font-style: normal; }
+
 .nextStep, .nextStepEn {
   display: block;
   width: 250px;

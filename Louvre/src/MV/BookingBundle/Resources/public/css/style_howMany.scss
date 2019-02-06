@@ -15,3 +15,16 @@
     font-size    : 0.8em;
 }
 
+#error{
+    margin-left: 40px;
+    color: $colorTitle;
+    font-family: $title;
+    visibility: hidden;
+    em{
+        color: $colorSelect;
+        font-family: $title;
+        font-style: normal;
+        visibility: hidden;
+    }
+}
+
