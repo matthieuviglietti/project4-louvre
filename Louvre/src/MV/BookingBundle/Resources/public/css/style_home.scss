@@ -7,9 +7,9 @@
 @import "mixin";
 
 body{
-    width: 100vm;
+    width           : 100vm;
     background-color: black;
-    min-width: 500px;
+    min-width       : 500px;
     header{
         margin-top: 35px;
         margin-left: 30px;
@@ -26,40 +26,40 @@ body{
 
     #canvas {
         position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        z-index: -1;
+        display : block;
+        top     : 0;
+        left    : 0;
+        z-index : -1;
     }
 
     .title{
         text-transform: uppercase;
         font-family   : $title;
-        margin-bottom: 0;
-        margin-top: 0;
-        font-size: 1.4em;
-        color: $colorTitle;
+        margin-bottom : 0;
+        margin-top    : 0;
+        font-size     : 1.4em;
+        color         : $colorTitle;
 
     }
     .subtitle{
-        font-family: $subtitle;
-        font-weight: 300;
-        color: $colorSubtitle;
-        margin-top: 0;
+        font-family  : $subtitle;
+        font-weight  : 300;
+        color        : $colorSubtitle;
+        margin-top   : 0;
         margin-bottom: 30px;
-        font-size: 1em;
+        font-size    : 1em;
     }
 
     #contain{
-        margin: 0 auto 0 auto;
-        margin-top: 50px;
-        padding: 15px;
-        width: 440px;
-        border: 3px solid white;
+        margin          : 0 auto 0 auto;
+        margin-top      : 50px;
+        padding         : 15px;
+        width           : 440px;
+        border          : 3px solid white;
         background-color: black;
         .animate{
-            width: 100%;
-            padding: 15px;
+            width       : 100%;
+            padding     : 15px;
         .languages {
             a{
             width                : 200px;
@@ -87,15 +87,15 @@ body{
 
         .flash-error{
             background-color: transparent;
-            color: red;
-            font-family: $title;
-            font-size: 0.9em;
-            text-align: center;
-            display: block;
-            width: 300px;
-            padding: 10px;
-            margin: auto;
-            border: 1px solid $colorSelect;
+            color           : red;
+            font-family     : $title;
+            font-size       : 0.9em;
+            text-align      : center;
+            display         : block;
+            width           : 300px;
+            padding         : 10px;
+            margin          : auto;
+            border          : 1px solid $colorSelect;
         }
     }
 

@@ -9,25 +9,25 @@
     visibility: hidden;
 }
 .mention{
-    color: $colorSubtitle;
-    font-size: 0.6em;
-    font-family: $title;
-    margin-left: 40px;
+    color         : $colorSubtitle;
+    font-size     : 0.7em;
+    font-family   : $title;
+    margin-left   : 40px;
     @include tablet{
-        margin: auto;
+        margin    : auto;
         text-align: center;
         margin-top: 10px;
     }
 }
 .user{
-    color: white;
+    color      : white;
     font-family: $title;
     margin-left: 40px;
     strong{
         color: $colorSelect;
     }
     @include tablet{
-        margin: auto;
+        margin    : auto;
         text-align: center;
         margin-top: 30px;
     }
@@ -41,21 +41,21 @@
 }
 
 label{
-    color: white;
-    font-family: $title;
+    color       : white;
+    font-family : $title;
     margin-right: 10px;
-    display: block;
-    width: 300px;
+    display     : block;
+    width       : 300px;
     @include tablet{
-        margin: 0 auto 3px ;
+        margin    : 0 auto 3px ;
         text-align: left;
     }
 }
 
 input{
-    width: 300px;
+    width        : 300px;
     border-radius: 5px;
-    height: 30px;
+    height       : 30px;
     margin-bottom: 10px;
 }
 #mv_bookingbundle_user_country{
@@ -63,20 +63,20 @@ input{
 }
 
 #mv_bookingbundle_form_submit{
-    width: 250px;
-    height: 45px;
-    color: $colorTitle;
-    border: 3px solid white;
-    text-transform: uppercase;
+    width           : 250px;
+    height          : 45px;
+    color           : $colorTitle;
+    border          : 3px solid white;
+    text-transform  : uppercase;
     background-color: transparent;
-    margin: 100px auto 70px auto;
-    display: block;
-    text-decoration: none;
-    font-family: $title;
-    font-size: 1em;
-    text-align: center;
-    vertical-align: center;
-    z-index: 1000;
+    margin          : 100px auto 70px auto;
+    display         : block;
+    text-decoration : none;
+    font-family     : $title;
+    font-size       : 1em;
+    text-align      : center;
+    vertical-align  : center;
+    z-index         : 1000;
 }
 
 #mv_bookingbundle_form_user>div>label:first-child{
@@ -85,9 +85,9 @@ input{
 
 #errorName{
     font-family: $title;
-    color: red;
-    visibility: hidden;
-    font-size: 0.9em;
+    color      : red;
+    visibility : hidden;
+    font-size  : 0.9em;
     margin-left: 40px;
 }
 #errorFirst{

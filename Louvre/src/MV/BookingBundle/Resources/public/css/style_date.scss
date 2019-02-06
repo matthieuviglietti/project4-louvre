@@ -13,22 +13,22 @@
     margin-left: 40px;
     @include tablet{
         text-align: center;
-        margin: auto;
+        margin    : 10px auto;
     }
     }
 
 form{
     #date, #dateen{
-        border-radius: 20px;
-        margin-left: 40px;
-        margin-top: 80px;
-        width: 300px;
-        height: 30px;;
-        padding: 10px;
-        font-size: 0.8em;
+        border-radius : 20px;
+        margin-left   : 40px;
+        margin-top    : 80px;
+        width         : 300px;
+        height        : 30px;;
+        padding       : 10px;
+        font-size     : 0.8em;
         @include tablet{
             text-align: center;
-            margin: 0 auto 0;
+            margin    : 0 auto 0;
         }
     }
     #datealt{
@@ -36,30 +36,35 @@ form{
     }
     @include tablet{
         text-align: center;
-        margin: 40px auto 0;
+        margin    : 40px auto 0;
     }
 }
 
 #flex{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     @include tablet{
-        flex-direction: column;
+        -webkit-box-orient    : vertical;
+        -webkit-box-direction : normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
     #load{
         width: 1px;
     }
     #check{
         margin-top: 90px;
-        width: 40px;
-        height: 40px;
+        width     : 40px;
+        height    : 40px;
         #valid, #novalid{
             visibility: hidden;
         }
         #novalid{
             position: relative;
-            top: -30px;
-            left: 0px;
-            right: 0;
+            top     : -30px;
+            left    : 0px;
+            right   : 0;
         }
         @include tablet{
             margin: auto;
@@ -68,18 +73,18 @@ form{
     .ui-datepicker-append{
         @include tablet{
             margin: 10px auto;
-            color: $colorSubtitle;
+            color : $colorSubtitle;
             font-family: $title;
 
         }
     }
 }
 #infoTicket{
-    color: red;
-    visibility: hidden;
+    color      : red;
+    visibility : hidden;
     margin-left: 40px;
     font-family: $title;
-    margin-top: 0;
+    margin-top : 0;
     @include tablet{
         width: 100%;
         margin: auto;
@@ -88,72 +93,75 @@ form{
 }
 
 #tickets{
-    color: $colorTitle;
+    color      : $colorTitle;
     font-family: $title;
     margin-left: 40px;
-    margin-top: 0;
-    visibility: hidden;
+    margin-top : 0;
+    visibility : hidden;
     #info{
-        color: $colorSelect;
+        color      : $colorSelect;
         font-family: $title;
-        font-style: normal;
+        font-style : normal;
     }
     @include tablet{
-        width: 100%;
-        margin: auto;
+        width     : 100%;
+        margin    : auto;
         text-align: center;
     }
 }
 
 
 .nextStep, .nextStepEn{
-    display: block;
-    width: 250px;
-    height: 45px;
-    color: $colorTitle;
-    border: 3px solid $colorTitle;
-    text-transform: uppercase;
-    margin: 100px auto 0 auto;
+    display        : block;
+    width          : 250px;
+    height         : 45px;
+    color          : $colorTitle;
+    border         : 3px solid $colorTitle;
+    text-transform : uppercase;
+    margin         : 100px auto 0 auto;
     text-decoration: none;
-    font-family: $title;
-    text-align: center;
-    line-height: 45px;
-    z-index: 1000;
+    font-family    : $title;
+    text-align     : center;
+    line-height    : 45px;
+    z-index        : 1000;
 }
 .hvr-sweep-to-right {
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    position: relative;
+    -webkit-transform          : perspective(1px) translateZ(0);
+    transform                  : perspective(1px) translateZ(0);
+    position                   : relative;
     -webkit-transition-property: color;
-    transition-property: color;
+    transition-property        : color;
     -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
+    transition-duration        : 0.3s;
 }
 .hvr-sweep-to-right:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: $colorSelect;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transform-origin: 0 50%;
-    transform-origin: 0 50%;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
+    content                           : "";
+    position                          : absolute;
+    z-index                           : -1;
+    top                               : 0;
+    left                              : 0;
+    right                             : 0;
+    bottom                            : 0;
+    background                        : $colorSelect;
+    -webkit-transform                 : scaleX(0);
+    transform                         : scaleX(0);
+    -webkit-transform-origin          : 0 50%;
+    transform-origin                  : 0 50%;
+    -webkit-transition-property       : transform;
+    -webkit-transition-property       : -webkit-transform;
+    transition-property               : -webkit-transform;
+    transition-property               : transform;
+    transition-property               : transform, -webkit-transform;
+    -webkit-transition-duration       : 0.3s;
+    transition-duration               : 0.3s;
     -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
+    transition-timing-function        : ease-out;
 }
 .hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
     color: $colorTitle;
 }
 .hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
     -webkit-transform: scaleX(1);
-    transform: scaleX(1);
+    transform        : scaleX(1);
 }
 

@@ -18,14 +18,26 @@ h3 {
   padding: 5px;
   margin: auto; }
   #containResume #containUsers {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -ms-flex-pack: inherit;
     justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 10px; }
     #containResume #containUsers #infos {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -ms-flex-line-pack: center;
       align-content: center; }
       #containResume #containUsers #infos .user {
         color: white;
@@ -60,7 +72,9 @@ h3 {
         border: 1px solid #ff8508;
         height: 20px;
         width: 100px;
+        -webkit-transition-property: color, border;
         transition-property: color, border;
+        -webkit-transition-duration: 0.5s;
         transition-duration: 0.5s; }
         #containResume #containUsers #deleteUser input:hover {
           color: white;
@@ -79,7 +93,9 @@ a#plus {
   line-height: 25px;
   border-radius: 30px;
   margin: 20px auto;
+  -webkit-transition-property: line-height, color, width, height, font-size;
   transition-property: line-height, color, width, height, font-size;
+  -webkit-transition-duration: 1s;
   transition-duration: 1s; }
   a#plus:hover {
     color: #ff8508;

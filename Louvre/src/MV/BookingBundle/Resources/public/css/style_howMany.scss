@@ -2,7 +2,7 @@
 @import "style_date";
 
 .selectedDate{
-    color: white;
+    color     : white;
     visibility: hidden;
 }
 #number{
@@ -20,18 +20,18 @@
 
 #error{
     margin-left: 40px;
-    color: $colorTitle;
+    color      : $colorTitle;
     font-family: $title;
-    visibility: hidden;
+    visibility : hidden;
     em{
-        color: $colorSelect;
+        color      : $colorSelect;
         font-family: $title;
-        font-style: normal;
-        visibility: hidden;
+        font-style : normal;
+        visibility : hidden;
     }
     @include tablet{
-        width:100%;
-        margin: auto;
+        width     : 100%;
+        margin    : auto;
         text-align: center;
     }
 }
