@@ -226,6 +226,14 @@ class BookingController extends Controller
                 ->setEmail($email);
             $em->persist($createOrder);
             $em->flush();
+
+            $commandId = $em->getRepository(Command::class)->findOneBySpecialKey($sessionId);
+            $userOrder = $userRepository->findBySessionKey($sessionId);
+
+            foreach ($userOrder as $user){
+                $commandId->addUser($user);//A voir
+            }
+            $em->flush();
         }
         else{
                 $request->getSession()->getFlashBag()->add('error', 'Une erreur est survenue merci de bien vouloir réessayer');

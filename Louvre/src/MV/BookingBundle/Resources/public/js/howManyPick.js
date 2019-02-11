@@ -3,10 +3,10 @@ $(function(){
     $("#number").on("change", function(){
         let selectedDateParam = 'date=' + $('.selectedDate').text();
         console.log($('.selectedDate').text());
-        let selectedValue = $('#number').val();
+        let selectedValue = parseInt($('#number').val());
         let checkIfDateIsBookable = Routing.generate('mv_booking_checkdate');
         $('#load').load(checkIfDateIsBookable, selectedDateParam, function (response, status, xhr) {
-            let leftTickets = xhr.getResponseHeader('leftTickets');
+            let leftTickets = parseInt(xhr.getResponseHeader('leftTickets'));
             console.log(selectedValue);
             console.log(leftTickets);
             if (leftTickets < selectedValue) {
@@ -17,7 +17,7 @@ $(function(){
                 $('#error').css("visibility", "visible");
                 $('em').css("visibility", "visible");
             }
-            else if (leftTickets >= selectedValue) {
+            else {
                 $('.nextStep').css("visibility", "visible");
                 $('.nextStepEn').css("visibility", "visible");
                 $("#number").css("background-color", 'white').css('color', 'black').css('border', 'none');

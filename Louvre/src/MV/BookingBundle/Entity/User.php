@@ -64,9 +64,15 @@ class User
 
      /**
      * @ORM\ManyToOne(targetEntity="MV\BookingBundle\Entity\Form", inversedBy="user", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $form;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="MV\BookingBundle\Entity\Form", inversedBy="user")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $command;
 
     /**
      * @var \Datetime
@@ -74,6 +80,19 @@ class User
      * @ORM\Column(name="date", type="date")
      */
     private $date;
+
+    /**
+     * @var \Datetime
+     *
+     * @ORM\Column(name="creationDate", type="date")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $creationDate;
+
+    public function __construct()
+    {
+        $this->creationDate = new \DateTime();
+    }
 
     /**
      * Get id.
@@ -276,5 +295,53 @@ class User
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set creationDate.
+     *
+     * @param \DateTime $creationDate
+     *
+     * @return User
+     */
+    public function setCreationDate($creationDate)
+    {
+        $this->creationDate = $creationDate;
+
+        return $this;
+    }
+
+    /**
+     * Get creationDate.
+     *
+     * @return \DateTime
+     */
+    public function getCreationDate()
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * Set command.
+     *
+     * @param \MV\BookingBundle\Entity\Form|null $command
+     *
+     * @return User
+     */
+    public function setCommand(\MV\BookingBundle\Entity\Form $command = null)
+    {
+        $this->command = $command;
+
+        return $this;
+    }
+
+    /**
+     * Get command.
+     *
+     * @return \MV\BookingBundle\Entity\Form|null
+     */
+    public function getCommand()
+    {
+        return $this->command;
     }
 }

@@ -42,6 +42,11 @@ class Command
      */
     private $email;
 
+    /**
+     * @ORM\OneToMany(targetEntity="MV\BookingBundle\Entity\User", mappedBy="command", cascade={"persist"})
+     */
+    private $user;
+
 
     /**
      * Get id.
@@ -123,5 +128,50 @@ class Command
     public function getEmail()
     {
         return $this->email;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add user.
+     *
+     * @param \MV\BookingBundle\Entity\User $user
+     *
+     * @return Command
+     */
+    public function addUser(\MV\BookingBundle\Entity\User $user)
+    {
+        $this->user[] = $user;
+
+        $user->setCommand(null);
+
+        return $this;
+    }
+
+    /**
+     * Remove user.
+     *
+     * @param \MV\BookingBundle\Entity\User $user
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeUser(\MV\BookingBundle\Entity\User $user)
+    {
+        return $this->user->removeElement($user);
+    }
+
+    /**
+     * Get user.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -13,7 +13,7 @@ class BookingControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
 
-        $this->assertTrue($client->getResponse()->isRedirect());
+        $this->assertTrue($client->getResponse()->isRedirect('/fr/home'));
     }
 
     public function testIndexAction()

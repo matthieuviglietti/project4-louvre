@@ -10,4 +10,15 @@ namespace MV\BookingBundle\Repository;
  */
 class CommandRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function selectId($sessionId)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb
+            -> select('c.id')
+            -> where('c.specialKey = :sessionId')
+            -> setParameter('sessionId', $sessionId);
+
+        $id = $qb->getQuery()->getSingleResult();
+        return $id;
+    }
 }

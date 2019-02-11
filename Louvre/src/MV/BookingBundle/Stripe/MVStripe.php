@@ -56,6 +56,7 @@ class MVStripe
             $body = $e->getJsonBody();
             $err  = $body['error'];
             // The card has been declined
+            console.log($e->getMessage());
             return $status;
         }
         
