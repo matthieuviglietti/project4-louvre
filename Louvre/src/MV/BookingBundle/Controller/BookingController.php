@@ -78,7 +78,6 @@ class BookingController extends Controller
             $em = $this->getDoctrine()->getManager();
             $userRepository = $em->getRepository(User::class);
             $listVisitors = $userRepository->countUserDay($date);
-            $listVisitors= count($listVisitors);
             $rest = (1000 - $listVisitors);
         
             if ($listVisitors < 1000){

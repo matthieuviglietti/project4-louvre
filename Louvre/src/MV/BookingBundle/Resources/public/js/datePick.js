@@ -2,7 +2,7 @@ $(function() {
     $.datepicker.setDefaults($.datepicker.regional["fr"]);
     $('#date').datepicker({
         minDate: 0,
-        appendText: "format attendu: jj-mm-aaaa",
+        appendText: "Format attendu: jj-mm-aaaa",
         beforeShowDay: DisableDates,
         altFormat: "yy-mm-dd",
         altField: "#datealt"
@@ -11,7 +11,7 @@ $(function() {
     $('#dateen').datepicker($.extend({
             firstDay: 1,
             minDate: 0,
-            appendText: "date format: mm-dd-yyyy",
+            appendText: "Date format: mm-dd-yyyy",
             beforeShowDay: DisableDates,
             altFormat: "yy-mm-dd",
             altField: "#datealt"

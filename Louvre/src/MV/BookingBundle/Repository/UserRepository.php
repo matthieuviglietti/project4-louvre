@@ -29,12 +29,12 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
     {
         $qb = $this->createQueryBuilder('u');
         $qb
-            -> select('COUNT(u.name)')
+            -> select($qb->expr()->count('u.id'))
             -> where('u.date = :date')
             -> setParameter('date', $date);
 
         $listVisitors = $qb->getQuery()
-                           ->getResult();
+                           ->getSingleScalarResult();
 
         return $listVisitors;
             

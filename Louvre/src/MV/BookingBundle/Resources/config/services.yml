@@ -4,7 +4,7 @@ services:
         class: MV\BookingBundle\Stripe\MVStripe
         arguments:
             - "@mv_booking.mail"
-            - %locale%
+            - "%locale%"
             - eur
         public: true
 
@@ -17,4 +17,5 @@ services:
 
     mv_booking.session:
         class: MV\BookingBundle\Session\MVSession
+        public: true
   

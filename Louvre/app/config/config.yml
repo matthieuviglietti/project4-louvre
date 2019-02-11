@@ -64,11 +64,10 @@ swiftmailer:
     host: '%mailer_host%'
     username: '%mailer_user%'
     password: '%mailer_password%'
-    port: '%mailer_port%'
 
 sensio_framework_extra:
    router:
         annotations: false
 
 fos_js_routing:
-    routes_to_expose: [mv_booking_homepage, mv_booking_date, mv_booking_howmany, mv_booking_users, mv_booking_check, mv_booking_stripe]
+    routes_to_expose: [mv_booking_homepage, mv_booking_checkdate, mv_booking_date, mv_booking_howmany, mv_booking_users, mv_booking_check, mv_booking_stripe]
