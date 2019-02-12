@@ -43,7 +43,7 @@ class Command
     private $email;
 
     /**
-     * @ORM\OneToMany(targetEntity="MV\BookingBundle\Entity\User", mappedBy="command", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="MV\BookingBundle\Entity\User", cascade={"persist"})
      */
     private $user;
 
@@ -147,8 +147,6 @@ class Command
     public function addUser(\MV\BookingBundle\Entity\User $user)
     {
         $this->user[] = $user;
-
-        $user->setCommand(null);
 
         return $this;
     }

@@ -69,12 +69,6 @@ class User
     private $form;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MV\BookingBundle\Entity\Form", inversedBy="user")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $command;
-
-    /**
      * @var \Datetime
      *
      * @ORM\Column(name="date", type="date")
@@ -319,29 +313,5 @@ class User
     public function getCreationDate()
     {
         return $this->creationDate;
-    }
-
-    /**
-     * Set command.
-     *
-     * @param \MV\BookingBundle\Entity\Form|null $command
-     *
-     * @return User
-     */
-    public function setCommand(\MV\BookingBundle\Entity\Form $command = null)
-    {
-        $this->command = $command;
-
-        return $this;
-    }
-
-    /**
-     * Get command.
-     *
-     * @return \MV\BookingBundle\Entity\Form|null
-     */
-    public function getCommand()
-    {
-        return $this->command;
     }
 }

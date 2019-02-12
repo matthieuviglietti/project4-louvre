@@ -227,11 +227,15 @@ class BookingController extends Controller
             $em->persist($createOrder);
             $em->flush();
 
-            $commandId = $em->getRepository(Command::class)->findOneBySpecialKey($sessionId);
-            $userOrder = $userRepository->findBySessionKey($sessionId);
+            $commandId = $em->getRepository(Command::class)->findOneBy(array(
+                "specialKey"=>$sessionId
+            ));
+            $userOrder = $userRepository->findBy(array(
+                "sessionKey"=>$sessionId
+            ));
 
             foreach ($userOrder as $user){
-                $commandId->addUser($user);//A voir
+                $commandId->addUser($user);
             }
             $em->flush();
         }
