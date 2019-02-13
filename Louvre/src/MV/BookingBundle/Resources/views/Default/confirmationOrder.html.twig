@@ -8,6 +8,7 @@
 {% block body %}
 
     <h2 class="titleEnd">{{"Toute l'équipe du musée du Louvre vous remercie pour votre commande"|trans}}</h2>
+    <h3 class="subtitle">{{ 'Un email vous a été envoyé à l\'adresse'|trans }} : {{ email }}</h3>
         <a id="backhome" href="{{ path('mv_booking_homepage') }}">{{ 'Nouvelle Commande'|trans }}</a>
 {% if locale == 'fr' %}
     <svg version="1.1" baseProfile="tiny" id="Calque_fr"

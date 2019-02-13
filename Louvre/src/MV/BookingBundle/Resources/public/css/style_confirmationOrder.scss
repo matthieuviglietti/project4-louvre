@@ -1,21 +1,38 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@import "font";
+@import "variables";
+@import "mixin";
+
 .titleEnd{
   text-transform: uppercase;
-  font-family   : 'Poppins', sans-serif;
+  font-family   : $title;
   font-size     : 1.4em;
-  color         : #FFFFFF;
-  margin        : 0px auto 30px auto ;
+  color         : $colorTitle;
+  margin        : 3px auto 20px auto ;
   display       : block;
-  width         : 100vm;
+  width         : 100vw;
   text-align    : center;
+}
+
+.subtitle{
+  font-family: $title;
+  color: $colorSubtitle;
+  display: block;
+  width: 100vw;
+  font-size: 0.8em;
+  margin: 0 auto 20px;
+  text-align: center;
 }
 
 #backhome{
   text-transform : uppercase;
-  font-family    : 'Poppins', sans-serif;
+  font-family    : $title;
   margin         : 0px auto 30px auto;
   width          : 250px;
   height         : 45px;
-  color          : #FFFFFF;
+  color          : $colorTitle;
   display        : block;
   border         : 3px solid white;
   text-decoration: none;
@@ -23,6 +40,6 @@
   line-height    : 45px;
     &:hover{
       border: 3px solid orange;
-      color : orange;
+      color : $colorSelect;
     }
 }

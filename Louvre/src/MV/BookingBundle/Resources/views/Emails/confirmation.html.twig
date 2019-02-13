@@ -2,19 +2,20 @@
 
 <img src="{{ absolute_url(asset('bundles/mvbooking/images/logo.jpg')) }}">
 
-<p>{{ 'Numéro de commande' | trans }} : {{ session }}</p>
+<p><b>{{ 'Numéro de commande' | trans }}</b> : {{ session }}</p>
+<br>
 
-<p>{{'Voici le récapitulatif de votre commande'|trans}} :</p>
+<u>><p><b>{{'Voici le récapitulatif de votre commande'|trans}} :</b></p></u
 {% if locale == 'fr' %}
-       <p>{{ "Date de visite"|trans }}: {{ date|date('d-m-Y') }}</p>
+       <p><b>{{ "Date de visite"|trans }}:</b> {{ date|date('d-m-Y') }}</p>
 {% endif %}
 {% if locale == 'en' %}
-       <p>{{ "Date de visite"|trans }}: {{ date }}</p>
+       <p><b>{{ "Date de visite"|trans }}:</b> {{ date }}</p>
 {% endif %}
 
-<p>{{ "Liste des visiteurs"|trans }} :</p>
+<p><b>{{ "Liste des visiteurs"|trans }} :</b></p>
 {% for users in users %}
-       <p>{{ users.name }} {{ users.firstName }} : {{ users.ticket.type|trans }}</p>
+       <p><b>{{ users.name }} {{ users.firstName }}</b> : {{ users.ticket.type|trans }}</p>
 {% endfor %}
 
 {{ "Cet email correspond à votre billet électronique, merci de bien vouloir le présenter à l'entrée du musée." | trans}}

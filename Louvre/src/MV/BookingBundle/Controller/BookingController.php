@@ -286,14 +286,16 @@ class BookingController extends Controller
 
     /**
      * @param Request $request
+     * @param $email
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function confirmationOrderAction(Request $request){
+    public function confirmationOrderAction(Request $request, $email){
 
         $locale = $request->getLocale();
 
         return $this->render('@MVBooking/Default/confirmationOrder.html.twig', array(
-          'locale' => $locale
+            'locale' => $locale,
+            'email'=> $email
         ));
     }
 

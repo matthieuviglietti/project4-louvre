@@ -44,7 +44,7 @@ mv_booking_stripe:
         _locale: fr|en
 
 mv_booking_confirmation:
-    path:     /{_locale}/confirmation
+    path:     /{_locale}/{email}/confirmation
     defaults: { _controller: MVBookingBundle:Booking:confirmationOrder}
     requirements:
         _locale: fr|en
@@ -55,6 +55,7 @@ mv_booking_deleteuser:
     requirements:
         id: \d+
         nbr: \d{1}
+        _locale: fr|en
 
 mv_booking_cancel:
     path:     /{_locale}/{sessionId}/cancel
