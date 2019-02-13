@@ -1,5 +1,18 @@
 $(function(){
 
+    let regex = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,6})+$/); //coresponding new TLD
+
+    $(".email").on("change", function () {
+        let email=  $(".email").val();
+        console.log(regex.test(email));
+        if(regex.test(email) == true){
+            $('button').css('visibility', 'visible');
+            $('#emailerror').css('visibility', 'hidden');
+        }
+        else{
+            $('#emailerror').css('visibility', 'visible');
+        }
+
     $("button.stripe-button-el").removeAttr('style').css({
         "display":"block",
         "width":"250px",
@@ -17,16 +30,26 @@ $(function(){
 
     $('hr:last-child').remove();
 
-    amount = total*100;
+    if(typeof total == "undefined"){
+        total = parseInt(0);
+    }
+
+    let amount = total*100;
     console.log(amount);
     let brutDate =  $('#date').text();
     brutDate= brutDate.split('-').join(","); // for Firefox
     let date = new Date(brutDate);
     date = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
     console.log(date);
-    var formRoute = Routing.generate('mv_booking_stripe', {_locale: 'fr', amount: amount, date: date });
-    var formRouteEn = Routing.generate('mv_booking_stripe', {_locale: 'en', amount: amount, date: date });
+    let formRoute = Routing.generate('mv_booking_stripe', {_locale: 'fr', amount: amount, date: date });
+    let formRouteEn = Routing.generate('mv_booking_stripe', {_locale: 'en', amount: amount, date: date });
     $('#formfrstripe').attr("action", formRoute);
     $('#formenstripe').attr("action", formRouteEn);
+
+    //for checking email
+
+
+    });
+
 
 });

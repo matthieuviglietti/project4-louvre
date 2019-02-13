@@ -59,3 +59,15 @@ mv_booking_deleteuser:
 mv_booking_cancel:
     path:     /{_locale}/{sessionId}/cancel
     defaults: { _controller: MVBookingBundle:Booking:cancelOrder}
+
+mv_booking_mail:
+    path:     /{_locale}/{date}/mail
+    defaults: { _controller: MVBookingBundle:Booking:mail}
+
+mv_booking_legal:
+    path:     /{_locale}/legal
+    defaults: { _controller: MVBookingBundle:Booking:legal}
+
+mv_booking_about:
+    path:     /{_locale}/about
+    defaults: { _controller: MVBookingBundle:Booking:about}

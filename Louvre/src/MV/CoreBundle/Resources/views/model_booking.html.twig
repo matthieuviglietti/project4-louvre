@@ -12,9 +12,9 @@
 
 {% block footer %}
     <footer>
-        <a href="#"><p class="foot">{{'Mentions légales'|trans}}</p></a>
-        <a href="#"><p class="foot">{{'à propos'|trans}}</p></a>
-        <img src="{{asset('bundles/mvbooking/images/logo_min.png')}}" alt="logo-louvre">
+        <a href="{{ path('mv_booking_legal') }}"><p class="foot">{{'Mentions légales'|trans}}</p></a>
+        <a href="{{ path('mv_booking_about') }}"><p class="foot">{{'À propos'|trans}}</p></a>
+        <a href="{{ path('mv_booking_homepage') }}"><img src="{{asset('bundles/mvbooking/images/logo_min.png')}}" alt="logo-louvre"></a>
     </footer>
 {% endblock %}
 

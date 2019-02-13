@@ -163,4 +163,45 @@ a#plus {
   height: 20px;
   text-align: center; }
 
+form label {
+  font-family: "Roboto:black", sans-serif;
+  color: white;
+  display: block;
+  margin-bottom: 10px;
+  margin-left: 10px; }
+  @media (min-width: 500px) {
+    form label {
+      margin: auto; } }
+form input {
+  width: 300px;
+  height: 45px;
+  margin-left: 10px; }
+  @media (min-width: 500px) {
+    form input {
+      margin: auto; } }
+form .submit {
+  width: 250px;
+  height: 45px;
+  color: white;
+  border: 3px solid white;
+  text-transform: uppercase;
+  display: block;
+  background-color: transparent;
+  font-family: "Roboto:black", sans-serif;
+  margin: 40px auto;
+  font-size: 1em;
+  z-index: 1000;
+  visibility: hidden; }
+
+p#emailerror {
+  visibility: hidden;
+  color: red;
+  margin-left: 10px;
+  font-family: "Roboto:black", sans-serif; }
+  @media (min-width: 500px) {
+    p#emailerror {
+      width: auto;
+      margin: auto;
+      text-align: center; } }
+
 /*# sourceMappingURL=style_checkOrder.css.map */

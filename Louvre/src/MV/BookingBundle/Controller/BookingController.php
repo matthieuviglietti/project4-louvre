@@ -252,6 +252,38 @@ class BookingController extends Controller
         ));
     }
 
+    public function mailAction(Request $request, $date){
+
+        $em = $this->getDoctrine()->getManager();
+        $userRepository = $em->getRepository(User::class);
+        $session = $request->getSession();
+        $sessionId = $session->get('orderId');
+        $locale = $request->getLocale();
+
+        $listActiveUsers = $userRepository->selectUserOrder($sessionId);
+
+        if ($request->isMethod('POST')){
+            $email = $_POST['email'];
+            $mail = $this->container->get('mv_booking.mail')->sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId);
+
+            if($mail != false){
+                return $this->redirectToRoute('mv_booking_confirmation', array(
+                    "email"=>$email
+                ));
+            }
+            else{
+                $request->getSession()->getFlashBag()->add('error', 'Une erreur est survenue merci de bien vouloir réessayer');
+                return $this->redirectToRoute('mv_booking_check', array(
+                    'date' => $date,
+                ));
+            }
+        }
+        $request->getSession()->getFlashBag()->add('error', 'Une erreur est survenue merci de bien vouloir réessayer');
+        return $this->redirectToRoute('mv_booking_check', array(
+            'date' => $date,
+        ));
+    }
+
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -283,5 +315,23 @@ class BookingController extends Controller
 
         $request->getSession()->getFlashBag()->add('notice', 'La commande a bien été annulée');
         return $this->redirectToRoute('mv_booking_homepage');
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function legalAction(){
+
+        return $this->render('@MVBooking/Default/legal.html.twig');
+
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function aboutAction(){
+
+        return $this->render('@MVBooking/Default/about.html.twig');
+
     }
 }

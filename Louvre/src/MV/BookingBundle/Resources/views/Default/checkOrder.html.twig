@@ -55,48 +55,57 @@
 
     {% set totalAmount = total * 100 %}
 
-    {% if locale == 'fr' %}
-    <form id='formfrstripe' action= "" method="POST">
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="{{ asset('bundles/mvbooking/js/jquery-ui.min.js') }}"></script>
-        <script type="text/javascript"> var total= {{ total }}; var UserId = UserId; var date = {{ date|date('Y-m-d') }} </script>
-        <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="pk_test_0qgdyYyOrvcIi3Efjdk0L96U"
-            data-amount= {{totalAmount}}
-            data-name="Louvre"
-            data-image="{{ asset('bundles/mvbooking/images/vignette_logo.png') }}"
-            data-locale="{{locale}}"
-            data-description="{{"Billets pour le musée du Louvre" | trans}}"
-            data-currency="EUR"
-            data-billing-address="true"
-            data-zip-code="true"
-            data-allow-remember-me= "false"
-            data-label= "{{"Procéder au paiement" | trans}}">
-        </script>
-        </form>
-    {% endif %}
-    {% if locale == 'en' %}
-        <form id='formenstripe' action= "" method="POST">
+    {% if total > 0 %}
+        {% if locale == 'fr' %}
+        <form id='formfrstripe' action= "" method="POST">
             <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
             <script type="text/javascript" src="{{ asset('bundles/mvbooking/js/jquery-ui.min.js') }}"></script>
-            <script type="text/javascript"> var total= {{total}};</script>
+            <script type="text/javascript"> let total= {{ total }}; let UserId = UserId; let date = {{ date|date('Y-m-d') }} </script>
             <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="pk_test_0qgdyYyOrvcIi3Efjdk0L96U"
-            data-amount= {{totalAmount}}
-            data-name="Louvre"
-            data-image="{{ asset('bundles/mvbooking/images/vignette_logo.png') }}"
-            data-locale="{{locale}}"
-            data-description="{{"Billets pour le musée du Louvre" | trans}}"
-            data-currency="EUR"
-            data-billing-address="true"
-            data-zip-code="true"
-            data-allow-remember-me= "false"
-            data-label= "{{"Procéder au paiement" | trans}}">
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_0qgdyYyOrvcIi3Efjdk0L96U"
+                data-amount= {{totalAmount}}
+                data-name="Louvre"
+                data-image="{{ asset('bundles/mvbooking/images/vignette_logo.png') }}"
+                data-locale="{{locale}}"
+                data-description="{{"Billets pour le musée du Louvre" | trans}}"
+                data-currency="EUR"
+                data-billing-address="true"
+                data-zip-code="true"
+                data-allow-remember-me= "false"
+                data-label= "{{"Procéder au paiement" | trans}}">
             </script>
-        </form>
+            </form>
+        {% endif %}
+        {% if locale == 'en' %}
+            <form id='formenstripe' action= "" method="POST">
+                <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+                <script type="text/javascript" src="{{ asset('bundles/mvbooking/js/jquery-ui.min.js') }}"></script>
+                <script type="text/javascript"> var total= {{total}};</script>
+                <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_0qgdyYyOrvcIi3Efjdk0L96U"
+                data-amount= {{totalAmount}}
+                data-name="Louvre"
+                data-image="{{ asset('bundles/mvbooking/images/vignette_logo.png') }}"
+                data-locale="{{locale}}"
+                data-description="{{"Billets pour le musée du Louvre" | trans}}"
+                data-currency="EUR"
+                data-billing-address="true"
+                data-zip-code="true"
+                data-allow-remember-me= "false"
+                data-label= "{{"Procéder au paiement" | trans}}">
+                </script>
+            </form>
+        {% endif %}
     {% endif %}
+
+    <form method="post" action="{{ path('mv_booking_mail', {'date': date}) }}">
+        <label for="email">{{ "Merci de saisir votre email"|trans }}</label><input class="email" name="email" placeholder="email">
+        <button class="submit hvr-sweep-to-right" type="submit">{{ "Envoyer"|trans }}</button>
+    </form>
+
+    <p id="emailerror">{{ "L'adresse saisie n'est pas une adresse email valide"|trans }}</p>
 
 {% endblock %}
 

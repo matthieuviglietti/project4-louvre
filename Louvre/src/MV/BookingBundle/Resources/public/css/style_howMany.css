@@ -51,7 +51,7 @@ form #datealt {
     #flex #check #novalid {
       position: relative;
       top: -30px;
-      left: 0px;
+      left: 0;
       right: 0; }
     @media (min-width: 500px) {
       #flex #check {

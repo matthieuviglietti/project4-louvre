@@ -1,0 +1,13 @@
+{% extends '@MVCore/model_booking.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/mvbooking/css/style_date.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('bundles/mvbooking/css/style_legal.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+    <h1 class="title">{{ 'À propos'|trans }}</h1>
+    <p>{{ 'Ce site a été réalisé dans le cadre d\'une formation OpenClassrooms - Chef de projet Multimédia option Développement'|trans }}</p>
+
+{% endblock %}

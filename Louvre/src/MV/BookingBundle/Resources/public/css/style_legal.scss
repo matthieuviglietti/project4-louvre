@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@import "font";
+@import "variables";
+@import "mixin";
+
+p{
+  font-family: $title;
+  color: $colorSubtitle;
+  margin-left: 40px;
+  font-size: 0.8em;
+  @include tablet{
+    text-align: center;
+    margin    : auto;
+  }
+}

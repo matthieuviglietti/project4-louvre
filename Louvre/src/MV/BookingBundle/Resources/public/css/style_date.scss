@@ -63,7 +63,7 @@ form{
         #novalid{
             position: relative;
             top     : -30px;
-            left    : 0px;
+            left    : 0;
             right   : 0;
         }
         @include tablet{
@@ -164,4 +164,5 @@ form{
     -webkit-transform: scaleX(1);
     transform        : scaleX(1);
 }
+
 
