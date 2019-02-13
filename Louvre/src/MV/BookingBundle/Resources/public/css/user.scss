@@ -76,7 +76,7 @@ input{
     font-size       : 1em;
     text-align      : center;
     vertical-align  : center;
-    z-index         : 1000;
+    z-index         : 10;
 }
 
 #mv_bookingbundle_form_user>div>label:first-child{
@@ -89,7 +89,15 @@ input{
     visibility : hidden;
     font-size  : 0.9em;
     margin-left: 40px;
+    @include tablet{
+        margin    : auto;
+        text-align: center;
+    }
 }
 #errorFirst{
     @extend #errorName;
+    @include tablet{
+        margin    : auto;
+        text-align: center;
+    }
 }

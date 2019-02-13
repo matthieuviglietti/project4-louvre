@@ -40,6 +40,7 @@ body{
         position               : fixed;
         bottom                 : 0;
         font-family            : $title;
+        z-index: 1001;
         a{
             text-decoration: none;
             .foot{

@@ -27,8 +27,8 @@ class MVMail
     public function sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId)
     {
         try{
-            $message = (new \Swift_Message('Confirmation de votre paiement'))
-                ->setFrom(['coucou@louvre.com' => 'Billetterie_louvre'])
+            $message = (new \Swift_Message('Tickets - Louvre'))
+                ->setFrom(['contact@louvre.com' => 'Billetterie_louvre'])
                 ->setTo($email)
                 ->setBody($this->twig->render('@MVBooking/Emails/confirmation.html.twig',
                     ['email' => $email,

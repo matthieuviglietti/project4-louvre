@@ -100,13 +100,14 @@
         {% endif %}
     {% endif %}
 
+    {% if total == 0 %}
     <form method="post" action="{{ path('mv_booking_mail', {'date': date}) }}">
         <label for="email">{{ "Merci de saisir votre email"|trans }}</label><input class="email" name="email" placeholder="email">
         <button class="submit hvr-sweep-to-right" type="submit">{{ "Envoyer"|trans }}</button>
     </form>
 
     <p id="emailerror">{{ "L'adresse saisie n'est pas une adresse email valide"|trans }}</p>
-
+    {% endif %}
 {% endblock %}
 
 {% block js %}

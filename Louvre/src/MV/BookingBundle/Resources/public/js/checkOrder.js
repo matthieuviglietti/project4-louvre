@@ -1,18 +1,5 @@
 $(function(){
 
-    let regex = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,6})+$/); //coresponding new TLD
-
-    $(".email").on("change", function () {
-        let email=  $(".email").val();
-        console.log(regex.test(email));
-        if(regex.test(email) == true){
-            $('button').css('visibility', 'visible');
-            $('#emailerror').css('visibility', 'hidden');
-        }
-        else{
-            $('#emailerror').css('visibility', 'visible');
-        }
-
     $("button.stripe-button-el").removeAttr('style').css({
         "display":"block",
         "width":"250px",
@@ -47,7 +34,18 @@ $(function(){
     $('#formenstripe').attr("action", formRouteEn);
 
     //for checking email
+    let regex = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,6})+$/); //coresponding new TLD
 
+    $(".email").on("change", function () {
+        let email=  $(".email").val();
+        console.log(regex.test(email));
+        if(regex.test(email) == true){
+            $('button').css('visibility', 'visible');
+            $('#emailerror').css('visibility', 'hidden');
+        }
+        else{
+            $('#emailerror').css('visibility', 'visible');
+        }
 
     });
 

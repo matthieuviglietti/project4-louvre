@@ -32,7 +32,8 @@ body {
     align-items: center;
     position: fixed;
     bottom: 0;
-    font-family: "Roboto:black", sans-serif; }
+    font-family: "Roboto:black", sans-serif;
+    z-index: 1001; }
     body footer a {
       text-decoration: none; }
       body footer a .foot {
