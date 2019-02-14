@@ -3,13 +3,15 @@
 <head>
     <link rel="stylesheet" href={{asset('bundles/mvbooking/css/style_home.css')}} type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('bundles/mvbooking/images/favicon.ico') }}">
     <meta charset="utf-8">
     <title>Louvre - Page d'accueil</title>
 </head>
 <body>
 <canvas id="canvas"></canvas>
     <header>
-       <a id="logo" href="#"> <img src={{asset('bundles/mvbooking/images/logo.jpg')}} alt=""></a>
+       <a id="logo" href="#"> <img src={{asset('bundles/mvbooking/images/logo.png')}} alt=""></a>
     </header>
 
 
@@ -20,10 +22,10 @@
                 <h2 class="subtitle">{{"Quelle Langue préférez-vous ?"|trans}}</h2>
             </div>
             <div class="languages">
-                <a href="{{ path('mv_booking_date', {'_locale': 'fr'})}}"><img class= "rounded-image button" src={{asset('bundles/mvbooking/images/fr.jpg')}} alt="drapeau_français"> <p>{{'Français'|trans}}</p></a>
+                <a href="{{ path('mv_booking_date', {'_locale': 'fr'})}}"><img class= "rounded-image button" src={{asset('bundles/mvbooking/images/fr.png')}} alt="drapeau_français"> <p>{{'Français'|trans}}</p></a>
             </div>
             <div class="languages">
-                <a href="{{ path('mv_booking_date', {'_locale': 'en'})}}"><img class= "rounded-image button" src={{asset('bundles/mvbooking/images/en.jpg')}} alt="drapeau_anglais"> <p>{{'Anglais'|trans}}</p></a>
+                <a href="{{ path('mv_booking_date', {'_locale': 'en'})}}"><img class= "rounded-image button" src={{asset('bundles/mvbooking/images/en.png')}} alt="drapeau_anglais"> <p>{{'Anglais'|trans}}</p></a>
             </div>
         </div>
     </div>
