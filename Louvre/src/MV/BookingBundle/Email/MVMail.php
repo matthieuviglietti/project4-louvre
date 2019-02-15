@@ -22,11 +22,13 @@ class MVMail
      * @param $listActiveUsers
      * @param $locale
      * @param $sessionId
+     * @param $amount
      * @return bool
      */
-    public function sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId)
+    public function sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId, $amount)
     {
         try{
+            $amount = $amount/100;
             $message = (new \Swift_Message('Tickets - Louvre'))
                 ->setFrom(['contact@louvre.com' => 'Billetterie_louvre'])
                 ->setTo($email)
@@ -35,7 +37,8 @@ class MVMail
                         'date' => $date,
                         'users' => $listActiveUsers,
                         'locale' => $locale,
-                        'session' => $sessionId]
+                        'session' => $sessionId,
+                        'total'=> $amount]
                 ),
                     'text/html'
                 );

@@ -40,7 +40,7 @@ class MVStripe
                 'receipt_email' => $email,
             ));
             $status = true;
-            $mail = $this->mail->sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId);
+            $mail = $this->mail->sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId, $amount);
 
             if($mail != false){
                 return array(

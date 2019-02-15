@@ -252,7 +252,13 @@ class BookingController extends Controller
         ));
     }
 
-    public function mailAction(Request $request, $date){
+    /**
+     * @param Request $request
+     * @param $date
+     * @param $amount
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function mailAction(Request $request, $date, $amount){
 
         $em = $this->getDoctrine()->getManager();
         $userRepository = $em->getRepository(User::class);
@@ -264,7 +270,7 @@ class BookingController extends Controller
 
         if ($request->isMethod('POST')){
             $email = $_POST['email'];
-            $mail = $this->container->get('mv_booking.mail')->sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId);
+            $mail = $this->container->get('mv_booking.mail')->sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId, $amount);
 
             if($mail != false){
                 return $this->redirectToRoute('mv_booking_confirmation', array(

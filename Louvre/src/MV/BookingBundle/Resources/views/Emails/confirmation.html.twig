@@ -17,6 +17,7 @@
 {% for users in users %}
        <p><b>{{ users.name }} {{ users.firstName }}</b> : {{ users.ticket.type|trans }}</p>
 {% endfor %}
+<p><b>{{ 'Montant Total de la commande'| trans }} :</b> {{ total }} €</p>
 
 {{ "Cet email correspond à votre billet électronique, merci de bien vouloir le présenter à l'entrée du musée." | trans}}
 

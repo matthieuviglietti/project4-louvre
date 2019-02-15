@@ -62,7 +62,7 @@ mv_booking_cancel:
     defaults: { _controller: MVBookingBundle:Booking:cancelOrder}
 
 mv_booking_mail:
-    path:     /{_locale}/{date}/mail
+    path:     /{_locale}/{date}/{amount}/mail
     defaults: { _controller: MVBookingBundle:Booking:mail}
 
 mv_booking_legal:

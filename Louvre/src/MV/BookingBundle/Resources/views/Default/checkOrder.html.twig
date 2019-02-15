@@ -101,7 +101,7 @@
     {% endif %}
 
     {% if total == 0 %}
-    <form method="post" action="{{ path('mv_booking_mail', {'date': date}) }}">
+    <form method="post" action="{{ path('mv_booking_mail', {'date': date, 'amount': totalAmount}) }}">
         <label for="email">{{ "Merci de saisir votre email"|trans }}</label><input class="email" name="email" placeholder="email">
         <button class="submit hvr-sweep-to-right" type="submit">{{ "Envoyer"|trans }}</button>
     </form>
