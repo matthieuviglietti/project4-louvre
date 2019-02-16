@@ -13,15 +13,15 @@
     <div id="flex">
         {% if locale == 'fr' %}
             <form id="datepick">
-            <input type="text" id="date">
+            <input type="text" id="date" readonly="readonly" >
             <input type="date" id="datealt">
             </form>
         {% endif %}
 
         {% if locale == 'en' %}
             <form id="datepick">
-            <input type="text" id="dateen">
-            <input type="date" id="datealt">
+            <input type="text" id="dateen" readonly="readonly" >
+            <input type="date" id="datealt" >
             </form>
         {% endif %}
 

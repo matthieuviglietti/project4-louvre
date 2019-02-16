@@ -25,7 +25,10 @@ class UserType extends AbstractType
                 ->add('firstName')
                 ->add('country')
                 ->add('birthDate', DateType::class, [
-                    'years' => range(1900,2030)
+                    'years' => range(1900,2030),
+                    'placeholder' => [
+                        'year' => 'yyyy', 'month' => 'mm', 'day' => 'dd',
+                    ]
                 ])
                 ->add('ticket', EntityType::class, [
                     'placeholder' => 'Sélectionner le ticket',

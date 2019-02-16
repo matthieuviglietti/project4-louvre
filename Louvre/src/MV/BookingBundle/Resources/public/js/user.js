@@ -1,6 +1,5 @@
 $(function(){
     let sessionKey = $('.sessionKey').text();
-    console.log(sessionKey);
     $('.session').val(sessionKey).hide();
     $('.session ~ label').hide();
     let nbr = $('strong').text();
@@ -21,7 +20,6 @@ $(function(){
     let monthOfTheDay = dateOfTheDay.getMonth()+1;
     let dayOfTheDay = dateOfTheDay.getDate();
 
-    console.log(dateOfVisit);
     let limitHalfTicket = dateOfTheDay.getHours();
 
         $('select').slice(0, nbr).each(function(index){
@@ -81,19 +79,16 @@ $(function(){
                     month = parseInt($('#mv_bookingbundle_form_user_'+ index +'_birthDate_month').val());
                     year = parseInt($('#mv_bookingbundle_form_user_'+ index +'_birthDate_year').val());
 
-                    console.log(day, month, year);
                     let visitYear = dateOfVisit.getFullYear();
                     let visitMonth = dateOfVisit.getMonth()+1;
                     if(visitMonth<10){
                         visitMonth = parseInt(0 + visitMonth);
                     }
                     let visitDay = dateOfVisit.getDate();
-                    console.log(visitDay, visitMonth, visitYear);
 
                     let yearDiff = visitYear - year;
                     let monthDiff = visitMonth - month;
                     let dayDiff = visitDay - day;
-                    console.log(dayDiff, monthDiff, yearDiff);
 
                     if((yearDiff < 4) || ((yearDiff === 4) && (monthDiff<0)) || ((yearDiff === 4) && (monthDiff === 0) && (dayDiff<0))) {
                         $('#mv_bookingbundle_form_user_'+ index +'_ticket option[value=1]').hide();

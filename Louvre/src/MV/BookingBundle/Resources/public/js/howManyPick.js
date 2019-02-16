@@ -2,13 +2,10 @@ $(function(){
 
     $("#number").on("change", function(){
         let selectedDateParam = 'date=' + $('.selectedDate').text();
-        console.log($('.selectedDate').text());
         let selectedValue = parseInt($('#number').val());
         let checkIfDateIsBookable = Routing.generate('mv_booking_checkdate');
         $('#load').load(checkIfDateIsBookable, selectedDateParam, function (response, status, xhr) {
             let leftTickets = parseInt(xhr.getResponseHeader('leftTickets'));
-            console.log(selectedValue);
-            console.log(leftTickets);
             if (leftTickets < selectedValue) {
                 $('.nextStep').css("visibility", "hidden");
                 $('.nextStepEn').css("visibility", "hidden");
