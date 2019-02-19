@@ -1,4 +1,24 @@
 services:
-#    mv_core.example:
-#        class: MV\CoreBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+  mv_booking.stripe:
+    class: MV\BookingBundle\Stripe\MVStripe
+    arguments:
+      - "@mv_booking.mail"
+      - "%locale%"
+      - eur
+    public: true
+
+  mv_booking.mail:
+    class: MV\BookingBundle\Email\MVMail
+    arguments:
+      - "@mailer"
+      - "@twig"
+    public: true
+
+  mv_booking.session:
+    class: MV\BookingBundle\Session\MVSession
+    public: true
+
+  mv_booking.checksessiondate:
+    class: MV\BookingBundle\CheckSessionDate\MVSessionDate
+    public: true

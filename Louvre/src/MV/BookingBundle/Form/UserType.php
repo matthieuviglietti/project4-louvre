@@ -16,6 +16,8 @@ class UserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $year = new \DateTime();
+        $year = $year->format('Y');
         $builder->add('date', DateType::class,[
                     'attr' => [ 'class' => 'date'],
                     'input' => 'datetime',
@@ -25,7 +27,7 @@ class UserType extends AbstractType
                 ->add('firstName')
                 ->add('country')
                 ->add('birthDate', DateType::class, [
-                    'years' => range(1900,2030),
+                    'years' => range(1900, $year),
                     'placeholder' => [
                         'year' => 'yyyy', 'month' => 'mm', 'day' => 'dd',
                     ]

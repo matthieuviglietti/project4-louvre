@@ -79,12 +79,12 @@ input {
   margin-left: 40px; }
   @media (min-width: 500px) {
     #errorName, #errorFirst {
-      margin: auto;
+      margin: 0 auto 100px;
       text-align: center; } }
 
 @media (min-width: 500px) {
   #errorFirst {
-    margin: auto;
+    margin: 0 auto 100px;
     text-align: center; } }
 
 /*# sourceMappingURL=user.css.map */

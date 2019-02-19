@@ -143,4 +143,21 @@ form #datealt {
   -webkit-transform: scaleX(1);
   transform: scaleX(1); }
 
+.flash-notice {
+  background-color: transparent;
+  color: #ff8508;
+  font-family: "Roboto:black", sans-serif;
+  font-size: 0.9em;
+  text-align: center;
+  display: block;
+  width: 300px;
+  padding: 10px;
+  margin: auto;
+  border: 1px solid #ff8508; }
+  @media (min-width: 500px) {
+    .flash-notice {
+      width: 100%;
+      margin: auto;
+      text-align: center; } }
+
 /*# sourceMappingURL=style_date.css.map */

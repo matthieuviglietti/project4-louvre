@@ -90,14 +90,14 @@ input{
     font-size  : 0.9em;
     margin-left: 40px;
     @include tablet{
-        margin    : auto;
+        margin    : 0 auto 100px;
         text-align: center;
     }
 }
 #errorFirst{
     @extend #errorName;
     @include tablet{
-        margin    : auto;
+        margin    : 0 auto 100px;
         text-align: center;
     }
 }

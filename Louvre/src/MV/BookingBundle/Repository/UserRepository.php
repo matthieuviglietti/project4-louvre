@@ -39,4 +39,17 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         return $listVisitors;
             
     }
+
+    public function aloneUsers()
+    {
+        $qb = $this->createQueryBuilder('u');
+        $qb
+            ->leftJoin('c.user', 'cu')
+            ->addselect('cu');
+
+        $listAloneuser = $qb->getQuery()
+            ->getResult();
+
+        return $listAloneuser;
+    }
 }

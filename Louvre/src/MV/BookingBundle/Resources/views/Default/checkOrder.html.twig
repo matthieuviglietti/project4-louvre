@@ -49,7 +49,7 @@
         <div class="flash-error"> {{ message | trans }} </div>
     {% endfor %}
 
-    <div class="total">Total :  {{total}}€</div>
+    <div class="total" readonly="readonly">Total :  {{total}}€</div>
    
     <a href="{{path('mv_booking_cancel', {'locale': 'fr', 'sessionId': session}) }}" class="cancel">{{'Annuler la commande'|trans}}</a>
 

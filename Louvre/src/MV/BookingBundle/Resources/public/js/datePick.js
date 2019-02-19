@@ -55,11 +55,11 @@ $(function() {
             } else {
                 $('#novalid').css("visibility", "visible").css("float", "right");
                 $("#infoTicket").css("visibility", "visible");
-                $("a").css("visibility", "hidden");
+                $("#validation").css("visibility", "hidden");
             }
         });
         let routeToMany = Routing.generate('mv_booking_howmany', {_locale: 'fr', date: selectedDate});
-        $("a").attr('href', routeToMany);
+        $("#validation").attr('href', routeToMany);
     });
 
     $('#dateen').on("change", function () {
@@ -79,6 +79,6 @@ $(function() {
             }
         });
         let routeToManyEn = Routing.generate('mv_booking_howmany', {_locale: 'en', date: selectedDate});
-        $("a").attr('href', routeToManyEn);
+        $("#validation").attr('href', routeToManyEn);
     });
 });

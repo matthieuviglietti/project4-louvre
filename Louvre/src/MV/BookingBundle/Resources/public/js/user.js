@@ -43,13 +43,13 @@ $(function(){
             });
 
             $('#mv_bookingbundle_form_user_'+ index +'_firstName').on('blur', function () {
-                let inputFirst = $('#mv_bookingbundle_form_user_'+ index +'_firstName').val();
-                let inputName = $('#mv_bookingbundle_form_user_'+ index +'_name').val();
-                if(inputFirst.length == 1) {
+                let inputFirstEn = $('#mv_bookingbundle_form_user_'+ index +'_firstName').val();
+                let inputNameEn = $('#mv_bookingbundle_form_user_'+ index +'_name').val();
+                if(inputFirstEn.length == 1) {
                     $("#errorFirst").css('visibility', 'visible');
                     $('#mv_bookingbundle_form_submit').css('visibility', 'hidden');
                 }
-                else if ((inputName.length >1)&& (inputFirst.length >1)){
+                else if ((inputNameEn.length >1)&& (inputFirstEn.length >1)){
                     $('#mv_bookingbundle_form_submit').css('visibility', 'visible');
                     $("#errorFirst").css('visibility', 'hidden');
                 }

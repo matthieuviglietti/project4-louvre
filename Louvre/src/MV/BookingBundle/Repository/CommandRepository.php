@@ -21,4 +21,19 @@ class CommandRepository extends \Doctrine\ORM\EntityRepository
         $id = $qb->getQuery()->getSingleResult();
         return $id;
     }
+
+    public function aloneUsers()
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb
+            ->leftJoin('command_user', 'cu')
+            ->addSelect('cu')
+            ->select('cu.userId');
+
+
+        $listAloneUser = $qb->getQuery()
+            ->getResult();
+
+        return $listAloneUser;
+    }
 }

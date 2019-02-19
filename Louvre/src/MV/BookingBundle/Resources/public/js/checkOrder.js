@@ -25,7 +25,7 @@ $(function(){
     let brutDate =  $('#date').text();
     brutDate= brutDate.split('-').join(","); // for Firefox
     let date = new Date(brutDate);
-    date = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+    date = date.getFullYear() + "-" +0+ (date.getMonth()+1) + "-" + date.getDate();
     let formRoute = Routing.generate('mv_booking_stripe', {_locale: 'fr', amount: amount, date: date });
     let formRouteEn = Routing.generate('mv_booking_stripe', {_locale: 'en', amount: amount, date: date });
     $('#formfrstripe').attr("action", formRoute);

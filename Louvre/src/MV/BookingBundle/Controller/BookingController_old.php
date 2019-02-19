@@ -1,7 +1,5 @@
 <?php
-
 namespace MV\BookingBundle\Controller;
-
 use MV\BookingBundle\Entity\Command;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -10,17 +8,14 @@ use MV\BookingBundle\Entity\Ticket;
 use MV\BookingBundle\Form\FormType;
 use MV\BookingBundle\Entity\Form;
 use Symfony\Component\HttpFoundation\JsonResponse;
-
 class BookingController extends Controller
 {
-
     /**
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function redirectAction(){
-       return $this->redirectToRoute('mv_booking_homepage');
+        return $this->redirectToRoute('mv_booking_homepage');
     }
-
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -31,7 +26,6 @@ class BookingController extends Controller
         $orderId = $this->container->get('mv_booking.session')->getIdOrder();
         if($orderId != false){
             $session->set('orderId', $orderId);
-
             return $this->render('@MVBooking/Default/index.html.twig');
         }
         else{
@@ -39,7 +33,6 @@ class BookingController extends Controller
             return $this->render('@MVBooking/Default/index.html.twig');
         }
     }
-
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -51,44 +44,38 @@ class BookingController extends Controller
             "locale" => $locale,
         ));
     }
-
     /**
      * @param Request $request
      * @param $date
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function howManyAction(Request $request, $date){
-
         $locale = $request->getLocale();
-
         return $this->render('@MVBooking/Default/howMany.html.twig', array(
             "locale" => $locale,
             "date" => $date
         ));
     }
-
     /**
      * @param Request $request
      * @return JsonResponse
      */
     public function checkDateAction(Request $request){
-
         if($request->isMethod('GET')){
             $date = $request->query->get('date');
             $em = $this->getDoctrine()->getManager();
             $userRepository = $em->getRepository(User::class);
             $listVisitors = $userRepository->countUserDay($date);
             $rest = (1000 - $listVisitors);
-        
+
             if ($listVisitors < 1000){
-            $response = new JsonResponse(true, 200, array("leftTickets" => $rest));
-            return $response;
+                $response = new JsonResponse(true, 200, array("leftTickets" => $rest));
+                return $response;
             }
             $response = new JsonResponse(false);
             return $response;
         }
     }
-
     /**
      * @param Request $request
      * @param $date
@@ -96,45 +83,37 @@ class BookingController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function addUserAction(Request $request, $date, $nbr){
-    
-        $locale = $request->getLocale();
 
+        $locale = $request->getLocale();
         $session = $request->getSession();
         $sessionId = $session->get('orderId');
         $userSession = new User;
         $userSession->setSessionKey($sessionId);
-
         $userForm = new Form;
-
         for ($i= 1; $i<=$nbr; $i++){
             $userForm->addUser(new User);
         }
-        
+
         $form = $this->createForm(FormType::class, $userForm);
-
-
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($userForm);
             $em->flush();
+            return $this->redirectToRoute('mv_booking_check', ['date' => $date]);
+        }
+        $em = $this->getDoctrine()->getManager();
+        $ticketRepository = $em->getRepository(Ticket::class);
+        $listTickets = $ticketRepository->findAll();
 
-           return $this->redirectToRoute('mv_booking_check', ['date' => $date]);
-          }
-
-          $em = $this->getDoctrine()->getManager();
-          $ticketRepository = $em->getRepository(Ticket::class);
-          $listTickets = $ticketRepository->findAll();
-        
-            return $this->render('@MVBooking/Default/users.html.twig', array(
-                "form" => $form->createView(),
-                "locale" => $locale,
-                "date" => $date,
-                "nbr" => $nbr,
-                "session" => $sessionId,
-                "listTickets" => $listTickets
-            ));
+        return $this->render('@MVBooking/Default/users.html.twig', array(
+            "form" => $form->createView(),
+            "locale" => $locale,
+            "date" => $date,
+            "nbr" => $nbr,
+            "session" => $sessionId,
+            "listTickets" => $listTickets
+        ));
     }
-
     /**
      * @param Request $request
      * @param $date
@@ -142,24 +121,19 @@ class BookingController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function checkOrderAction(Request $request, $date){
-
         $locale = $request->getLocale();
-        
+
         $session = $request->getSession();
         $sessionId = $session->get('orderId');
-       
 
         $em = $this->getDoctrine()->getManager();
         $userRepository = $em->getRepository(User::class);
-
         $listActiveUsers = $userRepository->selectUserOrder($sessionId);
-
         $totalCost = intval(0);
         foreach($listActiveUsers as $users){
             $cost = intval($users->getTicket()->getCost());
             $totalCost += $cost;
         }
-
         return $this->render('@MVBooking/Default/checkOrder.html.twig', array(
             'session' => $sessionId,
             "locale" => $locale,
@@ -168,7 +142,6 @@ class BookingController extends Controller
             "total" => $totalCost
         ));
     }
-
     /**
      * @param Request $request
      * @param $id
@@ -177,14 +150,11 @@ class BookingController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteUserAction(Request $request, $id, $date){
-
-       $em = $this->getDoctrine()->getManager();
-       $userToDelete = $em->getRepository(User::class)->find($id);
-       $em->remove($userToDelete);
-       $em->flush();
-
-       $locale = $request->getLocale();
-
+        $em = $this->getDoctrine()->getManager();
+        $userToDelete = $em->getRepository(User::class)->find($id);
+        $em->remove($userToDelete);
+        $em->flush();
+        $locale = $request->getLocale();
         if($locale == 'fr'){
             $request->getSession()->getFlashBag()->add('notice', 'Le visiteur a bien été supprimé');
             return $this->redirectToRoute('mv_booking_check', array(
@@ -199,7 +169,6 @@ class BookingController extends Controller
             ));
         }
     }
-
     /**
      * @param Request $request
      * @param $amount
@@ -208,14 +177,15 @@ class BookingController extends Controller
      */
     public function StripeAction(Request $request, $amount, $date){
 
+        $sessiondate = $request->getSession();
+        $datetest= $sessiondate->set('testdate', $date);
+
         $em = $this->getDoctrine()->getManager();
         $userRepository = $em->getRepository(User::class);
         $session = $request->getSession();
         $sessionId = $session->get('orderId');
         $locale = $request->getLocale();
-
         $listActiveUsers = $userRepository->selectUserOrder($sessionId);
-
         $mail = $this->container->get('mv_booking.stripe')->chargeStripe($amount, $date, $listActiveUsers, $locale, $sessionId);
 
         if($mail['status'] == true ){
@@ -226,52 +196,38 @@ class BookingController extends Controller
                 ->setEmail($email);
             $em->persist($createOrder);
             $em->flush();
-
             $commandId = $em->getRepository(Command::class)->findOneBy(array(
                 "specialKey"=>$sessionId
             ));
             $userOrder = $userRepository->findBy(array(
                 "sessionKey"=>$sessionId
             ));
-
             foreach ($userOrder as $user){
                 $commandId->addUser($user);
             }
             $em->flush();
         }
         else{
-                $request->getSession()->getFlashBag()->add('error', 'Une erreur est survenue merci de bien vouloir réessayer');
-
+            $request->getSession()->getFlashBag()->add('error', 'Une erreur est survenue merci de bien vouloir réessayer');
             return $this->redirectToRoute('mv_booking_check', array(
                 'date' => $date,
             ));
         }
-
         return $this->redirectToRoute('mv_booking_confirmation', array(
             "email"=>$email
         ));
     }
 
-    /**
-     * @param Request $request
-     * @param $date
-     * @param $amount
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function mailAction(Request $request, $date, $amount){
-
+    public function mailAction(Request $request, $date){
         $em = $this->getDoctrine()->getManager();
         $userRepository = $em->getRepository(User::class);
         $session = $request->getSession();
         $sessionId = $session->get('orderId');
         $locale = $request->getLocale();
-
         $listActiveUsers = $userRepository->selectUserOrder($sessionId);
-
         if ($request->isMethod('POST')){
             $email = $_POST['email'];
-            $mail = $this->container->get('mv_booking.mail')->sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId, $amount);
-
+            $mail = $this->container->get('mv_booking.mail')->sendConfirmationEmail($email, $date, $listActiveUsers, $locale, $sessionId);
             if($mail != false){
                 return $this->redirectToRoute('mv_booking_confirmation', array(
                     "email"=>$email
@@ -289,29 +245,24 @@ class BookingController extends Controller
             'date' => $date,
         ));
     }
-
     /**
      * @param Request $request
      * @param $email
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function confirmationOrderAction(Request $request, $email){
-
         $locale = $request->getLocale();
-
         return $this->render('@MVBooking/Default/confirmationOrder.html.twig', array(
             'locale' => $locale,
             'email'=> $email
         ));
     }
-
     /**
      * @param Request $request
      * @param $sessionId
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function cancelOrderAction(Request $request, $sessionId){
-
         $em = $this->getDoctrine()->getManager();
         $OrderToDelete = $em->getRepository(User::class)->findBy(
             ['sessionKey' => $sessionId]
@@ -320,26 +271,19 @@ class BookingController extends Controller
             $em->remove($order);
         }
         $em->flush();
-
         $request->getSession()->getFlashBag()->add('notice', 'La commande a bien été annulée');
         return $this->redirectToRoute('mv_booking_homepage');
     }
-
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function legalAction(){
-
         return $this->render('@MVBooking/Default/legal.html.twig');
-
     }
-
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function aboutAction(){
-
         return $this->render('@MVBooking/Default/about.html.twig');
-
     }
 }

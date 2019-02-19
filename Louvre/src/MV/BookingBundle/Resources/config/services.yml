@@ -18,4 +18,8 @@ services:
     mv_booking.session:
         class: MV\BookingBundle\Session\MVSession
         public: true
+
+    mv_booking.checksessiondate:
+        class: MV\BookingBundle\CheckSessionDate\MVSessionDate
+        public: true
   

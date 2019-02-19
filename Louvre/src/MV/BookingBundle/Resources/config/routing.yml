@@ -72,3 +72,7 @@ mv_booking_legal:
 mv_booking_about:
     path:     /{_locale}/about
     defaults: { _controller: MVBookingBundle:Booking:about}
+
+mv_booking_purge:
+    path: /purge
+    defaults: { _controller: MVBookingBundle:Booking:purgeUser}

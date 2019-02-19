@@ -165,4 +165,22 @@ form{
     transform        : scaleX(1);
 }
 
+.flash-notice{
+    background-color: transparent;
+    color           : $colorSelect;
+    font-family     : $title;
+    font-size       : 0.9em;
+    text-align      : center;
+    display         : block;
+    width           : 300px;
+    padding         : 10px;
+    margin          : auto;
+    border          : 1px solid $colorSelect;
+    @include tablet{
+        width     : 100%;
+        margin    : auto;
+        text-align: center;
+    }
+}
+
 
