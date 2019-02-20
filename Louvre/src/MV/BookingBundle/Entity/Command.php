@@ -43,10 +43,9 @@ class Command
     private $email;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MV\BookingBundle\Entity\User", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="MV\BookingBundle\Entity\User", inversedBy="command", cascade={"persist", "remove"})
      */
     private $user;
-
 
     /**
      * Get id.

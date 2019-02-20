@@ -156,7 +156,7 @@ form #datealt {
   border: 1px solid #ff8508; }
   @media (min-width: 500px) {
     .flash-notice {
-      width: 100%;
+      width: 90%;
       margin: auto;
       text-align: center; } }
 

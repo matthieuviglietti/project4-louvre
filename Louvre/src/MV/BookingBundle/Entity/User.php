@@ -84,6 +84,12 @@ class User
      */
     private $creationDate;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="MV\BookingBundle\Entity\Command", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $command;
+
     public function __construct()
     {
         $this->creationDate = new \DateTime();
@@ -314,5 +320,41 @@ class User
     public function getCreationDate()
     {
         return $this->creationDate;
+    }
+
+    /**
+     * Add command.
+     *
+     * @param \MV\BookingBundle\Entity\Command $command
+     *
+     * @return User
+     */
+    public function addCommand(\MV\BookingBundle\Entity\Command $command)
+    {
+        $this->command[] = $command;
+
+        return $this;
+    }
+
+    /**
+     * Remove command.
+     *
+     * @param \MV\BookingBundle\Entity\Command $command
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeCommand(\MV\BookingBundle\Entity\Command $command)
+    {
+        return $this->command->removeElement($command);
+    }
+
+    /**
+     * Get command.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommand()
+    {
+        return $this->command;
     }
 }

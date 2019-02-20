@@ -11,19 +11,11 @@
     {{ parent() }}
     <h2 class="subtitle">{{"Quand voulez-vous venir ?"|trans}}</h2>
     <div id="flex">
-        {% if locale == 'fr' %}
+
             <form id="datepick">
-            <input type="text" id="date" readonly="readonly" >
+            <input type="text" id={% if locale == 'fr' %}"date"{% else %}"dateen"{% endif %} readonly="readonly" >
             <input type="date" id="datealt">
             </form>
-        {% endif %}
-
-        {% if locale == 'en' %}
-            <form id="datepick">
-            <input type="text" id="dateen" readonly="readonly" >
-            <input type="date" id="datealt" >
-            </form>
-        {% endif %}
 
         <div id="load"></div>
         <div id="check">
