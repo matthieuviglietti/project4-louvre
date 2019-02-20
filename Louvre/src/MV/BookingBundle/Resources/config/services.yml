@@ -22,4 +22,8 @@ services:
     mv_booking.checksessiondate:
         class: MV\BookingBundle\CheckSessionDate\MVSessionDate
         public: true
+
+    mv_booking.createOrder:
+        class: MV\BookingBundle\Order\MVCreateOrder
+        public: true
   
