@@ -14,6 +14,8 @@ class MVCreateOrder
 
         $em->persist($createOrder);
         $em->flush();
+
+        return $createOrder;
     }
 
 }

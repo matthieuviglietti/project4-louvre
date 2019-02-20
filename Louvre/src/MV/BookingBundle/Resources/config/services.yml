@@ -26,4 +26,15 @@ services:
     mv_booking.createOrder:
         class: MV\BookingBundle\Order\MVCreateOrder
         public: true
+
+    mv_booking_checkCost:
+        class: MV\BookingBundle\Cost\MVCheckCost
+        public: true
+
+    mv_booking_purge:
+        class: MV\BookingBundle\Purge\MVPurgeUser
+        public: true
+        arguments:
+            - "@doctrine.orm.entity_manager"
+
   
