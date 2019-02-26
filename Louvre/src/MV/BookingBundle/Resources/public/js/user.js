@@ -59,7 +59,7 @@ $(function(){
                 }
                 else if (inputFirstEn.length == 0){
                     $('#mv_bookingbundle_form_submit').css('visibility', 'hidden');
-                    $("#erroFirst").css('visibility', 'visible');
+                    $("#errorFirst").css('visibility', 'visible');
                 }
                 else{
                     $("#errorFirst").css('visibility', 'hidden');
