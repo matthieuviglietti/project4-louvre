@@ -25,16 +25,20 @@ $(function(){
         $('select').slice(0, nbr).each(function(index){
 
             //Verify length of Name and First Name
-            $('#mv_bookingbundle_form_user_'+ index +'_name').on('blur', function () {
+            $('#mv_bookingbundle_form_user_'+ index +'_name').on('change', function () {
                 let inputFirst = $('#mv_bookingbundle_form_user_'+ index +'_firstName').val();
                 let inputName = $('#mv_bookingbundle_form_user_'+ index +'_name').val();
                 if(inputName.length == 1) {
                     $("#errorName").css('visibility', 'visible');
                     $('#mv_bookingbundle_form_submit').css('visibility', 'hidden');
                 }
-                else if ((inputName.length >1)&& (inputFirst.length >1)){
+                else if ((inputName.length >1) && (inputFirst.length >1)){
                     $('#mv_bookingbundle_form_submit').css('visibility', 'visible');
                     $("#errorName").css('visibility', 'hidden');
+                }
+                else if (inputName.length == 0){
+                    $('#mv_bookingbundle_form_submit').css('visibility', 'hidden');
+                    $("#errorName").css('visibility', 'visible');
                 }
                 else{
                     $("#errorName").css('visibility', 'hidden');
@@ -42,7 +46,7 @@ $(function(){
                 }
             });
 
-            $('#mv_bookingbundle_form_user_'+ index +'_firstName').on('blur', function () {
+            $('#mv_bookingbundle_form_user_'+ index +'_firstName').on('change', function () {
                 let inputFirstEn = $('#mv_bookingbundle_form_user_'+ index +'_firstName').val();
                 let inputNameEn = $('#mv_bookingbundle_form_user_'+ index +'_name').val();
                 if(inputFirstEn.length == 1) {
@@ -52,6 +56,10 @@ $(function(){
                 else if ((inputNameEn.length >1)&& (inputFirstEn.length >1)){
                     $('#mv_bookingbundle_form_submit').css('visibility', 'visible');
                     $("#errorFirst").css('visibility', 'hidden');
+                }
+                else if (inputFirstEn.length == 0){
+                    $('#mv_bookingbundle_form_submit').css('visibility', 'hidden');
+                    $("#erroFirst").css('visibility', 'visible');
                 }
                 else{
                     $("#errorFirst").css('visibility', 'hidden');
@@ -188,7 +196,6 @@ $(function(){
                     }
                 });
             });
-
 
         //generating Routes for nextButton
         let toUser = Routing.generate('mv_booking_check', {date: dateUrl});

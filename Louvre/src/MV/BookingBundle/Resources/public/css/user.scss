@@ -69,7 +69,7 @@ input{
     border          : 3px solid white;
     text-transform  : uppercase;
     background-color: transparent;
-    margin          : 100px auto 70px auto;
+    margin          : 100px auto 0 auto;
     display         : block;
     text-decoration : none;
     font-family     : $title;
@@ -90,7 +90,7 @@ input{
     font-size  : 0.9em;
     margin-left: 40px;
     @include tablet{
-        margin    : 0 auto 100px;
+        margin    : 0 auto 0;
         text-align: center;
     }
 }
