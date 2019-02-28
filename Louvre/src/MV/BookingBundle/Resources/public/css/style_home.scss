@@ -7,7 +7,7 @@
 @import "mixin";
 
 body{
-    width           : 100vm;
+    width           : 100%;
     background-color: black;
     min-width       : 500px;
     header{
@@ -54,7 +54,7 @@ body{
         margin          : 0 auto 0 auto;
         margin-top      : 50px;
         padding         : 15px;
-        width           : 440px;
+        width           : 90%;
         border          : 3px solid white;
         background-color: black;
         .animate{
